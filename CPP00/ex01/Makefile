@@ -27,8 +27,15 @@ DIR =	PhoneBook \
 
 FILES = $(foreach wrd,$(DIR),$(wrd)/$(wrd))
 
-SRCS = $(addsuffix .cpp, $(FILES))
-OBJS = $(addsuffix .o, $(FILES))
+SRC = $(addsuffix .cpp, $(FILES))
+OBJ = $(addsuffix .o, $(FILES))
+
+MAIN = main
+
+SRCS =	$(SRC) \
+		$(addsuffix .cpp, $(MAIN))
+OBJS =	$(OBJ) \
+		$(addsuffix .o, $(MAIN))
 
 $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS)

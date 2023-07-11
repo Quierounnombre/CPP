@@ -5,6 +5,10 @@
 # include <iostream>
 # include "../Contact/Contact.hpp"
 
+# ifndef N_CONTACTS
+#  define N_CONTACTS 8
+# endif
+
 class PhoneBook
 {
 	public:
@@ -13,8 +17,14 @@ class PhoneBook
 		~PhoneBook();
 		PhoneBook & operator = (const PhoneBook &PhoneBook);
 
+		//--------------------------------------------------
+		//CMDS
+
+		void	add_contact();
+
 	private:
-		Contact	contact[8];
+		Contact	_contact[N_CONTACTS];
+		int		_current;
 
 };
 
