@@ -1,6 +1,6 @@
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook()
+PhoneBook::PhoneBook() : _current(0)
 {
 
 }
@@ -65,7 +65,7 @@ static void	store_last(Contact& contact)
 	while (true)
 	{
 		std::cout << "Ok, i totally dont want to supplant your identity, what";
-		std::cout << "is your last name?\n";
+		std::cout << " is your last name?\n";
 		std::getline(std::cin, str);
 		if (!(str.empty()))
 		{
@@ -82,7 +82,7 @@ static void	store_nick(Contact& contact)
 
 	while (true)
 	{
-		std::cout << "Ok, i totally dont want to supplant your identity,";
+		std::cout << "Ok, i totally dont want to supplant your identity, ";
 		std::cout << "at all. . . how your friends call u?\n";
 		std::getline(std::cin, str);
 		if (!(str.empty()))
@@ -118,7 +118,7 @@ static void	store_phone(Contact& contact)
 	while (true)
 	{
 		num = 0;
-		std::cout << "This have been a lovely interaction, can i have your";
+		std::cout << "This have been a lovely interaction, can i have your ";
 		std::cout << "phone number?\n";
 		std::getline(std::cin, str);
 		if (!(str.empty()) && is_number_correct(str))
@@ -157,13 +157,13 @@ static std::string	format_string(std::string str)
 	i = 0;
 	if (str.length() > D_LENGTH)
 	{
-		str.resize(10);
-		str[9] = '.';
+		str.resize(D_LENGTH);
+		str[D_LENGTH - 1] = '.';
 	}
 	else if (str.length() < D_LENGTH)
 	{
-		i = str.length() - 1;
-		str.resize(10);
+		i = str.length();
+		str.resize(D_LENGTH);
 		while (i < D_LENGTH)
 		{
 			str[i] = ' ';
@@ -180,9 +180,9 @@ void	PhoneBook::search_contact()
 	int			i;
 
 	i = 0;
-	contact = this->_contact[i];
 	while (i < N_CONTACTS)
 	{
+		contact = this->_contact[i];
 		str = format_string(contact.get_first_name());
 		std::cout << str;
 		std::cout << "|";
