@@ -2,6 +2,8 @@
 # define PHONEBOOK_HPP
 
 # pragma once
+# include <iostream>
+# include "../Contact/Contact.hpp"
 
 class PhoneBook
 {
@@ -12,6 +14,7 @@ class PhoneBook
 		PhoneBook & operator = (const PhoneBook &PhoneBook);
 
 	private:
+		Contact	contact[8];
 
 };
 

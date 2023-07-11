@@ -23,6 +23,7 @@ WHITE = \033[1;37m
 RESET = \033[0m
 
 DIR =	PhoneBook \
+		Contact \
 
 FILES = $(foreach wrd,$(DIR),$(wrd)/$(wrd))
 
