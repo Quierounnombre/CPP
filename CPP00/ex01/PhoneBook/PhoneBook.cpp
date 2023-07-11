@@ -123,10 +123,8 @@ static void	store_phone(Contact& contact)
 		std::getline(std::cin, str);
 		if (!(str.empty()) && is_number_correct(str))
 		{
-			num = std::stoi(str);
-			if (num)
 			{
-				contact.set_phonenumber(num);
+				contact.set_phonenumber(str);
 				break ;
 			}
 		}
@@ -145,4 +143,58 @@ void	PhoneBook::add_contact()
 	store_last(contact);
 	store_nick(contact);
 	store_phone(contact);
+	this->_contact[this->_current] = contact;
+	if (_current == 7)
+		_current = 0;
+	else
+		_current++;
+}
+
+static std::string	format_string(std::string str)
+{
+	int	i;
+
+	i = 0;
+	if (str.length() > D_LENGTH)
+	{
+		str.resize(10);
+		str[9] = '.';
+	}
+	else if (str.length() < D_LENGTH)
+	{
+		i = str.length() - 1;
+		str.resize(10);
+		while (i < D_LENGTH)
+		{
+			str[i] = ' ';
+			i++;
+		}
+	}
+	return (str);
+}
+
+void	PhoneBook::search_contact()
+{
+	std::string	str;
+	Contact		contact;
+	int			i;
+
+	i = 0;
+	contact = this->_contact[i];
+	while (i < N_CONTACTS)
+	{
+		str = format_string(contact.get_first_name());
+		std::cout << str;
+		std::cout << "|";
+		str = format_string(contact.get_last_name());
+		std::cout << str;
+		std::cout << "|";
+		str = format_string(contact.get_nickname());
+		std::cout << str;
+		std::cout << "|";
+		str = format_string(contact.get_phone_number());
+		std::cout << str;
+		std::cout << std::endl;
+		i++;
+	}
 }

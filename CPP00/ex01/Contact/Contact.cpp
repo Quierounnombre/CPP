@@ -43,7 +43,7 @@ std::string	Contact::get_dark_thingy()
 	return(this->_darkest_secret_that_totally_shouldnt_be_store_in_a_database);
 }
 
-int	Contact::get_phone_number()
+std::string	Contact::get_phone_number()
 {
 	return(this->_phone_number);
 }
@@ -68,7 +68,7 @@ void	Contact::set_nickname(std::string	str)
 	this->_nickname = str;
 }
 
-void	Contact::set_phonenumber(int	num)
+void	Contact::set_phonenumber(std::string	str)
 {
-	this->_phone_number	= num;
+	this->_phone_number	= str;
 }

@@ -9,6 +9,10 @@
 #  define N_CONTACTS 8
 # endif
 
+# ifndef D_LENGTH
+#  define D_LENGTH 10
+# endif
+
 class PhoneBook
 {
 	public:
@@ -21,6 +25,7 @@ class PhoneBook
 		//CMDS
 
 		void	add_contact();
+		void	search_contact();
 
 	private:
 		Contact	_contact[N_CONTACTS];
