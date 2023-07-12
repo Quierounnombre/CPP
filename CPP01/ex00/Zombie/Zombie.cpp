@@ -45,7 +45,12 @@ void	Zombie::randomChump(std::string	name)
 	Z = newZombie(name);
 	if (Z)
 	{
-		std::cout << Z->_name << ":  BraiiiiiiinnnzzzZ..." << std::endl;
+		Z->announce();
 		delete (Z);
 	}
+}
+
+void	Zombie::announce(void)
+{
+	std::cout << this->_name << ":  BraiiiiiiinnnzzzZ..." << std::endl;	
 }
