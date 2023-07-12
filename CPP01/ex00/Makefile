@@ -31,9 +31,14 @@ OBJ = $(addsuffix .o, $(FILES))
 
 MAIN = main
 
+NONSENSICAL =	Zombie/newZombie \
+				Zombie/randomChump \
+
 SRCS =	$(SRC) \
+		$(addsuffix .cpp, $(NONSENSICAL)) \
 		$(addsuffix .cpp, $(MAIN))
 OBJS =	$(OBJ) \
+		$(addsuffix .o, $(NONSENSICAL)) \
 		$(addsuffix .o, $(MAIN))
 
 $(NAME): $(OBJS)
