@@ -38,9 +38,11 @@ OBJS =	$(OBJ) \
 		$(addsuffix .o, $(CLASS)/$(CLASS)) \
 		$(addsuffix .o, $(MAIN))
 
-all: $(OBJS)
+$(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 	@echo "$(GREEN)\n$(NAME) compile\n$(RESET)" 
+
+all: $(NAME)
 
 clean:
 	@$(RM) $(OBJS)
