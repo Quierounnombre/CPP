@@ -22,28 +22,25 @@ LYELLOW = \033[1;33m
 WHITE = \033[1;37m
 RESET = \033[0m
 
-DIR =	Zombie
+CLASS =	Zombie
 
+FILES = $(addprefix $(CLASS)/, $(shell cat $(CLASS)/$(CLASS).hpp | grep '(*)' | awk 'NR>4 {print $$NR,$$2}' | xargs -d "*" | tr [:punct:] " " | awk '{print $$1}'))
 
-FILES_RAW = $(shell ls $(DIR) | grep ".cpp" | xargs)
-FILES_CURATED = $(foreach wrd, $(FILES_RAW), $(wrd2)/$(wrd))
-SRC = $(foreach wrd2,$(DIR), $(FILES_CURATED))
-
-OBJ = $(subst .cpp,.o, $(SRC))
+SRC = $(addsuffix .cpp, $(FILES))
+OBJ = $(addsuffix .o, $(FILES))
 
 MAIN = main
 
-
 SRCS =	$(SRC) \
+		$(addsuffix .cpp, $(CLASS)/$(CLASS)) \
 		$(addsuffix .cpp, $(MAIN))
 OBJS =	$(OBJ) \
+		$(addsuffix .o, $(CLASS)/$(CLASS)) \
 		$(addsuffix .o, $(MAIN))
 
-$(NAME): $(OBJS)
+all: $(OBJS)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 	@echo "$(GREEN)\n$(NAME) compile\n$(RESET)" 
-
-all: $(NAME)
 
 clean:
 	@$(RM) $(OBJS)
