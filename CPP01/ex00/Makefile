@@ -22,23 +22,20 @@ LYELLOW = \033[1;33m
 WHITE = \033[1;37m
 RESET = \033[0m
 
-DIR =	Zombie \
+CLASS =	Zombie
 
-FILES = $(foreach wrd,$(DIR),$(wrd)/$(wrd))
+FILES = $(foreach wrd,$(CLASS),$(addprefix $(wrd)/,$(shell cat $(wrd)/$(wrd).hpp | grep '(*)' | xargs | sed 's/&//g' | xargs | grep '(*)' | tr -s " " "\012" | tr -s "\050" "&" | grep "&" | sed 's/&/ /g' | tr -s "\051" "&" | sed 's/;//g' | sed 's/const//g' | sed 's/*//g' | awk 'NR>3 {printf $$1"\n"}')))
 
 SRC = $(addsuffix .cpp, $(FILES))
 OBJ = $(addsuffix .o, $(FILES))
 
 MAIN = main
 
-NONSENSICAL =	Zombie/newZombie \
-				Zombie/randomChump \
-
 SRCS =	$(SRC) \
-		$(addsuffix .cpp, $(NONSENSICAL)) \
+		$(foreach wrd,$(CLASS), $(wrd)/$(wrd).cpp) \
 		$(addsuffix .cpp, $(MAIN))
 OBJS =	$(OBJ) \
-		$(addsuffix .o, $(NONSENSICAL)) \
+		$(foreach wrd,$(CLASS), $(wrd)/$(wrd).o) \
 		$(addsuffix .o, $(MAIN))
 
 $(NAME): $(OBJS)
