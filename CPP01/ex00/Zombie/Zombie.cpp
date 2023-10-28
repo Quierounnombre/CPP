@@ -23,3 +23,7 @@ Zombie & Zombie::operator= (const Zombie &Zombie)
 	return *this;
 }
 
+void	Zombie::announce(void)
+{
+	std::cout << this->_name << ":  BraiiiiiiinnnzzzZ..." << std::endl;	
+}
