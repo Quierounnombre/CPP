@@ -24,7 +24,7 @@ RESET = \033[0m
 
 CLASS =	Zombie
 
-FILES = $(addprefix $(CLASS)/, $(shell cat $(CLASS)/$(CLASS).hpp | grep '(*)' | awk 'NR>4 {print $$NR,$$2}' | xargs -d "*" | tr [:punct:] " " | awk '{print $$1}'))
+FILES = $(foreach wrd,$(CLASS),$(addprefix $(wrd)/,$(shell cat $(wrd)/$(wrd).hpp | grep '(*)' | xargs | sed 's/&//g' | xargs | grep '(*)' | tr -s " " "\012" | tr -s "\050" "&" | grep "&" | sed 's/&/ /g' | tr -s "\051" "&" | sed 's/;//g' | sed 's/const//g' | sed 's/*//g' | awk 'NR>3 {printf $$1"\n"}')))
 
 SRC = $(addsuffix .cpp, $(FILES))
 OBJ = $(addsuffix .o, $(FILES))
@@ -32,10 +32,10 @@ OBJ = $(addsuffix .o, $(FILES))
 MAIN = main
 
 SRCS =	$(SRC) \
-		$(addsuffix .cpp, $(CLASS)/$(CLASS)) \
+		$(foreach wrd,$(CLASS), $(wrd)/$(wrd).cpp) \
 		$(addsuffix .cpp, $(MAIN))
 OBJS =	$(OBJ) \
-		$(addsuffix .o, $(CLASS)/$(CLASS)) \
+		$(foreach wrd,$(CLASS), $(wrd)/$(wrd).o) \
 		$(addsuffix .o, $(MAIN))
 
 $(NAME): $(OBJS)
