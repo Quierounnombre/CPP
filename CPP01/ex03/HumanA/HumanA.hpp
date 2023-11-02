@@ -11,7 +11,7 @@ class HumanA
 		//-------------------------------------------------------
 
 		HumanA(std::string name, Weapon	&gun);
-		HumanA(const HumanA &HumanA);
+		HumanA(const HumanA &HumanA, Weapon &weapon);
 		~HumanA();
 		HumanA & operator = (const HumanA &HumanA);
 
@@ -20,7 +20,7 @@ class HumanA
 		
 		void	attack();
 
-		Weapon		weapon;
+		Weapon		&weapon;
 		std::string	name;
 };
 
