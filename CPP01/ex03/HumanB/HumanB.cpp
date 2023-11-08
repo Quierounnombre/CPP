@@ -37,7 +37,7 @@ void	HumanB::attack(void)
 	std::cout << this->name << " attacks with their " << str << std::endl;
 }
 
-void	HumanB::setWeapon(Weapon weapon)
+void	HumanB::setWeapon(Weapon &weapon)
 {
 	if (this->weapon)
 		free(this->weapon);

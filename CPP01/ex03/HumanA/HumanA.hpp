@@ -10,7 +10,7 @@ class HumanA
 		//CONSTRUCTOR
 		//-------------------------------------------------------
 
-		HumanA(std::string name, Weapon	gun);
+		HumanA(std::string name, Weapon	&gun);
 		HumanA(const HumanA &HumanA);
 		~HumanA();
 		HumanA & operator = (const HumanA &HumanA);
@@ -20,7 +20,7 @@ class HumanA
 		
 		void	attack();
 
-	Weapon		*weapon;
+	Weapon		&weapon;
 	std::string	name;
 };
 

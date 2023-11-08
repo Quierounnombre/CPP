@@ -17,6 +17,7 @@ int main()
 		HumanA A("ALICE", sword);
 		A.attack();
 		sword.setType("some other type of club");
+		std::cout << sword.getType() << std::endl;
 		A.attack();
 	}
 	std::cout << std::endl;
