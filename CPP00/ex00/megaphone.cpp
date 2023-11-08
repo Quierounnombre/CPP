@@ -1,6 +1,18 @@
 # include <iostream>
 # include <string>
 
+static void	my_to_upper(std::string &str)
+{
+	int		i;
+
+	i = 0;
+	while(str[i])
+	{
+		str[i] = std::toupper(str[i]);
+		i++;
+	}
+}
+
 int main(int argc, char **argv)
 {
 	std::string	str;
@@ -11,7 +23,7 @@ int main(int argc, char **argv)
 		while (*argv)
 		{
 			str = *argv;
-			std::transform(str.begin(), str.end(), str.begin(), ::toupper);
+			my_to_upper(str);
 			std::cout << str;
 			argv++;
 		}
