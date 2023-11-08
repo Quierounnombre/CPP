@@ -10,8 +10,8 @@ class HumanA
 		//CONSTRUCTOR
 		//-------------------------------------------------------
 
-		HumanA(std::string name, Weapon	&gun);
-		HumanA(const HumanA &HumanA, Weapon &weapon);
+		HumanA(std::string name, Weapon	gun);
+		HumanA(const HumanA &HumanA);
 		~HumanA();
 		HumanA & operator = (const HumanA &HumanA);
 
@@ -20,8 +20,8 @@ class HumanA
 		
 		void	attack();
 
-		Weapon		&weapon;
-		std::string	name;
+	Weapon		*weapon;
+	std::string	name;
 };
 
 #endif

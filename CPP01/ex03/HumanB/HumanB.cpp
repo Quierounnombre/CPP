@@ -1,8 +1,9 @@
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name)
+HumanB::HumanB(std::string name) :
+name(name),
+weapon(NULL)
 {
-	this->name = name;
 }
 
 HumanB::~HumanB()
@@ -10,7 +11,9 @@ HumanB::~HumanB()
 
 }
 
-HumanB::HumanB(const HumanB &HumanB)
+HumanB::HumanB(const HumanB &HumanB) :
+weapon(HumanB.weapon),
+name(HumanB.name)
 {
 
 }
@@ -26,5 +29,17 @@ HumanB & HumanB::operator= (const HumanB &HumanB)
 
 void	HumanB::attack(void)
 {
-	std::cout << this->name << " attacks with their " << this->weapon.getType() << std::endl;
+	std::string	str;
+
+	str = "barehand";
+	if (weapon)
+		str = this->weapon->getType();
+	std::cout << this->name << " attacks with their " << str << std::endl;
+}
+
+void	HumanB::setWeapon(Weapon weapon)
+{
+	if (this->weapon)
+		free(this->weapon);
+	this->weapon = &weapon;
 }

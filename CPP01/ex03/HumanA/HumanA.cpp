@@ -1,9 +1,9 @@
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon	&weapon) :
-weapon(weapon)
+HumanA::HumanA(std::string name, Weapon	gun) :
+name(name),
+weapon(&gun)
 {
-	this->name = name;
 }
 
 HumanA::~HumanA()
@@ -11,8 +11,9 @@ HumanA::~HumanA()
 	
 }
 
-HumanA::HumanA(const HumanA &HumanA, Weapon	&weapon) :
-weapon(weapon)
+HumanA::HumanA(const HumanA &HumanA) :
+weapon(HumanA.weapon),
+name(HumanA.name)
 {
 
 }
@@ -28,5 +29,8 @@ HumanA & HumanA::operator= (const HumanA &HumanA)
 
 void	HumanA::attack(void)
 {
-	std::cout << this->name << " attacks with their " << this->weapon.getType() << std::endl;
+	std::string	str;
+
+	str = this->weapon->getType();
+	std::cout << this->name << " attacks with their " << str << std::endl;
 }

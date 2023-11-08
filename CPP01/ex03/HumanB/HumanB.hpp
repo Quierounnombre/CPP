@@ -19,9 +19,10 @@ class HumanB
 		//------------------------------------------------------
 		
 		void	attack();
+		void	setWeapon(Weapon weapon);
 
-		Weapon		weapon;
-		std::string	name;
+	Weapon		*weapon;
+	std::string	name;
 };
 
 #endif
