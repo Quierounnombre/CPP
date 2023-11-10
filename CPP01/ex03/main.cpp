@@ -2,8 +2,14 @@
 #include "HumanB/HumanB.hpp"
 #include "Weapon/Weapon.hpp"
 
+void	leakss(void)
+{
+	system("leaks Plant_VS_zombies");
+}
+
 int main()
 {
+	atexit(leakss);
 	Weapon	W("PATATA");
 	HumanA	A("ALICE", W);
 	HumanB	B("BOB");
@@ -16,8 +22,7 @@ int main()
 		Weapon sword = Weapon("sword");
 		HumanA A("ALICE", sword);
 		A.attack();
-		sword.setType("some other type of club");
-		std::cout << sword.getType() << std::endl;
+		sword.setType("some other type of sword");
 		A.attack();
 	}
 	std::cout << std::endl;
