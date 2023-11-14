@@ -7,16 +7,16 @@
 # include <string>
 # include <fstream>
 
-class sed
+class Sed
 {
 	public:
 		//CONSTRUCTORS
 		//-------------------------------------------------------
 
-		sed();
-		sed(const sed &sed);
-		~sed();
-		sed & operator = (const sed &sed);
+		Sed();
+		Sed(const Sed &Sed);
+		~Sed();
+		Sed & operator = (const Sed &Sed);
 
 		//FILES_FUNS
 		//-------------------------------------------------------

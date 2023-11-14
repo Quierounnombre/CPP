@@ -22,7 +22,8 @@ LYELLOW = \033[1;33m
 WHITE = \033[1;37m
 RESET = \033[0m
 
-CLASS =	sed \
+CLASS =	Sed \
+		Tester \
 
 FILES = $(foreach wrd,$(CLASS),$(addprefix $(wrd)/,$(shell cat $(wrd)/$(wrd).hpp | grep '(*)' | xargs | sed 's/&//g' | xargs | grep '(*)' | tr -s " " "\012" | tr -s "\050" "&" | grep "&" | sed 's/&/ /g' | tr -s "\051" "&" | sed 's/;//g' | sed 's/const//g' | awk 'NR>3 {printf $$1"\n"}')))
 
@@ -31,11 +32,11 @@ OBJ = $(addsuffix .o, $(FILES))
 
 MAIN = main
 
-SRCS =	$(SRC) \
-		$(addsuffix .cpp, $(foreach wrd,$(CLASS),$(wrd)/$(wrd))) \
+SRCS =	$(addsuffix .cpp, $(foreach wrd,$(CLASS),$(wrd)/$(wrd))) \
+		$(SRC) \
 		$(addsuffix .cpp, $(MAIN))
-OBJS =	$(OBJ) \
-		$(addsuffix .o, $(foreach wrd,$(CLASS),$(wrd)/$(wrd))) \
+OBJS =	$(addsuffix .o, $(foreach wrd,$(CLASS),$(wrd)/$(wrd))) \
+		$(OBJ) \
 		$(addsuffix .o, $(MAIN))
 
 $(NAME): $(OBJS)

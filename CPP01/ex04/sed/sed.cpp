@@ -1,24 +1,24 @@
-#include "sed.hpp"
+#include "Sed.hpp"
 
-sed::sed()
+Sed::Sed()
 {
 
 }
 
-sed::~sed()
+Sed::~Sed()
 {
 
 }
 
-sed::sed(const sed &sed)
+Sed::Sed(const Sed &Sed)
 {
 
 }
 
-sed & sed::operator= (const sed &sed)
+Sed & Sed::operator= (const Sed &Sed)
 {
-	if (this != & sed)
+	if (this != & Sed)
 	{
 	}
-	return *this;
+	return (*this);
 }

@@ -1,16 +1,19 @@
-#include "sed.hpp"
+#include "Sed.hpp"
 
-bool	sed::open_files(std::string file)
+bool	Sed::open_files(std::string file)
 {
-	int		i;
+	int		end_of_file_name;
 
-	i = file.size();
+	end_of_file_name = file.size();
+
 	file.append(this->_extention);
 	this->_file.open(file, std::ios::in);
 	if (!this->_file.is_open())
 		return (false);
-	file.erase(i, std::string::npos);
+
+	file.erase(end_of_file_name, std::string::npos);
 	file.append(".replace");
+
 	this->_copy.open(file, std::ios::out);
 	if (!this->_copy.is_open())
 		return (false);

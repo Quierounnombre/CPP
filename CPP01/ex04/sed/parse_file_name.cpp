@@ -1,18 +1,18 @@
-#include "sed.hpp"
+#include "Sed.hpp"
 
-void	sed::parse_file_name(std::string s)
+void	Sed::parse_file_name(std::string s)
 {
-	int		i;
+	int		end_of_file_name;
 
-	i = 0;
-	while (s[i])
+	end_of_file_name = 0;
+	while (s[end_of_file_name])
 	{
-		if (s[i] == '.')
+		if (s[end_of_file_name] == '.')
 		{
-			_extention.substr(i, std::string::npos);
+			_extention.substr(end_of_file_name, std::string::npos);
 			break ;
 		}
-		i++;
+		end_of_file_name++;
 	}
 
 }
