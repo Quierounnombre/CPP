@@ -131,7 +131,7 @@ void	PhoneBook::add_contact()
 	store_nick(contact);
 	store_phone(contact);
 	this->_contact[this->_current] = contact;
-	if (_current == 7)
+	if (_current == (N_CONTACTS - 1))
 		_current = 0;
 	else
 		_current++;
