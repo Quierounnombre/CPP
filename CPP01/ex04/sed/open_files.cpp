@@ -2,20 +2,25 @@
 
 bool	Sed::open_files(std::string file)
 {
-	int		end_of_file_name;
+	int		pos_of_dot;
 
-	end_of_file_name = file.size();
-
-	file.append(this->_extention);
 	this->_file.open(file, std::ios::in);
 	if (!this->_file.is_open())
+	{
+		std::cout << ERROR_FILE_NOT_EXIST << std::endl;
 		return (false);
+	}
 
-	file.erase(end_of_file_name, std::string::npos);
+	pos_of_dot = file.find('.', 0);
+	if (pos_of_dot > 0)
+		file.erase(pos_of_dot, std::string::npos);
 	file.append(".replace");
 
 	this->_copy.open(file, std::ios::out);
 	if (!this->_copy.is_open())
+	{
+		std::cout << ERROR_CANT_CREATE_FILE << std::endl;
 		return (false);
+	}
 	return (true);
 }

@@ -7,6 +7,9 @@
 # include <string>
 # include <fstream>
 
+# define ERROR_FILE_NOT_EXIST "The file can't be open, maybe dont exist"
+# define ERROR_CANT_CREATE_FILE "The file cant be created/open"
+
 class Sed
 {
 	public:
@@ -22,18 +25,13 @@ class Sed
 		//-------------------------------------------------------
 
 		bool	open_files(std::string file);
-
-		//PARSE_FUNS
-		//-------------------------------------------------------
-
-		void	parse_file_name(std::string s);
+		void	close_files(void);
 
 	private:
 		std::ofstream	_file;
 		std::ofstream	_copy;
 		std::string		_s1;
 		std::string		_s2;
-		std::string		_extention;
 
 	private:
 

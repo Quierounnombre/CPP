@@ -7,6 +7,8 @@
 # include <string>
 # include "../Sed/Sed.hpp"
 
+# define TEST_FILE_NAME "pruebas"
+
 class Sed;
 
 class Tester
