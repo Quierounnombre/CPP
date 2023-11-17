@@ -33,6 +33,30 @@ static void contact_display(Contact &contact, bool in_grid)
 	}
 }
 
+static bool	handel_error(int &index, std::string &str)
+{
+	if (std::cin.eof())
+		exit(1);
+	if (!str.empty())
+	{
+		try
+		{
+			index = std::stoi(str);
+			index--;
+		}
+		catch(const std::exception& e)
+		{
+			index = -1;
+		}
+	}
+	if ((index < 0 || index > (N_CONTACTS - 1)))
+	{
+		std::cout << ERROR_SEARCH_OUT_OF_BOUNDS << std::endl;
+		return (false);
+	}
+	return (true);
+}
+
 void	PhoneBook::search_contact()
 {
 	std::string	str;
@@ -50,23 +74,7 @@ void	PhoneBook::search_contact()
 	std::cout << "Type the number of the contact that u want to know" << std::endl;
 	while (std::getline(std::cin, str))
 	{
-		if (std::cin.eof())
-			exit(1);
-		if (!str.empty())
-		{
-			try
-			{
-				index = std::stoi(str);
-				index--;
-			}
-			catch(const std::exception& e)
-			{
-				index = -1;
-			}
-		}
-		if ((index < 0 || index > (N_CONTACTS - 1)))
-			std::cout << ERROR_SEARCH_OUT_OF_BOUNDS << std::endl;
-		else
+		if (handel_error(index, str))
 		{
 			if (_contact[index].get_dark_thingy().empty())
 			{

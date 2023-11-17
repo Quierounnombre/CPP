@@ -14,11 +14,9 @@
 #  define D_LENGTH 10
 # endif
 
-# define ERROR_SEARCH_EMPTY "This contact is empty, try another one, \
-or save one using ADD" 
+# define ERROR_SEARCH_EMPTY "This contact is empty, save one using ADD" 
 
-# define ERROR_SEARCH_OUT_OF_BOUNDS "The number is out of bounds try something else \
-0 for exit"
+# define ERROR_SEARCH_OUT_OF_BOUNDS "The number is out of bounds try something else"
 
 class PhoneBook
 {
