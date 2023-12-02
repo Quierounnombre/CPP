@@ -28,8 +28,8 @@ class Sed
 		void	close_files(void);
 
 	private:
-		std::ofstream	_file;
-		std::ofstream	_copy;
+		std::fstream	_file;
+		std::fstream	_copy;
 		std::string		_s1;
 		std::string		_s2;
 

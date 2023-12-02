@@ -20,6 +20,7 @@ bool	Sed::open_files(std::string file)
 	if (!this->_copy.is_open())
 	{
 		std::cout << ERROR_CANT_CREATE_FILE << std::endl;
+		this->_file.close();
 		return (false);
 	}
 	return (true);
