@@ -8,9 +8,12 @@
 # include "../Sed/Sed.hpp"
 
 # define TEST_FILE_NAME "tmp_test_file"
+# define TEST_GET_LINE "../Test_get_line.txt"
+# define TEST_GET_LINE_REPLACE "../Test_get_line.txt.replace"
 # define TEST_FILE_NAME_EXTENSION "tmp_test_file.extension"
 # define TEST_FILE_NAME_REPLACE "tmp_test_file.replace"
-# define TEST_PASSED "\e[0;32mTest Superado \e[0m"
+# define TEST_PASSED "\e[0;32mTest passed \e[0m"
+# define TEST_FAILED "\e[0;31mTest failed \e[0m"
 # define ERROR_DELETING_FILE "file can't be deleted"
 
 class Sed;
@@ -30,6 +33,7 @@ class Tester
 		//-------------------------------------------------------
 
 		void	test_open_files(void);
+		void	test_get_line(void);
 		void	run_test(void);
 	
 	private:

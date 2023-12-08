@@ -1,3 +1,5 @@
 *.o
+*.txt
 *.a
+*.vscode
 Plant_VS_zombies

@@ -5,20 +5,22 @@ static void	test_file(const char *file_name, int &counter)
 	Sed				*sed;
 	std::ofstream	file;
 
-	sed = new(Sed);
+	sed = new Sed(true);
 
 	if (!sed->open_files(file_name))
-	{
 		std::cout << TEST_PASSED << counter << std::endl;
-		counter++;
-	}
+	else
+		std::cout << TEST_FAILED << counter << std::endl;
+	counter++;
 	file.open(file_name);
 	if (sed->open_files(file_name))
 	{
 		std::cout << TEST_PASSED << counter << std::endl;
-		counter++;
 		sed->close_files();
 	}
+	else
+		std::cout << TEST_FAILED << counter << std::endl;
+	counter++;
 	file.close();
 	if (remove(file_name))
 		std::cout << ERROR_DELETING_FILE << std::endl;

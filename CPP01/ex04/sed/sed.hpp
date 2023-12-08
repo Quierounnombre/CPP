@@ -16,7 +16,7 @@ class Sed
 		//CONSTRUCTORS
 		//-------------------------------------------------------
 
-		Sed();
+		Sed(bool testing);
 		Sed(const Sed &Sed);
 		~Sed();
 		Sed & operator = (const Sed &Sed);
@@ -27,11 +27,17 @@ class Sed
 		bool	open_files(std::string file);
 		void	close_files(void);
 
+		//STR_FUNS
+		//-------------------------------------------------------
+
+		std::string	get_file_content();
+
 	private:
 		std::fstream	_file;
 		std::fstream	_copy;
 		std::string		_s1;
 		std::string		_s2;
+		bool			_is_testing;
 
 	private:
 

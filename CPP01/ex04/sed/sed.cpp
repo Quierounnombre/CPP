@@ -1,6 +1,7 @@
 #include "Sed.hpp"
 
-Sed::Sed()
+Sed::Sed(bool testing) :
+_is_testing(testing)
 {
 
 }
@@ -10,7 +11,8 @@ Sed::~Sed()
 
 }
 
-Sed::Sed(const Sed &Sed)
+Sed::Sed(const Sed &Sed) :
+_is_testing(Sed._is_testing)
 {
 
 }

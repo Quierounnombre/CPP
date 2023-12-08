@@ -5,9 +5,10 @@ bool	Sed::open_files(std::string file)
 	int		pos_of_dot;
 
 	this->_file.open(file, std::ios::in);
-	if (!this->_file.is_open())
+	if (!(this->_file.is_open()))
 	{
-		std::cout << ERROR_FILE_NOT_EXIST << std::endl;
+		if (!_is_testing)
+			std::cout << ERROR_FILE_NOT_EXIST << std::endl;
 		return (false);
 	}
 
@@ -17,9 +18,10 @@ bool	Sed::open_files(std::string file)
 	file.append(".replace");
 
 	this->_copy.open(file, std::ios::out);
-	if (!this->_copy.is_open())
+	if (!(this->_copy.is_open()))
 	{
-		std::cout << ERROR_CANT_CREATE_FILE << std::endl;
+		if (!_is_testing)
+			std::cout << ERROR_CANT_CREATE_FILE << std::endl;
 		this->_file.close();
 		return (false);
 	}
