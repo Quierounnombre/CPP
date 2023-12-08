@@ -1,4 +1,4 @@
-NAME = Plant_VS_zombies
+NAME = HumansVSHumans
 
 CC = c++ -std=c++98
 CFLAGS = -Wall -Wextra -Werror

@@ -15,6 +15,7 @@
 # define TEST_PASSED "\e[0;32mTest passed \e[0m"
 # define TEST_FAILED "\e[0;31mTest failed \e[0m"
 # define ERROR_DELETING_FILE "file can't be deleted"
+# define TEST_REPLACE "ADIOS, DON MANOLO"
 
 class Sed;
 
@@ -34,6 +35,7 @@ class Tester
 
 		void	test_open_files(void);
 		void	test_get_line(void);
+		void	test_replace_content(void);
 		void	run_test(void);
 	
 	private:
