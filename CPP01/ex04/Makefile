@@ -3,6 +3,7 @@ NAME = MY_SED
 CC = c++ -std=c++98
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
+DEFINES = -D RUN_TEST=0
 
 BLACK = \033[0;30m∑
 RED =   \033[0;31m
@@ -40,7 +41,7 @@ OBJS =	$(addsuffix .o, $(foreach wrd,$(CLASS),$(wrd)/$(wrd))) \
 		$(addsuffix .o, $(MAIN))
 
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+	@$(CC) $(CFLAGS) $(DEFINES) -o $(NAME) $(OBJS)
 	@echo "$(GREEN)\n$(NAME) compile\n$(RESET)" 
 
 all: $(NAME)
