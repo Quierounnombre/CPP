@@ -16,7 +16,7 @@ class Sed
 		//CONSTRUCTORS
 		//-------------------------------------------------------
 
-		Sed(bool testing, std::string s1, std::string s2);
+		Sed(bool testing, std::string s1, std::string s2, std::string file);
 		Sed(const Sed &Sed);
 		~Sed();
 		Sed & operator = (const Sed &Sed);

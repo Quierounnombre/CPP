@@ -5,7 +5,7 @@ static void	test_file(const char *file_name, int &counter)
 	Sed				*sed;
 	std::ofstream	file;
 
-	sed = new Sed(true, "", "");
+	sed = new Sed(true, "", "", "");
 	if (sed)
 	{
 		if (!sed->open_files(file_name))

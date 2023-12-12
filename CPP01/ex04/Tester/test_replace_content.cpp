@@ -5,7 +5,7 @@ void	Tester::test_replace_content(void)
 	std::string	s;
 	Sed			*sed;
 
-	sed = new Sed(true, "HOLA", "ADIOS");
+	sed = new Sed(true, "HOLA", "ADIOS", "");
 	if (sed)
 	{
 		if (sed->open_files(TEST_GET_LINE))

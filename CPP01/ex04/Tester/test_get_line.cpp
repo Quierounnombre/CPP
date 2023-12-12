@@ -6,7 +6,7 @@ void	Tester::test_get_line(void)
 	Sed			*sed;
 
 	s = "";
-	sed = new Sed(true, "", "");
+	sed = new Sed(true, "", "", "");
 	if (sed)
 	{
 		if (sed->open_files(TEST_GET_LINE))
