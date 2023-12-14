@@ -1,4 +1,4 @@
-NAME = MY_SED
+NAME = Fixed.exe
 
 CC = c++ -std=c++98
 CFLAGS = -Wall -Wextra -Werror
@@ -23,21 +23,11 @@ LYELLOW = \033[1;33m
 WHITE = \033[1;37m
 RESET = \033[0m
 
-CLASS =	Sed \
-		Tester \
-
-FILES = $(foreach wrd,$(CLASS),$(addprefix $(wrd)/,$(shell cat $(wrd)/$(wrd).hpp | grep '(*)' | xargs | sed 's/&//g' | xargs | grep '(*)' | tr -s " " "\012" | tr -s "\050" "&" | grep "&" | sed 's/&/ /g' | tr -s "\051" "&" | sed 's/;//g' | sed 's/const//g' | awk 'NR>3 {printf $$1"\n"}')))
-
-SRC = $(addsuffix .cpp, $(FILES))
-OBJ = $(addsuffix .o, $(FILES))
+CLASS =	Fixed \
 
 MAIN = main
 
-SRCS =	$(addsuffix .cpp, $(foreach wrd,$(CLASS),$(wrd)/$(wrd))) \
-		$(SRC) \
-		$(addsuffix .cpp, $(MAIN))
 OBJS =	$(addsuffix .o, $(foreach wrd,$(CLASS),$(wrd)/$(wrd))) \
-		$(OBJ) \
 		$(addsuffix .o, $(MAIN))
 
 $(NAME): $(OBJS)
@@ -45,7 +35,6 @@ $(NAME): $(OBJS)
 	@echo "$(GREEN)\n$(NAME) compile\n$(RESET)" 
 
 all: $(NAME)
-	@echo $(FILES)
 
 clean:
 	@$(RM) $(OBJS)
