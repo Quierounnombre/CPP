@@ -22,20 +22,17 @@ LYELLOW = \033[1;33m
 WHITE = \033[1;37m
 RESET = \033[0m
 
-CLASS =	Zombie
+CLASS =	Zombie/Zombie \
+		Zombie/zombieHorde \
 
-FILES = $(addprefix $(CLASS)/, $(shell cat $(CLASS)/$(CLASS).hpp | grep '(*)' | awk 'NR>4 {print $$NR,$$2}' | xargs -d "*" | tr [:punct:] " " | awk '{print $$1}'))
-
-SRC = $(addsuffix .cpp, $(FILES))
-OBJ = $(addsuffix .o, $(FILES))
+SRC = $(addsuffix .cpp, $(CLASS))
+OBJ = $(addsuffix .o, $(CLASS))
 
 MAIN = main
 
 SRCS =	$(SRC) \
-		$(addsuffix .cpp, $(CLASS)/$(CLASS)) \
 		$(addsuffix .cpp, $(MAIN))
 OBJS =	$(OBJ) \
-		$(addsuffix .o, $(CLASS)/$(CLASS)) \
 		$(addsuffix .o, $(MAIN))
 
 $(NAME): $(OBJS)

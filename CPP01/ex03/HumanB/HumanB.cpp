@@ -40,6 +40,6 @@ void	HumanB::attack(void)
 void	HumanB::setWeapon(Weapon &weapon)
 {
 	if (this->weapon)
-		free(this->weapon);
+		delete(this->weapon);
 	this->weapon = &weapon;
 }
