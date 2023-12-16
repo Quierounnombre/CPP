@@ -5,11 +5,11 @@
 
 # include <iostream>
 # include <string>
+# include <cmath>
 
 # define CONSTRUCTOR_LOG_COLOR "\033[1;30m"
 # define RESET_COLOR "\033[0m"
-# define SHIFT_CORRECTION 1
-# define DEFAULT_DO_LOG false
+# define DEFAULT_DO_LOG true
 
 class Fixed
 {
@@ -36,12 +36,13 @@ class Fixed
 
 		float	toFloat(void) const;
 		int		toInt(void) const;
-		//-------------------------------------------------------
 
 	private:
 		int					_raw_value;
 		static const int	_frac_bits = 8;
 		bool				_do_log;
 };
+
+std::ostream &operator<<(std::ostream &out, const Fixed &f);
 
 #endif
