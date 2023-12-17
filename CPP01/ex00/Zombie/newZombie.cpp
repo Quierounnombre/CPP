@@ -5,11 +5,8 @@ Zombie	*Zombie::newZombie(std::string name)
 	Zombie	*Z;
 
 	Z = NULL;
-	Z = new (Zombie);
+	Z = new Zombie(name);
 	if (Z)
-	{
-		Z->_name = name;
 		return (Z);
-	}
 	return (NULL);
 }

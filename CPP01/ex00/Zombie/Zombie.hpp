@@ -12,7 +12,7 @@ class Zombie
 		//CONSTRUCTOR
 		//-------------------------------------------------------
 
-		Zombie();
+		Zombie(std::string name);
 		Zombie(const Zombie &Zombie);
 		~Zombie();
 		Zombie & operator = (const Zombie &Zombie);
