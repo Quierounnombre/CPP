@@ -2,8 +2,9 @@
 
 #pragma region CONSTRUCTOR
 
-ScavTrap::ScavTrap() :
-_is_gate_keeping(false)
+ScavTrap::ScavTrap(std::string name) :
+_is_gate_keeping(false),
+ClapTrap(name, DEFAULT_HP, DEFAULT_ATK_DMG, DEFAULT_ENERGY, DEFAULT_DO_LOG)
 {
 	if (_do_log)
 	{
@@ -24,7 +25,8 @@ ScavTrap::~ScavTrap()
 }
 
 ScavTrap::ScavTrap(const ScavTrap &ScavTrap) :
-_is_gate_keeping(ScavTrap._is_gate_keeping)
+_is_gate_keeping(ScavTrap._is_gate_keeping),
+ClapTrap(ScavTrap._name, ScavTrap._hp, ScavTrap._atk_dmg, ScavTrap._energy, ScavTrap._do_log)
 {
 	if (_do_log)
 	{
@@ -46,6 +48,11 @@ ScavTrap & ScavTrap::operator= (const ScavTrap &ScavTrap)
 	{
 	}
 	_is_gate_keeping = ScavTrap._is_gate_keeping;
+	_energy = ScavTrap._energy;
+	_atk_dmg = ScavTrap._atk_dmg;
+	_hp = ScavTrap._hp;
+	_do_log = ScavTrap._do_log;
+	_name = ScavTrap._name;
 	return (*this);
 }
 

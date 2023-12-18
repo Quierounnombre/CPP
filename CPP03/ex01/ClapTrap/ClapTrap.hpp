@@ -9,9 +9,9 @@
 # define CONSTRUCTOR_LOG_COLOR "\033[1;30m"
 # define RESET_COLOR "\033[0m"
 # define DEFAULT_DO_LOG true
-# define DEFAULT_HP 100
-# define DEFAULT_ATK_DMG 20
-# define DEFAULT_ENERGY 50
+# define DEFAULT_HP 10
+# define DEFAULT_ATK_DMG 0
+# define DEFAULT_ENERGY 10
 
 class ClapTrap
 {
@@ -20,6 +20,8 @@ class ClapTrap
 		//-------------------------------------------------------
 
 		ClapTrap(std::string name);
+		ClapTrap(std::string name, unsigned int hp,
+			unsigned int atk_dmg, unsigned int energy, bool log);
 		ClapTrap(const ClapTrap &ClapTrap);
 		~ClapTrap();
 		ClapTrap & operator = (const ClapTrap &ClapTrap);
@@ -44,11 +46,13 @@ class ClapTrap
 
 		bool	system_eval(void);
 
-	private:
+	protected:
 		bool		_do_log;
 		int			_hp;
 		int			_energy;
 		int			_atk_dmg;
+
+	private:
 		std::string	_name;
 
 

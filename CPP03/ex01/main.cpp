@@ -6,8 +6,8 @@
 
 int	main(void)
 {
-	ScavTrap	unit_aplha;
-	ScavTrap	unit_bravo;
+	ScavTrap	unit_aplha(ALPHA);
+	ScavTrap	unit_bravo(BRAVO);
 
 	for (int i = 0; i < 51; i++)
 		unit_aplha.attack(BRAVO);

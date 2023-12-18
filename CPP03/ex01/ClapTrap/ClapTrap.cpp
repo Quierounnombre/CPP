@@ -17,6 +17,21 @@ _name(name)
 	}
 }
 
+ClapTrap::ClapTrap(std::string name, unsigned int hp, unsigned int atk_dmg, unsigned int energy, bool log) :
+_do_log(log),
+_energy(energy),
+_hp(hp),
+_atk_dmg(atk_dmg),
+_name(name)
+{
+	if (_do_log)
+	{
+		std::cout << CONSTRUCTOR_LOG_COLOR;
+		std::cout << "ClapTrap default constructor called";
+		std::cout << RESET_COLOR << std::endl;
+	}
+}
+
 ClapTrap::~ClapTrap()
 {
 	if (_do_log)
