@@ -8,10 +8,10 @@
 
 # define CONSTRUCTOR_LOG_COLOR "\033[1;30m"
 # define RESET_COLOR "\033[0m"
-# define DEFAULT_DO_LOG true
-# define DEFAULT_HP 10
-# define DEFAULT_ATK_DMG 0
-# define DEFAULT_ENERGY 10
+# define CLAPTRAP_DEFAULT_DO_LOG true
+# define CLAPTRAP_DEFAULT_HP 10
+# define CLAPTRAP_DEFAULT_ATK_DMG 0
+# define CLAPTRAP_DEFAULT_ENERGY 10
 
 class ClapTrap
 {

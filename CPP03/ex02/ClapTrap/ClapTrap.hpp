@@ -1,29 +1,30 @@
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 # pragma once
 
 # include <iostream>
 # include <string>
-# include "../ClapTrap/ClapTrap.hpp"
 
 # define CONSTRUCTOR_LOG_COLOR "\033[1;30m"
 # define RESET_COLOR "\033[0m"
-# define DEFAULT_DO_LOG true
-# define SCAVTRAP_DEFAULT_HP 100
-# define SCAVTRAP_DEFAULT_ATK_DMG 20
-# define SCAVTRAP_DEFAULT_ENERGY 50
+# define CLAPTRAP_DEFAULT_DO_LOG true
+# define CLAPTRAP_DEFAULT_HP 10
+# define CLAPTRAP_DEFAULT_ATK_DMG 0
+# define CLAPTRAP_DEFAULT_ENERGY 10
 
-class ScavTrap : public ClapTrap
+class ClapTrap
 {
 	public:
 		//CONSTRUCTORS
 		//-------------------------------------------------------
 
-		ScavTrap(std::string name);
-		ScavTrap(const ScavTrap &ClapTrap);
-		~ScavTrap();
-		ScavTrap & operator = (const ScavTrap &ClapTrap);
+		ClapTrap(std::string name);
+		ClapTrap(std::string name, unsigned int hp,
+			unsigned int atk_dmg, unsigned int energy, bool log);
+		ClapTrap(const ClapTrap &ClapTrap);
+		~ClapTrap();
+		ClapTrap & operator = (const ClapTrap &ClapTrap);
 
 		//Attack
 		//-------------------------------------------------------
@@ -45,17 +46,12 @@ class ScavTrap : public ClapTrap
 
 		bool	system_eval(void);
 
-		//States
-		//-------------------------------------------------------
-
-		void	guardGate(void);
-
-	private:
+	protected:
+		bool		_do_log;
+		int			_hp;
+		int			_energy;
+		int			_atk_dmg;
 		std::string	_name;
-		bool		_is_gate_keeping;
-
-
-
 };
 
 #endif

@@ -9,7 +9,7 @@
 
 # define CONSTRUCTOR_LOG_COLOR "\033[1;30m"
 # define RESET_COLOR "\033[0m"
-# define DEFAULT_DO_LOG true
+# define SCAVTRAP_DEFAULT_DO_LOG true
 # define SCAVTRAP_DEFAULT_HP 100
 # define SCAVTRAP_DEFAULT_ATK_DMG 20
 # define SCAVTRAP_DEFAULT_ENERGY 50
@@ -51,7 +51,6 @@ class ScavTrap : public ClapTrap
 		void	guardGate(void);
 
 	private:
-		std::string	_name;
 		bool		_is_gate_keeping;
 
 

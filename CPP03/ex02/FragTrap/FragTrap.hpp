@@ -1,29 +1,27 @@
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-# pragma once
-
-# include <iostream>
-# include <string>
-# include "../ClapTrap/ClapTrap.hpp"
+#include <iostream>
+#include <string>
+#include "../ClapTrap/ClapTrap.hpp"
 
 # define CONSTRUCTOR_LOG_COLOR "\033[1;30m"
 # define RESET_COLOR "\033[0m"
-# define DEFAULT_DO_LOG true
-# define SCAVTRAP_DEFAULT_HP 100
-# define SCAVTRAP_DEFAULT_ATK_DMG 20
-# define SCAVTRAP_DEFAULT_ENERGY 50
+# define FRAGTRAP_DEFAULT_DO_LOG true
+# define FRAGTRAP_DEFAULT_HP 100
+# define FRAGTRAP_DEFAULT_ATK_DMG 30
+# define FRAGTRAP_DEFAULT_ENERGY 100
 
-class ScavTrap : public ClapTrap
+class FragTrap : public ClapTrap
 {
 	public:
-		//CONSTRUCTORS
+		//CONSTRUCTOR
 		//-------------------------------------------------------
 
-		ScavTrap(std::string name);
-		ScavTrap(const ScavTrap &ClapTrap);
-		~ScavTrap();
-		ScavTrap & operator = (const ScavTrap &ClapTrap);
+		FragTrap(std::string name);
+		FragTrap(const FragTrap &FragTrap);
+		~FragTrap();
+		FragTrap & operator = (const FragTrap &FragTrap);
 
 		//Attack
 		//-------------------------------------------------------
@@ -48,13 +46,7 @@ class ScavTrap : public ClapTrap
 		//States
 		//-------------------------------------------------------
 
-		void	guardGate(void);
-
-	private:
-		std::string	_name;
-		bool		_is_gate_keeping;
-
-
+		void	highFivesGuys(void);
 
 };
 
