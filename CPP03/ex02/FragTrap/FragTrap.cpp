@@ -128,7 +128,7 @@ bool	FragTrap::system_eval(void)
 {
 	if (_energy > 0 && _hp > 0)
 		return (true);
-	std::cout << "FragTrap unit " +_name + "dosen't respond, ";
+	std::cout << "FragTrap unit " +_name + " dosen't respond, ";
 	std::cout << "is either destroyed or out of battery" << std::endl;
 	return (false);
 }
@@ -139,7 +139,7 @@ bool	FragTrap::system_eval(void)
 
 void	FragTrap::highFivesGuys(void)
 {
-	if (system_eval)
+	if (system_eval())
 	{
 		std::cout << "Let's high Five dude!!" << std::endl;
 		std::cout << "that was so cool" << std::endl;

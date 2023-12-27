@@ -14,7 +14,7 @@
 # define SCAVTRAP_DEFAULT_ATK_DMG 20
 # define SCAVTRAP_DEFAULT_ENERGY 50
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
 	public:
 		//CONSTRUCTORS

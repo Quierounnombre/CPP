@@ -1,4 +1,4 @@
-NAME = My_ClapTrap
+NAME = My_FragTrap
 
 CC = c++ -std=c++98
 CFLAGS = -Wall -Wextra -Werror
@@ -25,6 +25,7 @@ RESET = \033[0m
 
 CLASS =	ClapTrap \
 		ScavTrap \
+		FragTrap \
 
 MAIN = main
 

@@ -136,7 +136,7 @@ bool	ClapTrap::system_eval(void)
 {
 	if (_energy > 0 && _hp > 0)
 		return (true);
-	std::cout << "Claptrap unit " +_name + "dosen't respond, ";
+	std::cout << "Claptrap unit " +_name + " dosen't respond, ";
 	std::cout << "is either destroyed or out of battery" << std::endl;
 	return (false);
 }

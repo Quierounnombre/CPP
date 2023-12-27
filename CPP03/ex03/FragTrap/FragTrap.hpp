@@ -12,7 +12,7 @@
 # define FRAGTRAP_DEFAULT_ATK_DMG 30
 # define FRAGTRAP_DEFAULT_ENERGY 100
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 	public:
 		//CONSTRUCTOR
