@@ -12,14 +12,14 @@ using std::cin;
 using std::endl;
 using std::cerr;
 
-# define CONSTRUCTOR_LOG_COLOR "\033[1;30m"
-# define RESET_COLOR "\033[0m"
-# define DEFAULT_DO_LOG true
+# define CLAPTRAP_CONSTRUCTOR_LOG_COLOR "\033[1;30m"
+# define CLAPTRAP_RESET_COLOR "\033[0m"
+# define CLAPTRAP_DEFAULT_DO_LOG true
 
-# define DEFAULT_HP 10
-# define DEFAULT_ATK_DMG 0
-# define DEFAULT_ENERGY 10
-# define DEFAULT_NAME ""
+# define CLAPTRAP_DEFAULT_HP 10
+# define CLAPTRAP_DEFAULT_ATK_DMG 0
+# define CLAPTRAP_DEFAULT_ENERGY 10
+# define CLAPTRAP_DEFAULT_NAME ""
 
 # define u_int	u_int32_t
 # define int	int32_t
@@ -31,7 +31,6 @@ class ClapTrap
 		//-------------------------------------------------------
 
 		ClapTrap(void);
-		ClapTrap(bool log);
 		ClapTrap(string name);
 		ClapTrap(string name, bool log);
 		ClapTrap(const ClapTrap &ClapTrap);
@@ -41,7 +40,7 @@ class ClapTrap
 		//Attack
 		//-------------------------------------------------------
 
-		void	attack(const string &target);
+		virtual void	attack(const string &target);
 
 		//Defense
 		//-------------------------------------------------------
@@ -60,12 +59,12 @@ class ClapTrap
 
 	protected:
 		bool	_do_log;
-
-	private:
 		string	_name;
 		int		_energy;
 		int		_atk_dmg;
 		int		_hp;
+
+	private:
 		//LOG
 		//-------------------------------------------------------
 

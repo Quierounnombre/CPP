@@ -6,47 +6,37 @@ void	ClapTrap::constructor_log(string s)
 {
 	if (_do_log)
 	{
-		cout << CONSTRUCTOR_LOG_COLOR;
+		cout << CLAPTRAP_CONSTRUCTOR_LOG_COLOR;
 		cout << s;
-		cout << RESET_COLOR << endl;
+		cout << CLAPTRAP_RESET_COLOR << endl;
 	}
 }
 
-ClapTrap::ClapTrap(void) :
-_do_log(DEFAULT_DO_LOG),
-_energy(DEFAULT_ENERGY),
-_hp(DEFAULT_HP),
-_atk_dmg(DEFAULT_ATK_DMG),
-_name(DEFAULT_NAME)
-{
-	constructor_log("ClapTrap default constructor called");
-}
-
-ClapTrap::ClapTrap(bool log) :
-_do_log(log),
-_energy(DEFAULT_ENERGY),
-_hp(DEFAULT_HP),
-_atk_dmg(DEFAULT_ATK_DMG),
-_name(DEFAULT_NAME)
-{
-	constructor_log("ClapTrap default constructor called");
-}
-
 ClapTrap::ClapTrap(string name) :
-_do_log(DEFAULT_DO_LOG),
-_energy(DEFAULT_ENERGY),
-_hp(DEFAULT_HP),
-_atk_dmg(DEFAULT_ATK_DMG),
+_do_log(CLAPTRAP_DEFAULT_DO_LOG),
+_energy(CLAPTRAP_DEFAULT_ENERGY),
+_hp(CLAPTRAP_DEFAULT_HP),
+_atk_dmg(CLAPTRAP_DEFAULT_ATK_DMG),
 _name(name)
+{
+	constructor_log("ClapTrap default constructor called");
+}
+
+ClapTrap::ClapTrap(void) :
+_do_log(CLAPTRAP_DEFAULT_DO_LOG),
+_energy(CLAPTRAP_DEFAULT_ENERGY),
+_hp(CLAPTRAP_DEFAULT_HP),
+_atk_dmg(CLAPTRAP_DEFAULT_ATK_DMG),
+_name(CLAPTRAP_DEFAULT_NAME)
 {
 	constructor_log("ClapTrap default constructor called");
 }
 
 ClapTrap::ClapTrap(string name, bool log) :
 _do_log(log),
-_energy(DEFAULT_ENERGY),
-_hp(DEFAULT_HP),
-_atk_dmg(DEFAULT_ATK_DMG),
+_energy(CLAPTRAP_DEFAULT_ENERGY),
+_hp(CLAPTRAP_DEFAULT_HP),
+_atk_dmg(CLAPTRAP_DEFAULT_ATK_DMG),
 _name(name)
 {
 	constructor_log("ClapTrap default constructor called");
