@@ -27,7 +27,7 @@ using std::cerr;
 # define u_int	u_int32_t
 # define n_int	int32_t
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
 	public:
 		//CONSTRUCTORS
@@ -45,16 +45,19 @@ class ScavTrap : public ClapTrap
 
 		void	attack(const string &target);
 
+
+
+	protected:
+		bool	_do_log;
+
+	private:
+		bool	_is_gate_keeping;
+
 		//GUARD MODE
 		//-------------------------------------------------------
 
 		void	guardGate(void);
 
-	protected:
-		bool	_do_log;
-		bool	_is_gate_keeping;
-
-	private:
 		//LOG
 		//-------------------------------------------------------
 

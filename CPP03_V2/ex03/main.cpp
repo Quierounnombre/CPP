@@ -1,6 +1,7 @@
 #include "ClapTrap/ClapTrap.hpp"
 #include "FragTrap/FragTrap.hpp"
 #include "ScavTrap/ScavTrap.hpp"
+#include "DiamondTrap/DiamondTrap.hpp"
 
 # define ALPHA "alpha"
 # define BRAVO "bravo"
@@ -8,9 +9,9 @@
 
 int	main(void)
 {
-	FragTrap	unit_aplha(ALPHA);
-	FragTrap	unit_bravo(BRAVO);
-	FragTrap	unit_charlie(CHARLIE);
+	DiamondTrap	unit_aplha(ALPHA);
+	DiamondTrap	unit_bravo(BRAVO);
+	DiamondTrap	unit_charlie(CHARLIE);
 
 	for (int i = 0; i < (FRAGTRAP_DEFAULT_ENERGY + 1); i++)
 		unit_aplha.attack(BRAVO);
@@ -22,6 +23,5 @@ int	main(void)
 	unit_bravo.takeDamage(FRAGTRAP_DEFAULT_ATK_DMG);
 	unit_bravo.takeDamage(FRAGTRAP_DEFAULT_ATK_DMG);
 	unit_bravo.takeDamage(FRAGTRAP_DEFAULT_ATK_DMG);
-	for (int i = 0; i < (FRAGTRAP_DEFAULT_ENERGY + 1); i++)
-		unit_charlie.highFivesGuys();
+	unit_charlie.whoAmI();
 }

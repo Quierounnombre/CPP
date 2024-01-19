@@ -16,7 +16,7 @@ using std::cerr;
 
 # define FRAGTRAP_CONSTRUCTOR_LOG_COLOR "\033[1;30m"
 # define FRAGTRAP_RESET_COLOR "\033[0m"
-# define FRAGTRAP_DEFAULT_DO_LOG false
+# define FRAGTRAP_DEFAULT_DO_LOG true
 
 # define FRAGTRAP_DEFAULT_HP 100
 # define FRAGTRAP_DEFAULT_ATK_DMG 30
@@ -28,7 +28,7 @@ using std::cerr;
 # define u_int	u_int32_t
 # define n_int	int32_t
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 	public:
 		//CONSTRUCTORS
@@ -41,15 +41,15 @@ class FragTrap : public ClapTrap
 		~FragTrap();
 		FragTrap & operator = (const FragTrap &FragTrap);
 
+
+	protected:
+		bool	_do_log;
+	private:
 		//HIGH-FIVE
 		//-------------------------------------------------------
 
 		void highFivesGuys(void);
 
-	protected:
-		bool	_do_log;
-
-	private:
 		//LOG
 		//-------------------------------------------------------
 
