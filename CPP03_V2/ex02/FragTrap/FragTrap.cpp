@@ -12,10 +12,15 @@ void	FragTrap::constructor_log(string s)
 	}
 }
 
+
 FragTrap::FragTrap() :
 _do_log(FRAGTRAP_DEFAULT_DO_LOG),
 ClapTrap()
 {
+	_hp = FRAGTRAP_DEFAULT_HP;
+	_atk_dmg = FRAGTRAP_DEFAULT_ATK_DMG;
+	_energy = FRAGTRAP_DEFAULT_ENERGY;
+	_name = FRAGTRAP_DEFAULT_NAME;
 	constructor_log("FragTrap default constructor called");
 }
 
@@ -23,6 +28,9 @@ FragTrap::FragTrap(string name) :
 _do_log(FRAGTRAP_DEFAULT_DO_LOG),
 ClapTrap(name, FRAGTRAP_DEFAULT_DO_LOG)
 {
+	_hp = FRAGTRAP_DEFAULT_HP;
+	_atk_dmg = FRAGTRAP_DEFAULT_ATK_DMG;
+	_energy = FRAGTRAP_DEFAULT_ENERGY;
 	constructor_log("FragTrap default constructor called");
 }
 
@@ -30,6 +38,9 @@ FragTrap::FragTrap(string name, bool log) :
 _do_log(log),
 ClapTrap(name, log)
 {
+	_hp = FRAGTRAP_DEFAULT_HP;
+	_atk_dmg = FRAGTRAP_DEFAULT_ATK_DMG;
+	_energy = FRAGTRAP_DEFAULT_ENERGY;
 	constructor_log("FragTrap default constructor called");
 }
 
@@ -41,6 +52,10 @@ FragTrap::~FragTrap()
 FragTrap::FragTrap(const FragTrap &FragTrap) :
 _do_log(FragTrap._do_log)
 {
+	_hp = FragTrap._hp;
+	_atk_dmg = FragTrap._atk_dmg;
+	_energy = FragTrap._energy;
+	_name = FragTrap._name;
 	constructor_log("FragTrap copy constructor called");
 }
 
@@ -51,6 +66,10 @@ FragTrap & FragTrap::operator= (const FragTrap &FragTrap)
 	{
 	}
 	this->_do_log = FragTrap._do_log;
+	this->_atk_dmg = FragTrap._atk_dmg;
+	this->_energy = FragTrap._energy;
+	this->_hp = FragTrap._hp;
+	this->_name = FragTrap._name;
 	return (*this);
 }
 
