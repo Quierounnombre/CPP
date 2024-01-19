@@ -6,12 +6,23 @@
 # include <iostream>
 # include <string>
 
-# define CONSTRUCTOR_LOG_COLOR "\033[1;30m"
-# define RESET_COLOR "\033[0m"
+using std::cout;
+using std::string;
+using std::cin;
+using std::endl;
+using std::cerr;
+
+# define CLAPTRAP_CONSTRUCTOR_LOG_COLOR "\033[1;30m"
+# define CLAPTRAP_RESET_COLOR "\033[0m"
 # define CLAPTRAP_DEFAULT_DO_LOG true
+
 # define CLAPTRAP_DEFAULT_HP 10
 # define CLAPTRAP_DEFAULT_ATK_DMG 0
 # define CLAPTRAP_DEFAULT_ENERGY 10
+# define CLAPTRAP_DEFAULT_NAME ""
+
+# define u_int	u_int32_t
+# define n_int	int32_t
 
 class ClapTrap
 {
@@ -19,9 +30,9 @@ class ClapTrap
 		//CONSTRUCTORS
 		//-------------------------------------------------------
 
-		ClapTrap(std::string name);
-		ClapTrap(std::string name, unsigned int hp,
-			unsigned int atk_dmg, unsigned int energy, bool log);
+		ClapTrap(void);
+		ClapTrap(string name);
+		ClapTrap(string name, bool log);
 		ClapTrap(const ClapTrap &ClapTrap);
 		~ClapTrap();
 		ClapTrap & operator = (const ClapTrap &ClapTrap);
@@ -29,17 +40,17 @@ class ClapTrap
 		//Attack
 		//-------------------------------------------------------
 
-		void	attack(const std::string &target);
+		virtual void	attack(const string &target);
 
 		//Defense
 		//-------------------------------------------------------
 
-		void	takeDamage(unsigned int amount);
+		void	takeDamage(u_int amount);
 
 		//Repairs
 		//-------------------------------------------------------
 
-		void	beRepaired(unsigned int amount);
+		void	beRepaired(u_int amount);
 
 		//Conditions
 		//-------------------------------------------------------
@@ -47,11 +58,17 @@ class ClapTrap
 		bool	system_eval(void);
 
 	protected:
-		bool		_do_log;
-		int			_hp;
-		int			_energy;
-		int			_atk_dmg;
-		std::string	_name;
+		bool	_do_log;
+		string	_name;
+		int		_energy;
+		int		_atk_dmg;
+		int		_hp;
+
+	private:
+		//LOG
+		//-------------------------------------------------------
+
+		void	constructor_log(string s);
 };
 
 #endif

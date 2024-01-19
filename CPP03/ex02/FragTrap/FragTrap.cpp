@@ -2,147 +2,138 @@
 
 #pragma region CONSTRUCTOR
 
-FragTrap::FragTrap(std::string name) :
-ClapTrap(name, FRAGTRAP_DEFAULT_HP, FRAGTRAP_DEFAULT_ATK_DMG, FRAGTRAP_DEFAULT_ENERGY, FRAGTRAP_DEFAULT_DO_LOG)
+void	FragTrap::constructor_log(string s)
 {
 	if (_do_log)
 	{
-		std::cout << CONSTRUCTOR_LOG_COLOR;
-		std::cout << "FragTrap default constructor called";
-		std::cout << RESET_COLOR << std::endl;
+		cout << FRAGTRAP_CONSTRUCTOR_LOG_COLOR;
+		cout << s;
+		cout << FRAGTRAP_RESET_COLOR << endl;
 	}
+}
+
+
+FragTrap::FragTrap() :
+_do_log(FRAGTRAP_DEFAULT_DO_LOG),
+ClapTrap()
+{
+	_hp = FRAGTRAP_DEFAULT_HP;
+	_atk_dmg = FRAGTRAP_DEFAULT_ATK_DMG;
+	_energy = FRAGTRAP_DEFAULT_ENERGY;
+	_name = FRAGTRAP_DEFAULT_NAME;
+	constructor_log("FragTrap default constructor called");
+}
+
+FragTrap::FragTrap(string name) :
+_do_log(FRAGTRAP_DEFAULT_DO_LOG),
+ClapTrap(name, FRAGTRAP_DEFAULT_DO_LOG)
+{
+	_hp = FRAGTRAP_DEFAULT_HP;
+	_atk_dmg = FRAGTRAP_DEFAULT_ATK_DMG;
+	_energy = FRAGTRAP_DEFAULT_ENERGY;
+	constructor_log("FragTrap default constructor called");
+}
+
+FragTrap::FragTrap(string name, bool log) :
+_do_log(log),
+ClapTrap(name, log)
+{
+	_hp = FRAGTRAP_DEFAULT_HP;
+	_atk_dmg = FRAGTRAP_DEFAULT_ATK_DMG;
+	_energy = FRAGTRAP_DEFAULT_ENERGY;
+	constructor_log("FragTrap default constructor called");
 }
 
 FragTrap::~FragTrap()
 {
-	if (_do_log)
-	{
-		std::cout << CONSTRUCTOR_LOG_COLOR;
-		std::cout << "FragTrap destructor called";
-		std::cout << RESET_COLOR << std::endl;
-	}
+	constructor_log("FragTrap destructor called");
 }
 
 FragTrap::FragTrap(const FragTrap &FragTrap) :
-ClapTrap(FragTrap._name, FragTrap._hp, FragTrap._atk_dmg, FragTrap._energy, FragTrap._do_log)
+_do_log(FragTrap._do_log)
 {
-	if (_do_log)
-	{
-		std::cout << CONSTRUCTOR_LOG_COLOR;
-		std::cout << "FragTrap copy constructor called";
-		std::cout << RESET_COLOR << std::endl;
-	}
+	_hp = FragTrap._hp;
+	_atk_dmg = FragTrap._atk_dmg;
+	_energy = FragTrap._energy;
+	_name = FragTrap._name;
+	constructor_log("FragTrap copy constructor called");
 }
 
 FragTrap & FragTrap::operator= (const FragTrap &FragTrap)
 {
-	if (_do_log)
-	{
-		std::cout << CONSTRUCTOR_LOG_COLOR;
-		std::cout << "FragTrap copy assignment called";
-		std::cout << RESET_COLOR << std::endl;
-	}
+	constructor_log("FragTrap copy assignment called");
 	if (this != & FragTrap)
 	{
 	}
-	_energy = FragTrap._energy;
-	_atk_dmg = FragTrap._atk_dmg;
-	_hp = FragTrap._hp;
-	_do_log = FragTrap._do_log;
-	_name = FragTrap._name;
+	this->_do_log = FragTrap._do_log;
+	this->_atk_dmg = FragTrap._atk_dmg;
+	this->_energy = FragTrap._energy;
+	this->_hp = FragTrap._hp;
+	this->_name = FragTrap._name;
 	return (*this);
 }
 
 #pragma endregion
 
-#pragma region ATTACK
+#pragma region HIGH-FIVE
 
-void	FragTrap::attack(const std::string &target)
+static void high_five_ok(void)
 {
-	if (system_eval())
-	{
-		if (_atk_dmg < 0)
-			std::cout << "FragTrap unit" + _name + " weapons have malfuntion" << std::endl;
-		else
-		{
-			std::cout << "FragTrap unit " + _name + " attacked " + target + ", causing ";
-			std::cout << _atk_dmg << " points of damage" << std::endl;
-		}
-		_energy--;
-	}
+	cout << "Nice, here it comes" << endl;
+	usleep(FRAGTRAP_HIGH_FIVE_DELAY);
+	cout << "." << endl;
+	usleep(FRAGTRAP_HIGH_FIVE_DELAY);
+	cout << ". ." << endl;
+	usleep(FRAGTRAP_HIGH_FIVE_DELAY);
+	cout << ". . ." << endl;
+	usleep(FRAGTRAP_HIGH_FIVE_DELAY);
+	cout << "BAAAAAAAAAAAAAAAAAAAAAAAAMMMMMMMMM!!!!!!" << endl;
+	usleep(FRAGTRAP_HIGH_FIVE_DELAY);
+	cout << "cooool, see you around buddy! ^^" << endl;
 }
 
-#pragma endregion
-
-#pragma region DEFENSE
-
-void	FragTrap::takeDamage(unsigned int amount)
+static void high_five_ko(void)
 {
-	int		damage;
-
-	if (system_eval())
-	{
-		damage = amount;
-		if (damage <= 0)
-			std::cout << "FragTrap unit " +_name + " shields are up and running" << std::endl;
-		else
-		{
-			std::cout << "FragTrap unit " + _name + " has suffer " << damage;
-			std::cout << " points of damage" << std::endl;
-			if (_hp > amount)
-				_hp -= amount;
-			else
-				_hp = -1;
-		}
-	}
+	cout << "Oh" << endl;
+	usleep(FRAGTRAP_HIGH_FIVE_DELAY);
+	cout << "Okey" << endl;
+	usleep(FRAGTRAP_HIGH_FIVE_DELAY);
+	cout << "i have ." << endl;
+	usleep(FRAGTRAP_HIGH_FIVE_DELAY);
+	cout << "i have . ." << endl;
+	usleep(FRAGTRAP_HIGH_FIVE_DELAY);
+	cout << "i have . . ." << endl;
+	usleep(FRAGTRAP_HIGH_FIVE_DELAY);
+	cout << "i have to go, see you around" << endl;
+	usleep(FRAGTRAP_HIGH_FIVE_DELAY);
+	cout << "chao" << endl;
+	cout << "𝙨𝙣𝙞𝙛𝙛 :(" << endl;
 }
-
-#pragma endregion
-
-#pragma region REPAIRS
-
-void	FragTrap::beRepaired(unsigned int amount)
-{
-	int		healing;
-
-	if (system_eval())
-	{
-		healing = amount;
-		if (healing > 0)
-		{
-			std::cout << "FragTrap unit " + _name + " has repair itself for " << healing;
-			std::cout << " hit points" << std::endl;
-			_hp += amount;
-		}
-		else
-			std::cout << "FragTrap unit " + _name + " has failed its repair routine " << std::endl;
-		_energy--;
-	}
-}
-
-#pragma endregion
-
-#pragma region CONDITIONS
-
-bool	FragTrap::system_eval(void)
-{
-	if (_energy > 0 && _hp > 0)
-		return (true);
-	std::cout << "FragTrap unit " +_name + " dosen't respond, ";
-	std::cout << "is either destroyed or out of battery" << std::endl;
-	return (false);
-}
-
-#pragma endregion
-
-#pragma region GREETINGS
 
 void	FragTrap::highFivesGuys(void)
 {
+	string	s;
+
 	if (system_eval())
 	{
-		std::cout << "Let's high Five dude!!" << std::endl;
-		std::cout << "that was so cool" << std::endl;
+		cout << "Hey!, do you want to high Five? [Y/N]" << endl;
+		while (true)
+		{
+			getline(std::cin, s);
+			if (cin.eof())
+				exit(1);
+			if (s == "Y")
+			{
+				high_five_ok();
+				break ;
+			}
+			else if (s == "N")
+			{
+				high_five_ko();
+				break ;
+			}
+			cout << "Are you sure you want it?[Y/N]" << endl;
+		}
 		_energy--;
 	}
 }

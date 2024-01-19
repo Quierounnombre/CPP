@@ -1,32 +1,57 @@
 #ifndef DIAMONDTRAP_HPP
 # define DIAMONDTRAP_HPP
 
-#include <iostream>
-#include "../ScavTrap/ScavTrap.hpp"
-#include "../FragTrap/FragTrap.hpp"
+# pragma once
 
-# define NAME_SUFFIX "_clap_name"
+# include <iostream>
+# include <string>
 
-class DiamondTrap : public ScavTrap, public FragTrap
+# include "../FragTrap/FragTrap.hpp"
+# include "../ScavTrap/ScavTrap.hpp"
+
+using std::cout;
+using std::string;
+using std::cin;
+using std::endl;
+using std::cerr;
+
+# define DIAMONDTRAP_CONSTRUCTOR_LOG_COLOR "\033[1;30m"
+# define DIAMONDTRAP_RESET_COLOR "\033[0m"
+# define DIAMONDTRAP_DEFAULT_DO_LOG true
+
+# define DIAMONDTRAP_CLAP_NAME_SUFFIX "_clap_name"
+
+# define u_int	u_int32_t
+# define n_int	int32_t
+
+class DiamondTrap : public FragTrap, public ScavTrap
 {
 	public:
-		//CONSTRUCTOR
+		//CONSTRUCTORS
 		//-------------------------------------------------------
 
-		DiamondTrap(std::string name);
+		DiamondTrap(string name);
+		DiamondTrap(string name, bool log);
 		DiamondTrap(const DiamondTrap &DiamondTrap);
 		~DiamondTrap();
 		DiamondTrap & operator = (const DiamondTrap &DiamondTrap);
 
-		//DiamondTrap
-		//------------------------------------------------------
+		//WHO_AM_I
+		//-------------------------------------------------------
 
-		using	ScavTrap::attack;
+		void	whoAmI(void);
 
-		//------------------------------------------------------
+	protected:
+		bool	_do_log;
+
 
 	private:
-		std::string	_name;
+		string	_name;
+
+		//LOG
+		//-------------------------------------------------------
+
+		void	constructor_log(string s);
 };
 
 #endif

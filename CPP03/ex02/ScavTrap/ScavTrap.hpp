@@ -7,12 +7,25 @@
 # include <string>
 # include "../ClapTrap/ClapTrap.hpp"
 
-# define CONSTRUCTOR_LOG_COLOR "\033[1;30m"
-# define RESET_COLOR "\033[0m"
+using std::cout;
+using std::string;
+using std::cin;
+using std::endl;
+using std::cerr;
+
+# define SCAVTRAP_CONSTRUCTOR_LOG_COLOR "\033[1;30m"
+# define SCAVTRAP_RESET_COLOR "\033[0m"
 # define SCAVTRAP_DEFAULT_DO_LOG true
+# define SCAVTRAP_ATTACK_COLOR "\033[0:32m"
+
 # define SCAVTRAP_DEFAULT_HP 100
 # define SCAVTRAP_DEFAULT_ATK_DMG 20
 # define SCAVTRAP_DEFAULT_ENERGY 50
+# define SCAVTRAP_DEFAULT_NAME ""
+# define SCAVTRAP_DEFAULT_GATEKEEP false
+
+# define u_int	u_int32_t
+# define n_int	int32_t
 
 class ScavTrap : public ClapTrap
 {
@@ -20,41 +33,32 @@ class ScavTrap : public ClapTrap
 		//CONSTRUCTORS
 		//-------------------------------------------------------
 
-		ScavTrap(std::string name);
-		ScavTrap(const ScavTrap &ClapTrap);
+		ScavTrap();
+		ScavTrap(string name);
+		ScavTrap(string name, bool log);
+		ScavTrap(const ScavTrap &ScavTrap);
 		~ScavTrap();
-		ScavTrap & operator = (const ScavTrap &ClapTrap);
+		ScavTrap & operator = (const ScavTrap &ScavTrap);
 
-		//Attack
+		//ATTACK
 		//-------------------------------------------------------
 
-		void	attack(const std::string &target);
+		void	attack(const string &target);
 
-		//Defense
-		//-------------------------------------------------------
-
-		void	takeDamage(unsigned int amount);
-
-		//Repairs
-		//-------------------------------------------------------
-
-		void	beRepaired(unsigned int amount);
-
-		//Conditions
-		//-------------------------------------------------------
-
-		bool	system_eval(void);
-
-		//States
+		//GUARD MODE
 		//-------------------------------------------------------
 
 		void	guardGate(void);
 
+	protected:
+		bool	_do_log;
+		bool	_is_gate_keeping;
+
 	private:
-		bool		_is_gate_keeping;
+		//LOG
+		//-------------------------------------------------------
 
-
-
+		void	constructor_log(string s);
 };
 
 #endif

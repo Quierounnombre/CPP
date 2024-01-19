@@ -14,9 +14,11 @@ int	main(void)
 	unit_bravo.takeDamage(SCAVTRAP_DEFAULT_ATK_DMG);
 	unit_bravo.beRepaired(SCAVTRAP_DEFAULT_ATK_DMG);
 	unit_bravo.beRepaired(2);
+	unit_bravo.guardGate();
 	unit_bravo.takeDamage(25);
 	unit_bravo.takeDamage(25);
 	unit_bravo.takeDamage(25);
 	unit_bravo.takeDamage(25);
 	unit_bravo.takeDamage(25);
+	unit_bravo.guardGate();
 }

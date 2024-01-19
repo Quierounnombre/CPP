@@ -2,44 +2,49 @@
 
 #pragma region CONSTRUCTOR
 
-ClapTrap::ClapTrap(std::string name) :
+void	ClapTrap::constructor_log(string s)
+{
+	if (_do_log)
+	{
+		cout << CLAPTRAP_CONSTRUCTOR_LOG_COLOR;
+		cout << s;
+		cout << CLAPTRAP_RESET_COLOR << endl;
+	}
+}
+
+ClapTrap::ClapTrap(string name) :
 _do_log(CLAPTRAP_DEFAULT_DO_LOG),
 _energy(CLAPTRAP_DEFAULT_ENERGY),
 _hp(CLAPTRAP_DEFAULT_HP),
 _atk_dmg(CLAPTRAP_DEFAULT_ATK_DMG),
 _name(name)
 {
-	if (_do_log)
-	{
-		std::cout << CONSTRUCTOR_LOG_COLOR;
-		std::cout << "ClapTrap default constructor called";
-		std::cout << RESET_COLOR << std::endl;
-	}
+	constructor_log("ClapTrap default constructor called");
 }
 
-ClapTrap::ClapTrap(std::string name, unsigned int hp, unsigned int atk_dmg, unsigned int energy, bool log) :
+ClapTrap::ClapTrap(void) :
+_do_log(CLAPTRAP_DEFAULT_DO_LOG),
+_energy(CLAPTRAP_DEFAULT_ENERGY),
+_hp(CLAPTRAP_DEFAULT_HP),
+_atk_dmg(CLAPTRAP_DEFAULT_ATK_DMG),
+_name(CLAPTRAP_DEFAULT_NAME)
+{
+	constructor_log("ClapTrap default constructor called");
+}
+
+ClapTrap::ClapTrap(string name, bool log) :
 _do_log(log),
-_energy(energy),
-_hp(hp),
-_atk_dmg(atk_dmg),
+_energy(CLAPTRAP_DEFAULT_ENERGY),
+_hp(CLAPTRAP_DEFAULT_HP),
+_atk_dmg(CLAPTRAP_DEFAULT_ATK_DMG),
 _name(name)
 {
-	if (_do_log)
-	{
-		std::cout << CONSTRUCTOR_LOG_COLOR;
-		std::cout << "ClapTrap default constructor called";
-		std::cout << RESET_COLOR << std::endl;
-	}
+	constructor_log("ClapTrap default constructor called");
 }
 
 ClapTrap::~ClapTrap()
 {
-	if (_do_log)
-	{
-		std::cout << CONSTRUCTOR_LOG_COLOR;
-		std::cout << "ClapTrap destructor called";
-		std::cout << RESET_COLOR << std::endl;
-	}
+	constructor_log("ClapTrap destructor called");
 }
 
 ClapTrap::ClapTrap(const ClapTrap &ClapTrap) :
@@ -49,22 +54,12 @@ _hp(ClapTrap._hp),
 _atk_dmg(ClapTrap._atk_dmg),
 _name(ClapTrap._name)
 {
-	if (_do_log)
-	{
-		std::cout << CONSTRUCTOR_LOG_COLOR;
-		std::cout << "ClapTrap copy constructor called";
-		std::cout << RESET_COLOR << std::endl;
-	}
+	constructor_log("ClapTrap copy constructor called");
 }
 
 ClapTrap & ClapTrap::operator= (const ClapTrap &ClapTrap)
 {
-	if (_do_log)
-	{
-		std::cout << CONSTRUCTOR_LOG_COLOR;
-		std::cout << "ClapTrap copy assignment called";
-		std::cout << RESET_COLOR << std::endl;
-	}
+	constructor_log("ClapTrap copy assignment called");
 	if (this != & ClapTrap)
 	{
 	}
@@ -80,7 +75,7 @@ ClapTrap & ClapTrap::operator= (const ClapTrap &ClapTrap)
 
 #pragma region ATTACK
 
-void	ClapTrap::attack(const std::string &target)
+void	ClapTrap::attack(const string &target)
 {
 	if (system_eval())
 	{
@@ -99,7 +94,7 @@ void	ClapTrap::attack(const std::string &target)
 
 #pragma region DEFENSE
 
-void	ClapTrap::takeDamage(unsigned int amount)
+void	ClapTrap::takeDamage(u_int amount)
 {
 	int		damage;
 
@@ -124,7 +119,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 #pragma region REPAIRS
 
-void	ClapTrap::beRepaired(unsigned int amount)
+void	ClapTrap::beRepaired(u_int amount)
 {
 	int		healing;
 

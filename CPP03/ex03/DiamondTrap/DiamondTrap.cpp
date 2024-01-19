@@ -1,61 +1,81 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(std::string name) :
-FragTrap(name),
-ScavTrap(name),
-ClapTrap(name),
-_name(name)
+#pragma region CONSTRUCTOR
+
+void	DiamondTrap::constructor_log(string s)
 {
 	if (_do_log)
 	{
-		std::cout << CONSTRUCTOR_LOG_COLOR;
-		std::cout << "DiamondTrap default constructor called";
-		std::cout << RESET_COLOR << std::endl;
+		cout << DIAMONDTRAP_CONSTRUCTOR_LOG_COLOR;
+		cout << s;
+		cout << DIAMONDTRAP_RESET_COLOR << endl;
 	}
-	ClapTrap::_name = name + NAME_SUFFIX;
+}
+
+DiamondTrap::DiamondTrap(string name) :
+_do_log(DIAMONDTRAP_DEFAULT_DO_LOG),
+FragTrap(name),
+ScavTrap(name)
+{
+	ClapTrap::_name = name + DIAMONDTRAP_CLAP_NAME_SUFFIX;
+	_name = name;
+	constructor_log("DiamondTrap default constructor called");
+}
+
+DiamondTrap::DiamondTrap(string name, bool log) :
+_do_log(log),
+FragTrap(name, log),
+ScavTrap(name, log)
+{
+	ClapTrap::_name = name + DIAMONDTRAP_CLAP_NAME_SUFFIX;
+	_name = name;
 	_hp = FRAGTRAP_DEFAULT_HP;
 	_energy = SCAVTRAP_DEFAULT_ENERGY;
 	_atk_dmg = FRAGTRAP_DEFAULT_ATK_DMG;
+	constructor_log("DiamondTrap default constructor called");
 }
 
 DiamondTrap::~DiamondTrap()
 {
-	if (_do_log)
-	{
-		std::cout << CONSTRUCTOR_LOG_COLOR;
-		std::cout << "DiamondTrap destructor called";
-		std::cout << RESET_COLOR << std::endl;
-	}
+	constructor_log("DiamondTrap destructor called");
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &DiamondTrap) :
-ClapTrap(DiamondTrap),
-ScavTrap(DiamondTrap),
-FragTrap(DiamondTrap)
+_do_log(DiamondTrap._do_log)
 {
-	*this = DiamondTrap;
-	if (_do_log)
-	{
-		std::cout << CONSTRUCTOR_LOG_COLOR;
-		std::cout << "DiamondTrap copy constructor called";
-		std::cout << RESET_COLOR << std::endl;
-	}
+	_hp = DiamondTrap._hp;
+	_energy = DiamondTrap._energy;
+	_atk_dmg = DiamondTrap._atk_dmg;
+	_name = DiamondTrap._name;
+	_do_log = DiamondTrap._do_log;
+	constructor_log("DiamondTrap copy constructor called");
 }
 
 DiamondTrap & DiamondTrap::operator= (const DiamondTrap &DiamondTrap)
 {
-	if (_do_log)
-	{
-		std::cout << CONSTRUCTOR_LOG_COLOR;
-		std::cout << "DiamondTrap copy assignment called";
-		std::cout << RESET_COLOR << std::endl;
-	}
- 	if (this != & DiamondTrap)
+	constructor_log("DiamondTrap copy assignment called");
+	if (this != & DiamondTrap)
 	{
 	}
-	this->_name = DiamondTrap._name;
-	this->_energy = DiamondTrap._energy;
+	this->_do_log = DiamondTrap._do_log;
 	this->_hp = DiamondTrap._hp;
 	this->_atk_dmg = DiamondTrap._atk_dmg;
+	this->_name = DiamondTrap._name;
+	this->_energy = DiamondTrap._energy;
 	return (*this);
 }
+
+#pragma endregion
+
+#pragma region WHO_AM_I
+
+void	DiamondTrap::whoAmI(void)
+{
+	if (system_eval())
+	{
+		cout << "I am " << _name << " and also " << ClapTrap::_name << endl;
+		_energy--;
+	}
+}
+
+#pragma endregion
