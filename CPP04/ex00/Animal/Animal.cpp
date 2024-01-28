@@ -53,7 +53,7 @@ Animal & Animal::operator= (const Animal &Animal)
 
 #pragma region SOUNDS
 
-void	Animal::makeSound(void)
+void	Animal::makeSound(void) const
 {
 	cout << "Random animal noise" << endl;
 }
@@ -62,7 +62,7 @@ void	Animal::makeSound(void)
 
 #pragma region GETTERS
 
-string	Animal::getType(void)
+string	Animal::getType(void) const
 {
 	return (type);
 }

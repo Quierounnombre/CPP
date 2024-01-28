@@ -53,7 +53,7 @@ Cat & Cat::operator= (const Cat &Cat)
 
 #pragma region SOUNDS
 
-void	Cat::makeSound(void)
+void	Cat::makeSound(void) const
 {
 	cout << "Meaaaooww" << endl;
 }

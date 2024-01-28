@@ -34,13 +34,13 @@ class Dog : virtual public Animal
 
 		//-------------------------------------------------------
 
-	protected:
-		bool	_do_log;
-
 		//SOUNDS
 		//-------------------------------------------------------
 
-		virtual void makeSound(void);
+		virtual void makeSound(void) const;
+
+	protected:
+		bool	_do_log;
 
 	private:
 		//LOG

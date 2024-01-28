@@ -34,21 +34,21 @@ class Animal
 		//GETTERS
 		//-------------------------------------------------------
 
-		string	getType(void);
+		string	getType(void) const;
 
 		//SETTERS
 		//-------------------------------------------------------
 
 		void	setType(string new_type);
 
-	protected:
-		bool	_do_log;
-		string	type;
-	
 		//Sounds
 		//-------------------------------------------------------
 
-		virtual void	makeSound(void);
+		virtual void	makeSound(void) const;
+
+	protected:
+		bool	_do_log;
+		string	type;
 
 	private:
 		//LOG

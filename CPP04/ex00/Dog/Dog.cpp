@@ -53,7 +53,7 @@ Dog & Dog::operator= (const Dog &Dog)
 
 #pragma region SOUNDS
 
-void	Dog::makeSound(void)
+void	Dog::makeSound(void) const
 {
 	cout << "Woofffff Wooofffff" << endl;
 }
