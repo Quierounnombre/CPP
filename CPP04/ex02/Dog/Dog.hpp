@@ -1,11 +1,12 @@
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
 # pragma once
 
 # include <iostream>
-# include "../Animal/Animal.hpp"
 # include <string>
+# include "../Animal/Animal.hpp"
+# include "../Brain/Brain.hpp"
 
 using std::cout;
 using std::string;
@@ -13,36 +14,37 @@ using std::cin;
 using std::endl;
 using std::cerr;
 
-# define CAT_CONSTRUCTOR_LOG_COLOR "\033[1;30m"
-# define CAT_RESET_COLOR "\033[0m"
-# define CAT_DEFAULT_DO_LOG false
+# define DOG_CONSTRUCTOR_LOG_COLOR "\033[1;30m"
+# define DOG_RESET_COLOR "\033[0m"
+# define DOG_DEFAULT_DO_LOG true
 
 # define u_int	u_int32_t
 # define n_int	int32_t
 
-class Cat : virtual public Animal
+class Dog : virtual public Animal
 {
 	public:
 		//CONSTRUCTORS
 		//-------------------------------------------------------
 
-		Cat();
-		Cat(bool log);
-		Cat(const Cat &Cat);
-		~Cat();
-		Cat & operator = (const Cat &Cat);
+		Dog();
+		Dog(bool log);
+		Dog(const Dog &Dog);
+		~Dog();
+		Dog & operator = (const Dog &Dog);
 
 		//-------------------------------------------------------
 
 		//SOUNDS
 		//-------------------------------------------------------
 
-		virtual void	makeSound(void) const;
+		virtual void makeSound(void) const;
 
 	protected:
 		bool	_do_log;
 
 	private:
+		Brain	*brain;
 		//LOG
 		//-------------------------------------------------------
 

@@ -1,4 +1,4 @@
-NAME = Abstract
+NAME = ABSTRACT
 
 CC = c++ -std=c++98
 CFLAGS = -Wall -Wextra -Werror
@@ -25,7 +25,8 @@ RESET = \033[0m
 
 CLASS =	Animal \
 		Cat \
-		Dog
+		Dog \
+		Brain
 
 MAIN = main
 

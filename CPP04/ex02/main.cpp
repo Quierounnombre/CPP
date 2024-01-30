@@ -12,7 +12,6 @@ void leakss(void)
 int		main(void)
 {
 	atexit(leakss);
-	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 	//Cat	*my_cat;
@@ -25,7 +24,6 @@ int		main(void)
 	//my_cat = my_cat_2;
 	//cout << my_cat_2->brain << endl;;
 	//cout << my_cat->brain << endl;;
-	meta->makeSound();
 
 	Animal	*zoo[SIZE_ARRAY];
 	for (int k = 0; k < SIZE_ARRAY; k++)
@@ -42,7 +40,6 @@ int		main(void)
 
 	delete i;
 	delete j;
-	delete meta;
 	//delete my_cat_2;
 	return 0;
 }
