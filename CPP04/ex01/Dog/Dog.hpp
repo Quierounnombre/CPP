@@ -6,6 +6,7 @@
 # include <iostream>
 # include <string>
 # include "../Animal/Animal.hpp"
+# include "../Brain/Brain.hpp"
 
 using std::cout;
 using std::string;
@@ -15,7 +16,7 @@ using std::cerr;
 
 # define DOG_CONSTRUCTOR_LOG_COLOR "\033[1;30m"
 # define DOG_RESET_COLOR "\033[0m"
-# define DOG_DEFAULT_DO_LOG false
+# define DOG_DEFAULT_DO_LOG true
 
 # define u_int	u_int32_t
 # define n_int	int32_t
@@ -43,6 +44,7 @@ class Dog : virtual public Animal
 		bool	_do_log;
 
 	private:
+		Brain	*brain;
 		//LOG
 		//-------------------------------------------------------
 

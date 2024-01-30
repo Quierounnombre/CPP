@@ -14,7 +14,7 @@ using std::cerr;
 
 # define BRAIN_CONSTRUCTOR_LOG_COLOR "\033[1;30m"
 # define BRAIN_RESET_COLOR "\033[0m"
-# define BRAIN_DEFAULT_DO_LOG false
+# define BRAIN_DEFAULT_DO_LOG true
 
 # define BRAIN_DEFAULT_CONSTRUCTOR_LOG "Brain default constructor called"
 # define BRAIN_COPY_CONSTRUCTOR_LOG "Brain copy constructor called"

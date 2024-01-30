@@ -25,7 +25,8 @@ RESET = \033[0m
 
 CLASS =	Animal \
 		Cat \
-		Dog
+		Dog \
+		Brain
 
 MAIN = main
 
