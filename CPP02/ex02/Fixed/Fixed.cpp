@@ -95,7 +95,7 @@ void	Fixed::setRawBits(int const raw)
 
 #pragma region GETTERS
 
-int	Fixed::getRawBits(void)
+int	Fixed::getRawBits(void) const
 {
 	if (_do_log)
 	{
@@ -219,7 +219,7 @@ Fixed	&Fixed::operator--(void)
 	return (*this);
 }
 
-Fixed	&Fixed::operator++(int)
+Fixed	Fixed::operator++(int)
 {
 	Fixed	tmp = *this;
 
@@ -227,7 +227,7 @@ Fixed	&Fixed::operator++(int)
 	return (tmp);
 }
 
-Fixed	&Fixed::operator--(int)
+Fixed	Fixed::operator--(int)
 {
 	Fixed	tmp = *this;
 

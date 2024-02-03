@@ -48,7 +48,7 @@ Fixed & Fixed::operator= (const Fixed &Fixed)
 	return (*this);
 }
 
-int	Fixed::getRawBits(void)
+int	Fixed::getRawBits(void) const
 {
 	if (_do_log)
 	{

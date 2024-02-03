@@ -22,7 +22,7 @@ class Fixed
 		//Getters
 		//-------------------------------------------------------
 
-		int		getRawBits(void);
+		int		getRawBits(void) const;
 		//Setters
 		//-------------------------------------------------------
 

@@ -26,7 +26,7 @@ class Fixed
 		//Getters
 		//-------------------------------------------------------
 
-		int		getRawBits(void);
+		int		getRawBits(void) const;
 		//Setters
 		//-------------------------------------------------------
 
@@ -50,9 +50,9 @@ class Fixed
 		Fixed	operator*(Fixed const &fxd) const;
 		Fixed	operator/(Fixed const &fxd) const;
 		Fixed	&operator++(void);
-		Fixed	&operator++(int);
+		Fixed	operator++(int);
 		Fixed	&operator--(void);
-		Fixed	&operator--(int);
+		Fixed	operator--(int);
 		//COMPARASION
 		//-------------------------------------------------------
 

@@ -95,7 +95,7 @@ void	Fixed::setRawBits(int const raw)
 
 #pragma region GETTERS
 
-int	Fixed::getRawBits(void)
+int	Fixed::getRawBits(void) const
 {
 	if (_do_log)
 	{
