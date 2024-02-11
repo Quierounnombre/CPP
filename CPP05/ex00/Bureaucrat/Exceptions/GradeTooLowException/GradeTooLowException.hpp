@@ -30,8 +30,8 @@ class GradeTooLowException
 		//CONSTRUCTORS
 		//-------------------------------------------------------
 
-		GradeTooLowException(string error_msg);
-		GradeTooLowException(string error_msg, bool log);
+		GradeTooLowException(n_int min_grade);
+		GradeTooLowException(n_int min_grade, bool log);
 		GradeTooLowException(const GradeTooLowException &GradeTooLowException);
 		~GradeTooLowException();
 		GradeTooLowException & operator = (const GradeTooLowException &GradeTooLowException);
@@ -45,7 +45,7 @@ class GradeTooLowException
 		bool	_do_log;
 
 	private:
-		const string	_error_msg;
+		const n_int	_min_grade;
 		//LOG
 		//-------------------------------------------------------
 

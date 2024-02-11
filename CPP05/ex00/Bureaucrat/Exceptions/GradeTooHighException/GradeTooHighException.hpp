@@ -30,8 +30,8 @@ class GradeTooHighException
 		//CONSTRUCTORS
 		//-------------------------------------------------------
 
-		GradeTooHighException(string error_msg);
-		GradeTooHighException(string error_msg, bool log);
+		GradeTooHighException(n_int grade);
+		GradeTooHighException(n_int grade, bool log);
 		GradeTooHighException(const GradeTooHighException &GradeTooHighException);
 		~GradeTooHighException();
 		GradeTooHighException & operator = (const GradeTooHighException &GradeTooHighException);
@@ -45,7 +45,7 @@ class GradeTooHighException
 		bool	_do_log;
 
 	private:
-		const string _error_msg;
+		const n_int	_max_grade;
 
 		//LOG
 		//-------------------------------------------------------

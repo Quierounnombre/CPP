@@ -12,15 +12,15 @@ void	GradeTooLowException::constructor_log(string s)
 	}
 }
 
-GradeTooLowException::GradeTooLowException(string error_msg) :
-_error_msg(error_msg),
+GradeTooLowException::GradeTooLowException(n_int grade) :
+_min_grade(grade),
 _do_log(GRADETOOLOWEXCEPTION_DEFAULT_DO_LOG)
 {
 	constructor_log(GRADETOOLOWEXCEPTION_DEFAULT_CONSTRUCTOR_LOG);
 }
 
-GradeTooLowException::GradeTooLowException(string error_msg, bool log) :
-_error_msg(error_msg),
+GradeTooLowException::GradeTooLowException(n_int grade, bool log) :
+_min_grade(grade),
 _do_log(log)
 {
 	constructor_log(GRADETOOLOWEXCEPTION_DEFAULT_CONSTRUCTOR_LOG);
@@ -32,7 +32,7 @@ GradeTooLowException::~GradeTooLowException()
 }
 
 GradeTooLowException::GradeTooLowException(const GradeTooLowException &GradeTooLowException) :
-_error_msg(GradeTooLowException._error_msg),
+_min_grade(GradeTooLowException._min_grade),
 _do_log(GradeTooLowException._do_log)
 {
 	constructor_log(GRADETOOLOWEXCEPTION_COPY_CONSTRUCTOR_LOG);
@@ -52,5 +52,9 @@ GradeTooLowException & GradeTooLowException::operator= (const GradeTooLowExcepti
 
 const string	GradeTooLowException::what() const
 {
-	return (_error_msg);
+	string	s;
+
+	s = "Bureaucrat grade is to low ";
+	s.append(std::to_string(_min_grade));
+	return (s);
 }

@@ -38,8 +38,7 @@ _do_log(Bureaucrat._do_log)
 	constructor_log(BUREAUCRAT_COPY_CONSTRUCTOR_LOG);
 }
 
-Bureaucrat & Bureaucrat::operator= (const Bureaucrat &Bureaucrat) :
-_name(Bureaucrat._name);
+Bureaucrat & Bureaucrat::operator= (const Bureaucrat &Bureaucrat)
 {
 	constructor_log(BUREAUCRAT_COPY_ASSIGNMENT_LOG);
 	if (this != & Bureaucrat)
@@ -58,9 +57,9 @@ void	Bureaucrat::setGrade(n_int new_grade)
 	if (check_grade_change(new_grade))
 		this->_grade = new_grade;
 	else if (new_grade <= MIN_BUREAUCRAT_GRADE)
-		throw GradeTooLowException("Grade can't be lower than " + MIN_BUREAUCRAT_GRADE);
+		throw GradeTooLowException(MIN_BUREAUCRAT_GRADE);
 	else
-		throw GradeTooHighException("Grade can't be greater than " + MAX_BUREAUCRAT_GRADE);
+		throw GradeTooHighException(MAX_BUREAUCRAT_GRADE);
 }
 
 #pragma endregion

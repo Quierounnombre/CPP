@@ -12,15 +12,15 @@ void	GradeTooHighException::constructor_log(string s)
 	}
 }
 
-GradeTooHighException::GradeTooHighException(string error_msg) :
-_error_msg(error_msg),
+GradeTooHighException::GradeTooHighException(n_int grade) :
+_max_grade(grade),
 _do_log(GRADETOOHIGHEXCEPTION_DEFAULT_DO_LOG)
 {
 	constructor_log(GRADETOOHIGHEXCEPTION_DEFAULT_CONSTRUCTOR_LOG);
 }
 
-GradeTooHighException::GradeTooHighException(string error_msg, bool log) :
-_error_msg(error_msg),
+GradeTooHighException::GradeTooHighException(n_int grade, bool log) :
+_max_grade(grade),
 _do_log(log)
 {
 	constructor_log(GRADETOOHIGHEXCEPTION_DEFAULT_CONSTRUCTOR_LOG);
@@ -32,7 +32,7 @@ GradeTooHighException::~GradeTooHighException()
 }
 
 GradeTooHighException::GradeTooHighException(const GradeTooHighException &GradeTooHighException) :
-_error_msg(GradeTooHighException._error_msg),
+_max_grade(GradeTooHighException._max_grade),
 _do_log(GradeTooHighException._do_log)
 {
 	constructor_log(GRADETOOHIGHEXCEPTION_COPY_CONSTRUCTOR_LOG);
@@ -52,5 +52,9 @@ GradeTooHighException & GradeTooHighException::operator= (const GradeTooHighExce
 
 const string	GradeTooHighException::what() const
 {
-	return (_error_msg);
+	string	s;
+
+	s = "Bureaucrat grade is to low ";
+	s.append(std::to_string(_max_grade));
+	return (s);
 }

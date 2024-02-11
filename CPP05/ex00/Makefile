@@ -1,10 +1,10 @@
+NAME = HACIENDA
+
 CC = c++ -std=c++98
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 DEFINES = -D RUN_TEST=0
-AR = ar rcs
 
-NAME = Bureaucrat.a
 
 RED =   \033[0;31m
 GREEN = \033[0;32m
@@ -23,33 +23,19 @@ LYELLOW = \033[1;33m
 WHITE = \033[1;37m
 RESET = \033[0m
 
-FILES_EXCEPTIONS = \
-	GradeTooHighException \
-	GradeTooLowException \
+CLASS =	
 
-EXCEPTIONS_DIR = ./Exceptions/
-SRCS_EXCEPTIONS = $(addprefix $(EXCEPTIONS_DIR), $(addsuffix .cpp, $(foreach wrd,$(FILES_EXCEPTIONS),$(wrd)/$(wrd))))
+MAIN = main
 
-FILES_GRADES = \
-	check_grade_change \
-	decrementGrade \
-	incrementGrade \
+BUREAUCRAT_FILES = $(addsuffix .cpp, )
 
-GRADES_DIR = ./Grades/
-SRCS_GRADES = $(addprefix $(GRADES_DIR), $(addsuffix .cpp, $(foreach wrd,$(GRADES_EXCEPTIONS),$(wrd))))
-
-FILES_BUREAUCRAT = Bureaucrat
-SRCS_BUREAUCRAT = $(addsuffix .cpp, $(foreach wrd,$(FILES_BUREAUCRAT),$(wrd)))
-
-SRCS =	\
-	$(SRCS_EXCEPTIONS) \
-	$(SRCS_GRADES) \
-	$(SRCS_BUREAUCRAT) \
-
-OBJS =	${SRCS:.cpp=.o}
+SRCS =	$(addsuffix .cpp, $(foreach wrd,$(CLASS),$(wrd)/$(wrd))) \
+		$(addsuffix .cpp, $(MAIN))
+OBJS =	$(addsuffix .o, $(foreach wrd,$(CLASS),$(wrd)/$(wrd))) \
+		$(addsuffix .o, $(MAIN))
 
 $(NAME): $(OBJS)
-	@$(AR) $@ $^
+	@$(CC) $(CFLAGS) $(DEFINES) -o $(NAME) $(OBJS)
 	@echo "$(GREEN)\n$(NAME) compile\n$(RESET)" 
 
 all: $(NAME)
