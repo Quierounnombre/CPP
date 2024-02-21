@@ -81,3 +81,13 @@ n_int	Bureaucrat::getGrade(void) const
 }
 
 #pragma endregion
+
+#pragma region OPERATOS
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &f)
+{
+	out << f.getName() << ", bureaucrat grade " << f.getGrade() << endl;
+	return (out);
+}
+
+#pragma endregion

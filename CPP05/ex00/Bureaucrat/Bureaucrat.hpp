@@ -75,4 +75,6 @@ class Bureaucrat
 		void	constructor_log(string s);
 };
 
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &f);
+
 #endif

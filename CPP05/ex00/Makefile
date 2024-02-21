@@ -25,6 +25,8 @@ RESET = \033[0m
 
 CLASS := Bureaucrat
 
+CLASS_LIBS = $(addsuffix .a, $(foreach wrd,$(CLASS),$(wrd)/$(wrd)))
+
 MAIN = main
 
 BUREAUCRAT_FILES = $(addsuffix .cpp, )
@@ -35,7 +37,7 @@ $(NAME): $(OBJS)
 	@for dir in $(CLASS); do \
 		$(MAKE) -C $$dir all; \
 	done
-	@$(CC) $(CFLAGS) $(DEFINES) -o $(NAME) $(OBJS)
+	@$(CC) $(CFLAGS) $(CLASS_LIBS) $(DEFINES) -o $(NAME) $(OBJS)
 	@echo "$(GREEN)\n$(NAME) compile\n$(RESET)" 
 
 all: $(NAME)
