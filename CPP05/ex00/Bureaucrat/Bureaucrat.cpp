@@ -12,17 +12,21 @@ void	Bureaucrat::constructor_log(string s)
 	}
 }
 
-Bureaucrat::Bureaucrat(string name) :
+Bureaucrat::Bureaucrat(string name, n_int grade) :
 _name(name),
 _do_log(BUREAUCRAT_DEFAULT_DO_LOG)
 {
+	_grade = 0;
+	setGrade(grade);
 	constructor_log(BUREAUCRAT_DEFAULT_CONSTRUCTOR_LOG);
 }
 
-Bureaucrat::Bureaucrat(string name, bool log) :
+Bureaucrat::Bureaucrat(string name, n_int grade, bool log) :
 _name(name),
 _do_log(log)
 {
+	_grade = 0;
+	setGrade(grade);
 	constructor_log(BUREAUCRAT_DEFAULT_CONSTRUCTOR_LOG);
 }
 

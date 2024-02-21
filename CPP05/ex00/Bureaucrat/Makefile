@@ -36,7 +36,7 @@ FILES_GRADES = \
 	incrementGrade \
 
 GRADES_DIR = ./Grades/
-SRCS_GRADES = $(addprefix $(GRADES_DIR), $(addsuffix .cpp, $(foreach wrd,$(GRADES_EXCEPTIONS),$(wrd))))
+SRCS_GRADES = $(addprefix $(GRADES_DIR), $(addsuffix .cpp, $(FILES_GRADES)))
 
 FILES_BUREAUCRAT = Bureaucrat
 SRCS_BUREAUCRAT = $(addsuffix .cpp, $(foreach wrd,$(FILES_BUREAUCRAT),$(wrd)))

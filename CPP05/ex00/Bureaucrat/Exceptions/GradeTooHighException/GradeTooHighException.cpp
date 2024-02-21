@@ -54,7 +54,7 @@ const string	GradeTooHighException::what() const
 {
 	string	s;
 
-	s = "Bureaucrat grade is to low ";
+	s = "Bureaucrat grade is to high ";
 	s.append(std::to_string(_max_grade));
 	return (s);
 }

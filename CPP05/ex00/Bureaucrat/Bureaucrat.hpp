@@ -36,8 +36,8 @@ class Bureaucrat
 		//CONSTRUCTORS
 		//-------------------------------------------------------
 
-		Bureaucrat(string name);
-		Bureaucrat(string name, bool log);
+		Bureaucrat(string name, n_int grade);
+		Bureaucrat(string name, n_int grade, bool log);
 		Bureaucrat(const Bureaucrat &Bureaucrat);
 		~Bureaucrat();
 		Bureaucrat & operator = (const Bureaucrat &Bureaucrat);

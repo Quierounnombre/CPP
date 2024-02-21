@@ -23,29 +23,34 @@ LYELLOW = \033[1;33m
 WHITE = \033[1;37m
 RESET = \033[0m
 
-CLASS =	
+CLASS := Bureaucrat
 
 MAIN = main
 
 BUREAUCRAT_FILES = $(addsuffix .cpp, )
 
-SRCS =	$(addsuffix .cpp, $(foreach wrd,$(CLASS),$(wrd)/$(wrd))) \
-		$(addsuffix .cpp, $(MAIN))
-OBJS =	$(addsuffix .o, $(foreach wrd,$(CLASS),$(wrd)/$(wrd))) \
-		$(addsuffix .o, $(MAIN))
+OBJS =	$(addsuffix .o, $(MAIN))
 
 $(NAME): $(OBJS)
+	@for dir in $(CLASS); do \
+		$(MAKE) -C $$dir all; \
+	done
 	@$(CC) $(CFLAGS) $(DEFINES) -o $(NAME) $(OBJS)
 	@echo "$(GREEN)\n$(NAME) compile\n$(RESET)" 
 
 all: $(NAME)
-	@echo $(FILES)
 
-clean:
+clean: $(CLASS)
+	@for dir in $(CLASS); do \
+		$(MAKE) -C $$dir clean; \
+	done
 	@$(RM) $(OBJS)
 	@echo "$(YELLOW)\nFiles .o cleaned\n$(RESET)"
 
 fclean: clean
+	@for dir in $(CLASS); do \
+		$(MAKE) -C $$dir fclean; \
+	done
 	@$(RM) $(NAME) 
 	@echo "$(RED)\n$(NAME) cleaned\n$(RESET)"
 
@@ -53,6 +58,7 @@ test:
 	@echo $(FILES)
 
 re: fclean all
+
 
 .PHONY: all clean fclean re test
 
