@@ -26,7 +26,7 @@ _do_log(log)
 	constructor_log(GRADETOOHIGHEXCEPTION_DEFAULT_CONSTRUCTOR_LOG);
 }
 
-GradeTooHighException::~GradeTooHighException()
+GradeTooHighException::~GradeTooHighException() _NOEXCEPT
 {
 	constructor_log(GRADETOOHIGHEXCEPTION_DESTRUCTOR_LOG);
 }
@@ -50,11 +50,11 @@ GradeTooHighException & GradeTooHighException::operator= (const GradeTooHighExce
 
 #pragma endregion
 
-const string	GradeTooHighException::what() const
+const char	*GradeTooHighException::what() const _NOEXCEPT
 {
 	string	s;
 
 	s = "Bureaucrat grade is to high ";
 	s.append(std::to_string(_max_grade));
-	return (s);
+	return (s.c_str());
 }

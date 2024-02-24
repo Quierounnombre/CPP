@@ -26,7 +26,7 @@ _do_log(log)
 	constructor_log(GRADETOOLOWEXCEPTION_DEFAULT_CONSTRUCTOR_LOG);
 }
 
-GradeTooLowException::~GradeTooLowException()
+GradeTooLowException::~GradeTooLowException() _NOEXCEPT
 {
 	constructor_log(GRADETOOLOWEXCEPTION_DESTRUCTOR_LOG);
 }
@@ -50,11 +50,11 @@ GradeTooLowException & GradeTooLowException::operator= (const GradeTooLowExcepti
 
 #pragma endregion
 
-const string	GradeTooLowException::what() const
+const char	*GradeTooLowException::what() const _NOEXCEPT
 {
 	string	s;
 
 	s = "Bureaucrat grade is to low ";
 	s.append(std::to_string(_min_grade));
-	return (s);
+	return (s.c_str());
 }

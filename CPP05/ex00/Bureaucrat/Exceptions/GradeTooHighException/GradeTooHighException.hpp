@@ -24,7 +24,7 @@ using std::cerr;
 # define u_int	u_int32_t
 # define n_int	int32_t
 
-class GradeTooHighException
+class GradeTooHighException : public std::exception
 {
 	public:
 		//CONSTRUCTORS
@@ -33,13 +33,13 @@ class GradeTooHighException
 		GradeTooHighException(n_int grade);
 		GradeTooHighException(n_int grade, bool log);
 		GradeTooHighException(const GradeTooHighException &GradeTooHighException);
-		~GradeTooHighException();
+		~GradeTooHighException() _NOEXCEPT;
 		GradeTooHighException & operator = (const GradeTooHighException &GradeTooHighException);
 
 		//WHAT
 		//-------------------------------------------------------
 
-		const string what() const;
+		const char *what() const _NOEXCEPT;
 
 	protected:
 		bool	_do_log;

@@ -61,9 +61,9 @@ void	Bureaucrat::setGrade(n_int new_grade)
 	if (check_grade_change(new_grade))
 		this->_grade = new_grade;
 	else if (new_grade <= MIN_BUREAUCRAT_GRADE)
-		throw GradeTooLowException(MIN_BUREAUCRAT_GRADE);
+		throw GradeTooLowException(new_grade);
 	else
-		throw GradeTooHighException(MAX_BUREAUCRAT_GRADE);
+		throw GradeTooHighException(new_grade);
 }
 
 #pragma endregion
