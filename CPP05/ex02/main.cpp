@@ -61,16 +61,8 @@ int	main(void)
 	{
 		cerr << CAUGHT_EXCEPTION << e.what() << endl;
 	}
-	try
-	{
-		M.incrementGrade(40);
-		F.execute(M);
-		cout << "Garden renewed" << endl;
-	}
-	catch (const std::exception &e)
-	{
-		cerr << CAUGHT_EXCEPTION << e.what() << endl;
-	}
+	M.incrementGrade(40);
+	M.executeForm(F);
 	try
 	{
 		R.beSigned(M);
@@ -103,11 +95,11 @@ int	main(void)
 	{
 		M.incrementGrade(40);
 		cout << M;
-		R.execute(M);
-		R.execute(M);
-		R.execute(M);
-		R.execute(M);
-		R.execute(M);
+		M.executeForm(R);
+		M.executeForm(R);
+		M.executeForm(R);
+		M.executeForm(R);
+		M.executeForm(R);
 	}
 	catch (const std::exception &e)
 	{
@@ -117,7 +109,7 @@ int	main(void)
 	{
 		Bureaucrat C("CLAUDIO", 1);
 		P.beSigned(C);
-		P.execute(C);
+		C.executeForm(P);
 	}
 	catch (const std::exception &e)
 	{

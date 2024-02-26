@@ -32,6 +32,7 @@ BUREAUCRAT_DIR = Bureaucrat
 
 BUREAUCRAT_PAPERWORK = \
 	signForm \
+	executeForm \
 
 BUREAUCRAT_PAPERWORK_DIR = Paperwork/
 BUREAUCRAT_SRCS_PAPERWORK = \

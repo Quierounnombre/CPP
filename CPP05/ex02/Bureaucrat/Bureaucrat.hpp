@@ -69,6 +69,7 @@ class Bureaucrat
 		//-------------------------------------------------------
 
 		void	signForm(AForm &F);
+		void	executeForm(AForm const & Form);
 
 	protected:
 		bool	_do_log;
