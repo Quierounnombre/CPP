@@ -6,8 +6,8 @@
 # include <iostream>
 # include <string>
 
-# include "Exceptions/GradeTooHighException/GradeTooHighException.hpp"
-# include "Exceptions/GradeTooLowException/GradeTooLowException.hpp"
+# include "../Exceptions/GradeTooHighException/GradeTooHighException.hpp"
+# include "../Exceptions/GradeTooLowException/GradeTooLowException.hpp"
 
 # include "../AForm/AForm.hpp"
 

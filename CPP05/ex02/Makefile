@@ -29,13 +29,6 @@ MAIN = main
 
 BUREAUCRAT_DIR = Bureaucrat
 
-BUREAUCRAT_EXCEPTIONS = \
-	GradeTooHighException \
-	GradeTooLowException \
-
-BUREAUCRAT_EXCEPTIONS_DIR = Exceptions/
-BUREAUCRAT_SRCS_EXCEPTIONS = \
-$(addprefix $(BUREAUCRAT_EXCEPTIONS_DIR), $(addsuffix .cpp, $(foreach wrd,$(BUREAUCRAT_EXCEPTIONS),$(wrd)/$(wrd))))
 
 BUREAUCRAT_PAPERWORK = \
 	signForm \
@@ -58,7 +51,6 @@ BUREAUCRAT_SRCS_CLASS = \
 $(addsuffix .cpp, $(foreach wrd,$(BUREAUCRAT_CLASS),$(wrd)))
 
 BUREAUCRAT_SRCS =	\
-	$(BUREAUCRAT_SRCS_EXCEPTIONS) \
 	$(BUREAUCRAT_SRCS_GRADES) \
 	$(BUREAUCRAT_SRCS_CLASS) \
 	$(BUREAUCRAT_SRCS_PAPERWORK) \
@@ -69,6 +61,7 @@ AFORM_DIR = AForm
 
 AFORM_STATUS = \
 	beSigned \
+	can_be_Execute \
 
 AFORM_STATUS_DIR = Status/
 AFORM_SRCS_STATUS = \
@@ -89,7 +82,7 @@ SHRUBBERYCREATIONFORM_CLASS = ShrubberyCreationForm
 SHRUBBERYCREATIONFORM_SRCS_CLASS = $(addsuffix .cpp, $(SHRUBBERYCREATIONFORM_CLASS))
 
 SHRUBBERYCREATIONFORM_STATUS = \
-	beSigned \
+	execute \
 
 SHRUBBERYCREATIONFORM_STATUS_DIR = Status/
 SHRUBBERYCREATIONFORM_SRCS_STATUS = \
@@ -99,12 +92,24 @@ SHRUBBERYCREATIONFORM_SRCS = \
 	$(SHRUBBERYCREATIONFORM_SRCS_CLASS) \
 	$(SHRUBBERYCREATIONFORM_SRCS_STATUS) \
 
+#-------------------------------------------------------------------EXCEPTIONS
+
+EXCEPTIONS = \
+	GradeTooHighException \
+	GradeTooLowException \
+	FormNotSign \
+
+EXCEPTIONS_DIR = Exceptions/
+SRCS_EXCEPTIONS = \
+$(addprefix $(EXCEPTIONS_DIR), $(addsuffix .cpp, $(foreach wrd,$(EXCEPTIONS),$(wrd)/$(wrd))))
+
 #-------------------------------------------------------------------SRCS
 
 SRCS =	\
 		$(addprefix $(BUREAUCRAT_DIR)/, $(BUREAUCRAT_SRCS)) \
 		$(addprefix $(AFORM_DIR)/, $(AFORM_SRCS)) \
 		$(addprefix $(SHRUBBERYCREATIONFORM_DIR)/, $(SHRUBBERYCREATIONFORM_SRCS)) \
+		$(SRCS_EXCEPTIONS) \
 		$(addsuffix .cpp, $(MAIN)) \
 
 

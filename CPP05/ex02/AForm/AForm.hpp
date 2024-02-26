@@ -7,6 +7,7 @@
 # include <string>
 
 # include "../Bureaucrat/Bureaucrat.hpp"
+# include "../Exceptions/FormNotSign/FormNotSign.hpp"
 
 using std::cout;
 using std::string;
@@ -54,7 +55,9 @@ class AForm
 		//STATUS
 		//-------------------------------------------------------
 
-		virtual void	beSigned(Bureaucrat &B) = 0;
+		void			beSigned(Bureaucrat &B);
+		virtual void	execute(Bureaucrat const &B) const = 0;
+		void			can_be_Executed(Bureaucrat const &B) const;
 	protected:
 		bool	_do_log;
 

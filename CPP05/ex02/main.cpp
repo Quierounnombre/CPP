@@ -7,7 +7,7 @@
 int	main(void)
 {
 	ShrubberyCreationForm	F("Renew the garden");
-	Bureaucrat				M("MARCOS", 43);
+	Bureaucrat				M("MARCOS", 146);
 
 	cout << M;
 	cout << F;
@@ -19,6 +19,15 @@ int	main(void)
 	catch(const std::exception &e)
 	{
 		cerr << CAUGHT_EXCEPTION << e.what() << endl;
+	try
+	{
+		Bureaucrat	B("BOBERTO", 140);
+		F.execute(B);
+	}
+	catch (const std::exception &e)
+	{
+		cerr << CAUGHT_EXCEPTION << e.what() << endl;
+	}
 	}
 	try
 	{
@@ -42,6 +51,16 @@ int	main(void)
 		F.beSigned(C);
 		cout << C;
 		cout << F;
+	}
+	catch (const std::exception &e)
+	{
+		cerr << CAUGHT_EXCEPTION << e.what() << endl;
+	}
+	try
+	{
+		M.incrementGrade(40);
+		F.execute(M);
+		cout << "Garden renewed" << endl;
 	}
 	catch (const std::exception &e)
 	{

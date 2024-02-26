@@ -5,6 +5,7 @@
 
 # include <iostream>
 # include <string>
+# include <fstream>
 
 # include "../AForm/AForm.hpp"
 
@@ -26,6 +27,18 @@ using std::cerr;
 # define SHRUBBERYCREATIONFORM_SIGN_REQS 145
 # define SHRUBBERYCREATIONFORM_EXEC_REQS 137
 
+# define SHRUBBERYCREATIONFORM_TREE \
+"       _-_\n\
+    /~~   ~~\\\n\
+ /~~         ~~\\\n\
+{               }\n\
+ \\  _-     -_  /\n\
+   ~  \\\\ //  ~\n\
+_- -   | | _- _\n\
+  _ -  | |   -_\n\
+      // \\\n"
+
+
 # define u_int	u_int32_t
 # define n_int	int32_t
 
@@ -44,8 +57,7 @@ class ShrubberyCreationForm : public AForm
 		//STATUS
 		//-------------------------------------------------------
 
-		void	beSigned(Bureaucrat &B);
-
+		void	execute(Bureaucrat const &B) const;
 	protected:
 		bool	_do_log;
 
