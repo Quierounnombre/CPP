@@ -2,14 +2,16 @@
 #include "AForm/AForm.hpp"
 #include "ShrubberyCreationForm/ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm/RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm/PresidentialPardonForm.hpp"
 
 # define CAUGHT_EXCEPTION "Caught exception: "
 
 int	main(void)
 {
-	ShrubberyCreationForm	F("Renew the garden");
+	ShrubberyCreationForm	F("/Users/vicgarci/Desktop/CPP/CPP05/ex02/AForm/");
 	RobotomyRequestForm		R("CLAUBOTICE");
 	Bureaucrat				M("MARCOS", 146);
+	PresidentialPardonForm	P("MARCOS");
 
 	std::srand(std::time(NULL));
 	cout << M;
@@ -106,6 +108,16 @@ int	main(void)
 		R.execute(M);
 		R.execute(M);
 		R.execute(M);
+	}
+	catch (const std::exception &e)
+	{
+		cerr << CAUGHT_EXCEPTION << e.what() << endl;
+	}
+	try
+	{
+		Bureaucrat C("CLAUDIO", 1);
+		P.beSigned(C);
+		P.execute(C);
 	}
 	catch (const std::exception &e)
 	{

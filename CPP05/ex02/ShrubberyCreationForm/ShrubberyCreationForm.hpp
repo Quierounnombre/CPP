@@ -24,6 +24,8 @@ using std::cerr;
 # define SHRUBBERYCREATIONFORM_COPY_ASSIGNMENT_LOG "ShruberryCrationForm copy assignment called"
 # define SHRUBBERYCREATIONFORM_DESTRUCTOR_LOG "ShruberryCrationForm destructor called"
 
+# define SHRUBBERYCREATIONFORM_FILE_NAME "shrubbery"
+
 # define SHRUBBERYCREATIONFORM_SIGN_REQS 145
 # define SHRUBBERYCREATIONFORM_EXEC_REQS 137
 
