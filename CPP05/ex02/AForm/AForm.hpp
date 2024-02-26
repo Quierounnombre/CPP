@@ -8,6 +8,7 @@
 
 # include "../Bureaucrat/Bureaucrat.hpp"
 # include "../Exceptions/FormNotSign/FormNotSign.hpp"
+# include "../Exceptions/FormAlreadySigned/FormAlreadySigned.hpp"
 
 using std::cout;
 using std::string;

@@ -92,12 +92,31 @@ SHRUBBERYCREATIONFORM_SRCS = \
 	$(SHRUBBERYCREATIONFORM_SRCS_CLASS) \
 	$(SHRUBBERYCREATIONFORM_SRCS_STATUS) \
 
+#-------------------------------------------------------------------ROBOTOMYREQUESTFORM
+
+ROBOTOMYREQUESTFORM_DIR = robotomyrequestform
+
+ROBOTOMYREQUESTFORM_CLASS = RobotomyRequestForm
+ROBOTOMYREQUESTFORM_SRCS_CLASS = $(addsuffix .cpp, $(ROBOTOMYREQUESTFORM_CLASS))
+
+ROBOTOMYREQUESTFORM_STATUS = \
+	execute \
+
+ROBOTOMYREQUESTFORM_STATUS_DIR = Status/
+ROBOTOMYREQUESTFORM_SRCS_STATUS = \
+$(addprefix $(ROBOTOMYREQUESTFORM_STATUS_DIR), $(addsuffix .cpp, $(ROBOTOMYREQUESTFORM_STATUS)))
+
+ROBOTOMYREQUESTFORM_SRCS = \
+	$(ROBOTOMYREQUESTFORM_SRCS_CLASS) \
+	$(ROBOTOMYREQUESTFORM_SRCS_STATUS) \
+
 #-------------------------------------------------------------------EXCEPTIONS
 
 EXCEPTIONS = \
 	GradeTooHighException \
 	GradeTooLowException \
 	FormNotSign \
+	FormAlreadySigned \
 
 EXCEPTIONS_DIR = Exceptions/
 SRCS_EXCEPTIONS = \
@@ -109,6 +128,7 @@ SRCS =	\
 		$(addprefix $(BUREAUCRAT_DIR)/, $(BUREAUCRAT_SRCS)) \
 		$(addprefix $(AFORM_DIR)/, $(AFORM_SRCS)) \
 		$(addprefix $(SHRUBBERYCREATIONFORM_DIR)/, $(SHRUBBERYCREATIONFORM_SRCS)) \
+		$(addprefix $(ROBOTOMYREQUESTFORM_DIR)/, $(ROBOTOMYREQUESTFORM_SRCS)) \
 		$(SRCS_EXCEPTIONS) \
 		$(addsuffix .cpp, $(MAIN)) \
 

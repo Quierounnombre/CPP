@@ -20,7 +20,7 @@ _do_log(SHRUBERRYCRATIONFORM_DEFAULT_DO_LOG)
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(string name, bool log) :
-AForm(name, SHRUBBERYCREATIONFORM_SIGN_REQS, SHRUBBERYCREATIONFORM_EXEC_REQS),
+AForm(name, SHRUBBERYCREATIONFORM_SIGN_REQS, SHRUBBERYCREATIONFORM_EXEC_REQS, log),
 _do_log(log)
 {
 	constructor_log(SHRUBBERYCREATIONFORM_DEFAULT_CONSTRUCTOR_LOG);
@@ -32,7 +32,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &ShrubberyCreationForm) :
-AForm(ShrubberyCreationForm.getName(), ShrubberyCreationForm.getGradeToSign(), ShrubberyCreationForm.getGradeToExecute()),
+AForm(ShrubberyCreationForm.getName(), ShrubberyCreationForm.getGradeToSign(), ShrubberyCreationForm.getGradeToExecute(), ShrubberyCreationForm._do_log),
 _do_log(ShrubberyCreationForm._do_log)
 {
 	constructor_log(SHRUBBERYCREATIONFORM_COPY_CONSTRUCTOR_LOG);
