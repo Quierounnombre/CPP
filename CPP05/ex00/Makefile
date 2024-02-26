@@ -25,39 +25,59 @@ RESET = \033[0m
 
 CLASS := Bureaucrat
 
-CLASS_LIBS = $(addsuffix .a, $(foreach wrd,$(CLASS),$(wrd)/$(wrd)))
 
 MAIN = main
 
-BUREAUCRAT_FILES = $(addsuffix .cpp, )
+#-------------------------------------------------------------------BUREAUCRAT
 
-OBJS =	$(addsuffix .o, $(MAIN))
+BUREAUCRAT_DIR = Bureaucrat
+
+FILES_EXCEPTIONS = \
+	GradeTooHighException \
+	GradeTooLowException \
+
+EXCEPTIONS_DIR = Exceptions/
+SRCS_EXCEPTIONS = $(addprefix $(EXCEPTIONS_DIR), $(addsuffix .cpp, $(foreach wrd,$(FILES_EXCEPTIONS),$(wrd)/$(wrd))))
+
+FILES_GRADES = \
+	check_grade_change \
+	decrementGrade \
+	incrementGrade \
+
+GRADES_DIR = Grades/
+SRCS_GRADES = $(addprefix $(GRADES_DIR), $(addsuffix .cpp, $(FILES_GRADES)))
+
+FILES_BUREAUCRAT = Bureaucrat
+SRCS_BUREAUCRAT_CLASS = $(addsuffix .cpp, $(foreach wrd,$(FILES_BUREAUCRAT),$(wrd)))
+
+SRCS_BUREAUCRAT =	\
+	$(SRCS_EXCEPTIONS) \
+	$(SRCS_GRADES) \
+	$(SRCS_BUREAUCRAT_CLASS) \
+
+#-------------------------------------------------------------------SRCS
+
+SRCS =	$(addprefix $(BUREAUCRAT_DIR)/, $(SRCS_BUREAUCRAT)) \
+		$(addsuffix .cpp, $(MAIN))
+
+
+#-------------------------------------------------------------------RULES
+
+OBJS =	${SRCS:.cpp=.o}
 
 $(NAME): $(OBJS)
-	@for dir in $(CLASS); do \
-		$(MAKE) -C $$dir all; \
-	done
-	@$(CC) $(CFLAGS) $(CLASS_LIBS) $(DEFINES) -o $(NAME) $(OBJS)
+	@$(CC) $(CFLAGS) $(DEFINES) -o $(NAME) $(OBJS)
 	@echo "$(GREEN)\n$(NAME) compile\n$(RESET)" 
 
 all: $(NAME)
 
 clean: $(CLASS)
-	@for dir in $(CLASS); do \
-		$(MAKE) -C $$dir clean; \
-	done
 	@$(RM) $(OBJS)
 	@echo "$(YELLOW)\nFiles .o cleaned\n$(RESET)"
 
 fclean: clean
-	@for dir in $(CLASS); do \
-		$(MAKE) -C $$dir fclean; \
-	done
 	@$(RM) $(NAME) 
 	@echo "$(RED)\n$(NAME) cleaned\n$(RESET)"
-
-test:
-	@echo $(FILES)
 
 re: fclean all
 
