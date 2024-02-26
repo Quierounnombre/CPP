@@ -99,3 +99,12 @@ std::ostream &operator<<(std::ostream &out, const AForm &f)
 }
 
 #pragma endregion
+
+#pragma region SETTERS
+
+void	AForm::setSigned(bool sign)
+{
+	this->_signed = sign;
+}
+
+#pragma endregion

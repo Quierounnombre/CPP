@@ -1,12 +1,13 @@
 #include "Bureaucrat/Bureaucrat.hpp"
 #include "AForm/AForm.hpp"
+#include "ShrubberyCreationForm/ShrubberyCreationForm.hpp"
 
 # define CAUGHT_EXCEPTION "Caught exception: "
 
 int	main(void)
 {
-	AForm		F("Execution", 1, 100);
-	Bureaucrat	M("MARCOS", 43);
+	ShrubberyCreationForm	F("Renew the garden");
+	Bureaucrat				M("MARCOS", 43);
 
 	cout << M;
 	cout << F;

@@ -50,13 +50,18 @@ class AForm
 		n_int	getGradeToSign(void) const;
 		n_int	getGradeToExecute(void) const;
 
+
 		//STATUS
 		//-------------------------------------------------------
 
-		void	beSigned(Bureaucrat &B);
+		virtual void	beSigned(Bureaucrat &B) = 0;
 	protected:
 		bool	_do_log;
 
+		//SETTERS
+		//-------------------------------------------------------
+
+		void	setSigned(bool sign);
 	private:
 		string		_name;
 		bool		_signed;
@@ -67,6 +72,7 @@ class AForm
 		//-------------------------------------------------------
 
 		void	constructor_log(string s);
+
 };
 
 std::ostream &operator<<(std::ostream &out, const AForm &f);
