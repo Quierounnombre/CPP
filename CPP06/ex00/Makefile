@@ -27,21 +27,35 @@ MAIN = main
 
 #-------------------------------------------------------------------SCALARCONVERTER
 
-SCALARCONVERTER_DIR = SCALARCONVERTER_STATUS
+SCALARCONVERTER_DIR = ScalarConverter
 
 SCALARCONVERTER_CLASS = $(SCALARCONVERTER_DIR)
 SCALARCONVERTER_SRCS_CLASS = $(addsuffix .cpp, $(SCALARCONVERTER_CLASS))
 
-SCALARCONVERTER_STATUS = \
-	execute \
+SCALARCONVERTER_PARSE = \
+	check_bad_string \
+	check_dup_chars \
+	check_multiple_chars \
+	check_named_exceptions \
+	check_string \
+	check_illegal_chars \
 
-SCALARCONVERTER_STATUS_DIR = Status/
-SCALARCONVERTER_SRCS_STATUS = \
-$(addprefix $(SCALARCONVERTER_STATUS_DIR), $(addsuffix .cpp, $(SCALARCONVERTER_STATUS)))
+SCALARCONVERTER_PARSE_DIR = Parse/
+SCALARCONVERTER_SRCS_PARSE = \
+$(addprefix $(SCALARCONVERTER_PARSE_DIR), $(addsuffix .cpp, $(SCALARCONVERTER_PARSE)))
+
+SCALARCONVERTER_ERROR_MANAGMENT = \
+	error_mng \
+
+
+SCALARCONVERTER_ERROR_MANAGMENT_DIR = Error_managment/
+SCALARCONVERTER_SRCS_ERROR_MANAGMENT = \
+$(addprefix $(SCALARCONVERTER_ERROR_MANAGMENT_DIR), $(addsuffix .cpp, $(SCALARCONVERTER_ERROR_MANAGMENT)))
 
 SCALARCONVERTER_SRCS = \
 	$(SCALARCONVERTER_SRCS_CLASS) \
-	$(SCALARCONVERTER_SRCS_STATUS) \
+	$(SCALARCONVERTER_SRCS_PARSE) \
+	$(SCALARCONVERTER_SRCS_ERROR_MANAGMENT) \
 
 
 #-------------------------------------------------------------------SRCS

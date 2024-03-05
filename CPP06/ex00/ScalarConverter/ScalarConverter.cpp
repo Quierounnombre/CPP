@@ -2,7 +2,5 @@
 
 void	ScalarConverter::convert(string s)
 {
-	if (check_string(s))
-	{
-	}
+	check_string(s);
 }

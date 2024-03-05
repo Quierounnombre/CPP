@@ -12,20 +12,16 @@ using std::cin;
 using std::endl;
 using std::cerr;
 
-# define SCALARCONVERTER_NAN "nan"
-# define SCALARCONVERTER_MINUS_INF "-inf"
-# define SCALARCONVERTER_MINUS_INFF "-inff"
-# define SCALARCONVERTER_PLUS_INF "+inf"
-# define SCALARCONVERTER_PLUS_INFF "+inff"
+# define TEST_PARSE_FLAG true
 
-static const char dupped_chars_lst[]
+static const char dupped_chars_lst[] =
 {
 	'-',
 	'.',
 	'f'
 };
 
-static const string	limits_exceptions_lst[]
+static const string	limits_exceptions_lst[] =
 {
 	"nan",
 	"-inf",
@@ -34,10 +30,11 @@ static const string	limits_exceptions_lst[]
 	"+inff"
 };
 
-# define SCALARCONVERTER_ERROR_MULTIPLE_CHARS "String contain multiple chars"
-# define SCALARCONVERTER_ERROR_EMPTY_STRING "Empty string"
-# define SCALARCONVERTER_ERROR_DUPED_CHARS "String contain dupped chars"
-# define SCALARCONVERTER_ERROR_BAD_STRING "Bad string"
+# define SCALARCONVERTER_ERROR_MULTIPLE_CHARS "String contain multiple chars: "
+# define SCALARCONVERTER_ERROR_EMPTY_STRING "Empty string: "
+# define SCALARCONVERTER_ERROR_DUPED_CHARS "String contain dupped chars: "
+# define SCALARCONVERTER_ERROR_BAD_STRING "Bad string: "
+# define SCALARCONVERTER_ERROR_ILLEGAL_CHARS "Illegal chars: "
 
 # define u_int	u_int32_t
 # define n_int	int32_t
@@ -49,9 +46,6 @@ class ScalarConverter
 		//-------------------------------------------------------
 
 		static void	convert(string s);
-
-	protected:
-		bool	_do_log;
 
 	private:
 		//Error Managment
@@ -67,6 +61,7 @@ class ScalarConverter
 		static bool check_dup_chars(string s);
 		static bool	check_multiple_char(string s);
 		static bool	check_bad_string(string s);
+		static bool	check_illegal_chars(string s);
 };
 
 #endif
