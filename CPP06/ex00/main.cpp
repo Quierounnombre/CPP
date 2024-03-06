@@ -1,5 +1,8 @@
 #include "ScalarConverter/ScalarConverter.hpp"
 
+//# define TEST_PARSE_FLAG false
+# define TEST_INT_CONVERSION true
+
 int	main(int argc, char **argv)
 {
 	if (TEST_PARSE_FLAG)
@@ -29,5 +32,28 @@ int	main(int argc, char **argv)
 		ScalarConverter::convert("+inf");
 		ScalarConverter::convert("+inff");
 		ScalarConverter::convert("nan");
+		ScalarConverter::convert("130.");
+		ScalarConverter::convert("130.f");
+	}
+	if (TEST_INT_CONVERSION)
+	{
+		ScalarConverter::convert("48");
+		cout << endl;
+		ScalarConverter::convert("13381");
+		cout << endl;
+		ScalarConverter::convert("44941874938471944");
+		cout << endl;
+		ScalarConverter::convert("1000000");
+		cout << endl;
+		ScalarConverter::convert("61");
+		cout << endl;
+		ScalarConverter::convert("-61");
+		cout << endl;
+		ScalarConverter::convert("-44941874938471944");
+		cout << endl;
+		ScalarConverter::convert("-0");
+		cout << endl;
+		ScalarConverter::convert("0");
+		cout << endl;
 	}
 }

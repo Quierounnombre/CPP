@@ -50,6 +50,8 @@ bool	ScalarConverter::check_bad_string(string s)
 		return (true);
 	if (s.back() == '.')
 		return (true);
+	if (s[s.size() - 2] == '.' && !std::isdigit(s.back()))
+		return (true);
 	if (string_contain_digits(s, str_size)
 		&& string_contain_char(s, str_size)
 		&& s.back() != 'f')
