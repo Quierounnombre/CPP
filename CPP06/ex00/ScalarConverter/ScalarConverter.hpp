@@ -17,6 +17,7 @@ using std::cerr;
 # endif
 
 # define SC_NAN "nan"
+# define SC_NANF "nanf"
 # define SC_MINUS_INF "-inf"
 # define SC_MINUS_INFF "-inff"
 # define SC_PLUS_INFF "+inff"
@@ -35,6 +36,7 @@ static const char dupped_chars_lst[] =
 static const string	limits_exceptions_lst[] =
 {
 	SC_NAN,
+	SC_NANF,
 	SC_MINUS_INF,
 	SC_MINUS_INFF,
 	SC_PLUS_INF,
@@ -85,6 +87,7 @@ class ScalarConverter
 		static void			convert_float(string s);
 		static void			convert_double(string s);
 		static t_data_type	getDataType(string s);
+		static void			convert_exceptions(string s);
 
 		//Error Managment
 		//-------------------------------------------------------

@@ -53,6 +53,7 @@ SCALARCONVERTER_SRCS_ERROR_MANAGMENT = \
 $(addprefix $(SCALARCONVERTER_ERROR_MANAGMENT_DIR), $(addsuffix .cpp, $(SCALARCONVERTER_ERROR_MANAGMENT)))
 
 SCALARCONVERTER_CONVERSIONS = \
+	convert_exceptions \
 	convert_char \
 	convert_float \
 	convert_double \
