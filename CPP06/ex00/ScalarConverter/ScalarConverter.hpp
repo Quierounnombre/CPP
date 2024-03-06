@@ -41,19 +41,19 @@ static const string	limits_exceptions_lst[] =
 	SC_PLUS_INFF
 };
 
-typedef n_int	data_type;
+typedef enum	e_data_type
+{
+	type_int = 1,
+	type_char = 2,
+	type_float = 3,
+	type_double = 4
+}				t_data_type;
 
 # define SCALARCONVERTER_ERROR_MULTIPLE_CHARS "String contain multiple chars: "
 # define SCALARCONVERTER_ERROR_EMPTY_STRING "Empty string: "
 # define SCALARCONVERTER_ERROR_DUPED_CHARS "String contain dupped chars: "
 # define SCALARCONVERTER_ERROR_BAD_STRING "Bad string: "
 # define SCALARCONVERTER_ERROR_ILLEGAL_CHARS "Illegal chars: "
-
-
-# define SC_DATA_TYPE_INT 1
-# define SC_DATA_TYPE_CHAR 2
-# define SC_DATA_TYPE_FLOAT 3
-# define SC_DATA_TYPE_DOUBLE 4
 
 # define SC_INT "int: "
 # define SC_CHAR "char: "
@@ -65,6 +65,8 @@ typedef n_int	data_type;
 
 # define SC_FLOAT_END ".0f"
 # define SC_DOUBLE_END ".0"
+
+# define LIMIT_TO_ADD_END 100000
 
 class ScalarConverter
 {
@@ -79,7 +81,8 @@ class ScalarConverter
 		//-------------------------------------------------------
 
 		static void			convert_int(string s);
-		static data_type	getDataType(string s);
+		static void			convert_char(string s);
+		static t_data_type	getDataType(string s);
 
 		//Error Managment
 		//-------------------------------------------------------

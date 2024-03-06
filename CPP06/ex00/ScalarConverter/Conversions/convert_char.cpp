@@ -1,27 +1,25 @@
 #include "../ScalarConverter.hpp"
 
-void	ScalarConverter::convert_int(string s)
+void	ScalarConverter::convert_char(string s)
 {
-	u_int	i;
+	n_int	i;
 	char	c;
 	float	f;
 	double	d;
 
-	i = atoi(s.c_str());
-	if (isprint(i))
-	{
-		c = (char) i;
+	c = s[0];
+	if (isprint(c))
 		cout << SC_CHAR << c << endl;
-	}
 	else
 		cout << SC_CHAR << SC_CHAR_NON_DISPLAY << endl;
+	i = (int)c;
 	cout << SC_INT << i << endl;
-	f = (float)i;
+	f = (float)c;
 	cout << SC_FLOAT << f;
 	if (i < LIMIT_TO_ADD_END)
 		cout << SC_FLOAT_END;
 	cout << endl;
-	d = (double)i;
+	d = (double)c;
 	cout << SC_DOUBLE << d;
 	if (i < LIMIT_TO_ADD_END)
 		cout << SC_DOUBLE_END;

@@ -1,16 +1,16 @@
 #include "../ScalarConverter.hpp"
 
-data_type	ScalarConverter::getDataType(string s)
+t_data_type	ScalarConverter::getDataType(string s)
 {
 	if (s.size() == 1)
 		if (std::isalpha(s[0]))
-			return (SC_DATA_TYPE_CHAR);
+			return (type_char);
 	if (s.find(".") != std::string::npos)
 	{
 		if (s.find("f") != std::string::npos)
-			return (SC_DATA_TYPE_FLOAT);
+			return (type_float);
 		else
-			return (SC_DATA_TYPE_DOUBLE);
+			return (type_double);
 	}
-	return (SC_DATA_TYPE_INT);
+	return (type_int);
 }

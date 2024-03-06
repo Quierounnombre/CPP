@@ -1,7 +1,8 @@
 #include "ScalarConverter/ScalarConverter.hpp"
 
 //# define TEST_PARSE_FLAG false
-# define TEST_INT_CONVERSION true
+# define TEST_INT_CONVERSION false
+# define TEST_CHAR_CONVERSION true
 
 int	main(int argc, char **argv)
 {
@@ -34,6 +35,7 @@ int	main(int argc, char **argv)
 		ScalarConverter::convert("nan");
 		ScalarConverter::convert("130.");
 		ScalarConverter::convert("130.f");
+		ScalarConverter::convert("\n");
 	}
 	if (TEST_INT_CONVERSION)
 	{
@@ -54,6 +56,13 @@ int	main(int argc, char **argv)
 		ScalarConverter::convert("-0");
 		cout << endl;
 		ScalarConverter::convert("0");
+		cout << endl;
+	}
+	if (TEST_CHAR_CONVERSION)
+	{
+		ScalarConverter::convert("a");
+		cout << endl;
+		ScalarConverter::convert("A");
 		cout << endl;
 	}
 }

@@ -2,10 +2,12 @@
 
 void	ScalarConverter::convert(string s)
 {
-	data_type	type;
+	t_data_type	type;
 
 	check_string(s);
 	type = getDataType(s);
-	if (type == SC_DATA_TYPE_INT)
+	if (type == type_int)
 		convert_int(s);
+	if (type == type_char)
+		convert_char(s);
 }
