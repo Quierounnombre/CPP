@@ -1,10 +1,24 @@
 #include "ScalarConverter/ScalarConverter.hpp"
 
 //# define TEST_PARSE_FLAG false
-# define TEST_INT_CONVERSION false
+# define TEST_INT_CONVERSION true
 # define TEST_CHAR_CONVERSION true
+# define TEST_FLOAT_CONVERSION true
+# define TEST_DOUBLE_CONVERSION true
+
+static void	tester(void);
 
 int	main(int argc, char **argv)
+{
+	if (argc <= 1)
+		exit(1);
+	if (argc > 2)
+		tester();
+	argv++;
+	ScalarConverter::convert(*argv);
+}
+
+static void tester(void)
 {
 	if (TEST_PARSE_FLAG)
 	{
@@ -63,6 +77,24 @@ int	main(int argc, char **argv)
 		ScalarConverter::convert("a");
 		cout << endl;
 		ScalarConverter::convert("A");
+		cout << endl;
+	}
+	if (TEST_FLOAT_CONVERSION)
+	{
+		ScalarConverter::convert("0.001f");
+		cout << endl;
+		ScalarConverter::convert("79472934672346237423841f");
+		cout << endl;
+		ScalarConverter::convert("0.748974891748914781748971401f");
+		cout << endl;
+	}
+	if (TEST_DOUBLE_CONVERSION)
+	{
+		ScalarConverter::convert("0.00f");
+		cout << endl;
+		ScalarConverter::convert("79472934672346237423841");
+		cout << endl;
+		ScalarConverter::convert("0.748974891748914781748971401");
 		cout << endl;
 	}
 }

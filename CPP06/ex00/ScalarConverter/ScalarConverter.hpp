@@ -66,7 +66,7 @@ typedef enum	e_data_type
 # define SC_FLOAT_END ".0f"
 # define SC_DOUBLE_END ".0"
 
-# define LIMIT_TO_ADD_END 100000
+# define LIMIT_TO_ADD_END 1000000
 
 class ScalarConverter
 {
@@ -82,6 +82,8 @@ class ScalarConverter
 
 		static void			convert_int(string s);
 		static void			convert_char(string s);
+		static void			convert_float(string s);
+		static void			convert_double(string s);
 		static t_data_type	getDataType(string s);
 
 		//Error Managment

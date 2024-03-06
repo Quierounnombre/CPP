@@ -54,6 +54,8 @@ $(addprefix $(SCALARCONVERTER_ERROR_MANAGMENT_DIR), $(addsuffix .cpp, $(SCALARCO
 
 SCALARCONVERTER_CONVERSIONS = \
 	convert_char \
+	convert_float \
+	convert_double \
 	convert_int \
 	getDataType \
 

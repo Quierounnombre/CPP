@@ -10,4 +10,8 @@ void	ScalarConverter::convert(string s)
 		convert_int(s);
 	if (type == type_char)
 		convert_char(s);
+	if (type == type_float)
+		convert_float(s);
+	if (type == type_double)
+		convert_double(s);
 }
