@@ -7,7 +7,7 @@ void	ScalarConverter::convert_char(string s)
 	float	f;
 	double	d;
 
-	c = s[0];
+	c = (char)s[0];
 	if (isprint(c))
 		cout << SC_CHAR << c << endl;
 	else
