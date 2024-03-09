@@ -14,4 +14,6 @@ void	ScalarConverter::check_string(string s)
 		error_mng(SCALARCONVERTER_ERROR_DUPED_CHARS + s);
 	if (check_bad_string(s))
 		error_mng(SCALARCONVERTER_ERROR_BAD_STRING + s);
+	if (check_overflow(s))
+		error_mng(SCALARCONVERTER_ERROR_OVERFLOW + s);
 }

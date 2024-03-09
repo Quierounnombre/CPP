@@ -39,6 +39,7 @@ SCALARCONVERTER_PARSE = \
 	check_named_exceptions \
 	check_string \
 	check_illegal_chars \
+	check_overflow \
 
 SCALARCONVERTER_PARSE_DIR = Parse/
 SCALARCONVERTER_SRCS_PARSE = \

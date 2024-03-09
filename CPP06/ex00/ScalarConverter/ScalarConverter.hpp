@@ -56,6 +56,7 @@ typedef enum	e_data_type
 # define SCALARCONVERTER_ERROR_DUPED_CHARS "String contain dupped chars: "
 # define SCALARCONVERTER_ERROR_BAD_STRING "Bad string: "
 # define SCALARCONVERTER_ERROR_ILLEGAL_CHARS "Illegal chars: "
+# define SCALARCONVERTER_ERROR_OVERFLOW "There is an overflow with string: "
 
 # define SC_INT "int: "
 # define SC_CHAR "char: "
@@ -103,6 +104,7 @@ class ScalarConverter
 		static bool	check_multiple_char(string s);
 		static bool	check_bad_string(string s);
 		static bool	check_illegal_chars(string s);
+		static bool	check_overflow(string s);
 };
 
 #endif
