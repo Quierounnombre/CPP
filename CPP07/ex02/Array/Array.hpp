@@ -32,9 +32,7 @@ class Array
 		//-------------------------------------------------------
 
 		Array();
-		Array(bool log);
 		Array(u_int n);
-		Array(u_int n, bool log);
 		Array(const Array &Array);
 		~Array();
 		Array & operator = (const Array &Array);
@@ -43,7 +41,7 @@ class Array
 		//OVERLOADS
 		//-------------------------------------------------------
 
-		T operator[](unsigned i);
+		T &operator[](unsigned i);
 
 		//SIZE
 		//-------------------------------------------------------

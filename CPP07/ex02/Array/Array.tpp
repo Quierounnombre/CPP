@@ -23,25 +23,8 @@ _do_log(ARRAY_DEFAULT_DO_LOG)
 }
 
 template <typename T>
-Array<T>::Array(bool log) :
-_do_log(log)
-{
-	_size = 0;
-	_arr = new T[_size];
-	constructor_log(ARRAY_DEFAULT_CONSTRUCTOR_LOG);
-}
-
-template <typename T>
-Array<T>::Array(u_int n)
-{
-	_size = n;
-	_arr = new T[_size];
-	constructor_log(ARRAY_DEFAULT_CONSTRUCTOR_LOG);
-}
-
-template <typename T>
-Array<T>::Array(u_int n, bool log) :
-_do_log(log)
+Array<T>::Array(u_int n) :
+_do_log(ARRAY_DEFAULT_DO_LOG)
 {
 	_size = n;
 	_arr = new T[_size];
@@ -69,9 +52,11 @@ _do_log(Array._do_log)
 template <typename T>
 Array<T> & Array<T>::operator= (const Array &Array)
 {
+	cout << "here!" << endl;
 	constructor_log(ARRAY_COPY_ASSIGNMENT_LOG);
-	if (this != & Array)
+	if (this != &Array)
 	{
+		cout << "here!" << endl;
 		if (_arr != NULL)
 			delete[] _arr;
 		_size = Array._size;
@@ -88,7 +73,7 @@ Array<T> & Array<T>::operator= (const Array &Array)
 #pragma region OVERLOADS
 
 template <typename T>
-T Array<T>::operator[](unsigned i)
+T &Array<T>::operator[](unsigned i)
 {
 	if (i >= 0 && i <= _size)
 		return _arr[i];
