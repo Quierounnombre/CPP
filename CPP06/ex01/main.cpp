@@ -14,6 +14,9 @@ int		main(void)
 	Data		*d;
 	uintptr_t	p;
 
+	d = new(Data);
+	if (!d)
+		exit(1);
 	d->balance = -1000;
 	d->name = "Vicente";
 	d->hash = reinterpret_cast<uintptr_t>(d);
@@ -25,5 +28,6 @@ int		main(void)
 	d = Serializer::deserialize(p);
 	cout << "og: " << d << endl;
 	put_data(d);
+	delete (d);
 	return 0;
 }

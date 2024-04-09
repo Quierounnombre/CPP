@@ -9,7 +9,7 @@ bool	ScalarConverter::check_dup_chars(string s)
 	for (n_int i = 0; i < lst_size; i++)
 	{
 		is_a_char_dupped = false;
-		for (n_int j = 0; j < s.size(); j++)
+		for (u_int j = 0; j < s.size(); j++)
 		{
 			if (s[j] == dupped_chars_lst[i])
 			{

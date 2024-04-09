@@ -55,6 +55,7 @@ static void	identify(Base &p)
 	try
 	{
 		Base &base_ptr = dynamic_cast<A &>(p);
+		(void)base_ptr;
 		cout << "A" << endl;
 	}
 	catch (std::exception &e)
@@ -63,6 +64,7 @@ static void	identify(Base &p)
 	try
 	{
 		Base &base_ptr = dynamic_cast<B &>(p);
+		(void)base_ptr;
 		cout << "B" << endl;
 	}
 	catch (std::exception &e)
@@ -71,6 +73,7 @@ static void	identify(Base &p)
 	try
 	{
 		Base &base_ptr = dynamic_cast<C &>(p);
+		(void)base_ptr;
 		cout << "C" << endl;
 	}
 	catch (std::exception &e)
@@ -82,9 +85,12 @@ int		main(void)
 {
 	Base	*b;
 
+	std::cout << "gen = ";
 	b = generate();
 	Base	&b_ref = *b;
+	std::cout << "identify = ";
 	identify(b);
+	std::cout << "identify_by_ref = ";
 	identify(b_ref);
 	delete (b);
 }
