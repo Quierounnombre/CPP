@@ -13,15 +13,15 @@ void	GradeTooHighException::constructor_log(string s)
 }
 
 GradeTooHighException::GradeTooHighException(n_int grade) :
-_max_grade(grade),
-_do_log(GRADETOOHIGHEXCEPTION_DEFAULT_DO_LOG)
+_do_log(GRADETOOHIGHEXCEPTION_DEFAULT_DO_LOG),
+_max_grade(grade)
 {
 	constructor_log(GRADETOOHIGHEXCEPTION_DEFAULT_CONSTRUCTOR_LOG);
 }
 
 GradeTooHighException::GradeTooHighException(n_int grade, bool log) :
-_max_grade(grade),
-_do_log(log)
+_do_log(log),
+_max_grade(grade)
 {
 	constructor_log(GRADETOOHIGHEXCEPTION_DEFAULT_CONSTRUCTOR_LOG);
 }
@@ -32,8 +32,8 @@ GradeTooHighException::~GradeTooHighException() _NOEXCEPT
 }
 
 GradeTooHighException::GradeTooHighException(const GradeTooHighException &GradeTooHighException) :
-_max_grade(GradeTooHighException._max_grade),
-_do_log(GradeTooHighException._do_log)
+_do_log(GradeTooHighException._do_log),
+_max_grade(GradeTooHighException._max_grade)
 {
 	constructor_log(GRADETOOHIGHEXCEPTION_COPY_CONSTRUCTOR_LOG);
 }

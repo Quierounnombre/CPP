@@ -15,19 +15,19 @@ void	AForm::constructor_log(string s)
 AForm::AForm(string name, n_int grade_to_sign, n_int grade_to_execute) :
 _do_log(AFORM_DEFAULT_DO_LOG),
 _name(name),
+_signed(AFORM_DEFAULT_SIGNED_STATUS),
 _grade_to_sign(grade_to_sign),
-_grade_to_execute(grade_to_execute),
-_signed(AFORM_DEFAULT_SIGNED_STATUS)
+_grade_to_execute(grade_to_execute)
 {
 	constructor_log(AFORM_DEFAULT_CONSTRUCTOR_LOG);
 }
 
 AForm::AForm(string name, n_int grade_to_sign, n_int grade_to_execute, bool log) :
+_do_log(log),
 _name(name),
-_grade_to_sign(grade_to_sign),
-_grade_to_execute(grade_to_execute),
 _signed(AFORM_DEFAULT_SIGNED_STATUS),
-_do_log(log)
+_grade_to_sign(grade_to_sign),
+_grade_to_execute(grade_to_execute)
 {
 	constructor_log(AFORM_DEFAULT_CONSTRUCTOR_LOG);
 }
@@ -39,10 +39,10 @@ AForm::~AForm()
 
 AForm::AForm(const AForm &AForm) :
 _do_log(AForm._do_log),
-_signed(AForm._signed),
 _name(AForm._name),
-_grade_to_execute(AForm._grade_to_execute),
-_grade_to_sign(AForm._grade_to_sign)
+_signed(AForm._signed),
+_grade_to_sign(AForm._grade_to_sign),
+_grade_to_execute(AForm._grade_to_execute)
 {
 	constructor_log(AFORM_COPY_CONSTRUCTOR_LOG);
 }

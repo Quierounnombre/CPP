@@ -13,15 +13,15 @@ void	FormAlreadySigned::constructor_log(string s)
 }
 
 FormAlreadySigned::FormAlreadySigned(string name) :
-_name(name),
-_do_log(FORMALREADYSIGNED_DEFAULT_DO_LOG)
+_do_log(FORMALREADYSIGNED_DEFAULT_DO_LOG),
+_name(name)
 {
 	constructor_log(FORMALREADYSIGNED_DEFAULT_CONSTRUCTOR_LOG);
 }
 
 FormAlreadySigned::FormAlreadySigned(string name, bool log) :
-_name(name),
-_do_log(log)
+_do_log(log),
+_name(name)
 {
 	constructor_log(FORMALREADYSIGNED_DEFAULT_CONSTRUCTOR_LOG);
 }
@@ -32,8 +32,8 @@ FormAlreadySigned::~FormAlreadySigned() _NOEXCEPT
 }
 
 FormAlreadySigned::FormAlreadySigned(const FormAlreadySigned &FormAlreadySigned) :
-_name(FormAlreadySigned._name),
-_do_log(FormAlreadySigned._do_log)
+_do_log(FormAlreadySigned._do_log),
+_name(FormAlreadySigned._name)
 {
 	constructor_log(FORMALREADYSIGNED_COPY_CONSTRUCTOR_LOG);
 }

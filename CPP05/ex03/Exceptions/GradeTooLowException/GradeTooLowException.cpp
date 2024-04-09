@@ -13,15 +13,15 @@ void	GradeTooLowException::constructor_log(string s)
 }
 
 GradeTooLowException::GradeTooLowException(n_int grade) :
-_min_grade(grade),
-_do_log(GRADETOOLOWEXCEPTION_DEFAULT_DO_LOG)
+_do_log(GRADETOOLOWEXCEPTION_DEFAULT_DO_LOG),
+_min_grade(grade)
 {
 	constructor_log(GRADETOOLOWEXCEPTION_DEFAULT_CONSTRUCTOR_LOG);
 }
 
 GradeTooLowException::GradeTooLowException(n_int grade, bool log) :
-_min_grade(grade),
-_do_log(log)
+_do_log(log),
+_min_grade(grade)
 {
 	constructor_log(GRADETOOLOWEXCEPTION_DEFAULT_CONSTRUCTOR_LOG);
 }
@@ -32,8 +32,8 @@ GradeTooLowException::~GradeTooLowException() _NOEXCEPT
 }
 
 GradeTooLowException::GradeTooLowException(const GradeTooLowException &GradeTooLowException) :
-_min_grade(GradeTooLowException._min_grade),
-_do_log(GradeTooLowException._do_log)
+_do_log(GradeTooLowException._do_log),
+_min_grade(GradeTooLowException._min_grade)
 {
 	constructor_log(GRADETOOLOWEXCEPTION_COPY_CONSTRUCTOR_LOG);
 }

@@ -59,6 +59,7 @@ class AForm
 		void			beSigned(Bureaucrat &B);
 		virtual void	execute(Bureaucrat const &B) const = 0;
 		void			can_be_Executed(Bureaucrat const &B) const;
+
 	protected:
 		bool	_do_log;
 

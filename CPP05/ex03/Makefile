@@ -1,7 +1,7 @@
 NAME = HACIENDA
 
-CC = c++ -std=c++98
-CFLAGS = -Wall -Wextra -Werror
+CXX = c++ -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 DEFINES = -D RUN_TEST=0
 
@@ -178,7 +178,7 @@ SRCS =	\
 OBJS =	${SRCS:.cpp=.o}
 
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(DEFINES) -o $(NAME) $(OBJS)
+	@$(CXX) $(CXXFLAGS) $(DEFINES) -o $(NAME) $(OBJS)
 	@echo "$(GREEN)\n$(NAME) compile\n$(RESET)" 
 
 all: $(NAME)

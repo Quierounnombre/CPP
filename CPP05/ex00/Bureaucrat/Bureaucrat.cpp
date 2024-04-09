@@ -13,8 +13,8 @@ void	Bureaucrat::constructor_log(string s)
 }
 
 Bureaucrat::Bureaucrat(string name, n_int grade) :
-_name(name),
-_do_log(BUREAUCRAT_DEFAULT_DO_LOG)
+_do_log(BUREAUCRAT_DEFAULT_DO_LOG),
+_name(name)
 {
 	_grade = 0;
 	setGrade(grade);
@@ -22,8 +22,8 @@ _do_log(BUREAUCRAT_DEFAULT_DO_LOG)
 }
 
 Bureaucrat::Bureaucrat(string name, n_int grade, bool log) :
-_name(name),
-_do_log(log)
+_do_log(log),
+_name(name)
 {
 	_grade = 0;
 	setGrade(grade);
@@ -36,8 +36,8 @@ Bureaucrat::~Bureaucrat()
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &Bureaucrat) :
-_name(Bureaucrat._name),
-_do_log(Bureaucrat._do_log)
+_do_log(Bureaucrat._do_log),
+_name(Bureaucrat._name)
 {
 	constructor_log(BUREAUCRAT_COPY_CONSTRUCTOR_LOG);
 }

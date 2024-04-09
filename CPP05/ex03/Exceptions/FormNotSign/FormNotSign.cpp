@@ -13,15 +13,15 @@ void	FormNotSign::constructor_log(string s)
 }
 
 FormNotSign::FormNotSign(string name) :
-_name(name),
-_do_log(FORMNOTSIGN_DEFAULT_DO_LOG)
+_do_log(FORMNOTSIGN_DEFAULT_DO_LOG),
+_name(name)
 {
 	constructor_log(FORMNOTSIGN_DEFAULT_CONSTRUCTOR_LOG);
 }
 
 FormNotSign::FormNotSign(string name, bool log) :
-_name(name),
-_do_log(log)
+_do_log(log),
+_name(name)
 {
 	constructor_log(FORMNOTSIGN_DEFAULT_CONSTRUCTOR_LOG);
 }
@@ -32,8 +32,8 @@ FormNotSign::~FormNotSign() _NOEXCEPT
 }
 
 FormNotSign::FormNotSign(const FormNotSign &FormNotSign) :
-_name(FormNotSign._name),
-_do_log(FormNotSign._do_log)
+_do_log(FormNotSign._do_log),
+_name(FormNotSign._name)
 {
 	constructor_log(FORMNOTSIGN_COPY_CONSTRUCTOR_LOG);
 }

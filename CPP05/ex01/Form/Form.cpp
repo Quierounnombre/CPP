@@ -15,19 +15,19 @@ void	Form::constructor_log(string s)
 Form::Form(string name, n_int grade_to_sign, n_int grade_to_execute) :
 _do_log(FORM_DEFAULT_DO_LOG),
 _name(name),
+_signed(FORM_DEFAULT_SIGNED_STATUS),
 _grade_to_sign(grade_to_sign),
-_grade_to_execute(grade_to_execute),
-_signed(FORM_DEFAULT_SIGNED_STATUS)
+_grade_to_execute(grade_to_execute)
 {
 	constructor_log(FORM_DEFAULT_CONSTRUCTOR_LOG);
 }
 
 Form::Form(string name, n_int grade_to_sign, n_int grade_to_execute, bool log) :
+_do_log(log),
 _name(name),
-_grade_to_sign(grade_to_sign),
-_grade_to_execute(grade_to_execute),
 _signed(FORM_DEFAULT_SIGNED_STATUS),
-_do_log(log)
+_grade_to_sign(grade_to_sign),
+_grade_to_execute(grade_to_execute)
 {
 	constructor_log(FORM_DEFAULT_CONSTRUCTOR_LOG);
 }
@@ -39,10 +39,10 @@ Form::~Form()
 
 Form::Form(const Form &Form) :
 _do_log(Form._do_log),
-_signed(Form._signed),
 _name(Form._name),
-_grade_to_execute(Form._grade_to_execute),
-_grade_to_sign(Form._grade_to_sign)
+_signed(Form._signed),
+_grade_to_sign(Form._grade_to_sign),
+_grade_to_execute(Form._grade_to_execute)
 {
 	constructor_log(FORM_COPY_CONSTRUCTOR_LOG);
 }
