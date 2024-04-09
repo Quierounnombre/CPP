@@ -13,9 +13,9 @@ void	DiamondTrap::constructor_log(string s)
 }
 
 DiamondTrap::DiamondTrap(string name) :
-_do_log(DIAMONDTRAP_DEFAULT_DO_LOG),
 FragTrap(name),
-ScavTrap(name)
+ScavTrap(name),
+_do_log(DIAMONDTRAP_DEFAULT_DO_LOG)
 {
 	ClapTrap::_name = name + DIAMONDTRAP_CLAP_NAME_SUFFIX;
 	_name = name;
@@ -23,9 +23,9 @@ ScavTrap(name)
 }
 
 DiamondTrap::DiamondTrap(string name, bool log) :
-_do_log(log),
 FragTrap(name, log),
-ScavTrap(name, log)
+ScavTrap(name, log),
+_do_log(log)
 {
 	ClapTrap::_name = name + DIAMONDTRAP_CLAP_NAME_SUFFIX;
 	_name = name;

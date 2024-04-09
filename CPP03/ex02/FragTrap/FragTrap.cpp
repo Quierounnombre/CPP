@@ -14,8 +14,8 @@ void	FragTrap::constructor_log(string s)
 
 
 FragTrap::FragTrap() :
-_do_log(FRAGTRAP_DEFAULT_DO_LOG),
-ClapTrap()
+ClapTrap(),
+_do_log(FRAGTRAP_DEFAULT_DO_LOG)
 {
 	_hp = FRAGTRAP_DEFAULT_HP;
 	_atk_dmg = FRAGTRAP_DEFAULT_ATK_DMG;
@@ -25,8 +25,8 @@ ClapTrap()
 }
 
 FragTrap::FragTrap(string name) :
-_do_log(FRAGTRAP_DEFAULT_DO_LOG),
-ClapTrap(name, FRAGTRAP_DEFAULT_DO_LOG)
+ClapTrap(name, FRAGTRAP_DEFAULT_DO_LOG),
+_do_log(FRAGTRAP_DEFAULT_DO_LOG)
 {
 	_hp = FRAGTRAP_DEFAULT_HP;
 	_atk_dmg = FRAGTRAP_DEFAULT_ATK_DMG;
@@ -35,8 +35,8 @@ ClapTrap(name, FRAGTRAP_DEFAULT_DO_LOG)
 }
 
 FragTrap::FragTrap(string name, bool log) :
-_do_log(log),
-ClapTrap(name, log)
+ClapTrap(name, log),
+_do_log(log)
 {
 	_hp = FRAGTRAP_DEFAULT_HP;
 	_atk_dmg = FRAGTRAP_DEFAULT_ATK_DMG;

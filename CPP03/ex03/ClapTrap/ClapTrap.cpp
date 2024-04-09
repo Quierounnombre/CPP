@@ -14,30 +14,30 @@ void	ClapTrap::constructor_log(string s)
 
 ClapTrap::ClapTrap(string name) :
 _do_log(CLAPTRAP_DEFAULT_DO_LOG),
+_name(name),
 _energy(CLAPTRAP_DEFAULT_ENERGY),
-_hp(CLAPTRAP_DEFAULT_HP),
 _atk_dmg(CLAPTRAP_DEFAULT_ATK_DMG),
-_name(name)
+_hp(CLAPTRAP_DEFAULT_HP)
 {
 	constructor_log("ClapTrap default constructor called");
 }
 
 ClapTrap::ClapTrap(void) :
 _do_log(CLAPTRAP_DEFAULT_DO_LOG),
+_name(CLAPTRAP_DEFAULT_NAME),
 _energy(CLAPTRAP_DEFAULT_ENERGY),
-_hp(CLAPTRAP_DEFAULT_HP),
 _atk_dmg(CLAPTRAP_DEFAULT_ATK_DMG),
-_name(CLAPTRAP_DEFAULT_NAME)
+_hp(CLAPTRAP_DEFAULT_HP)
 {
 	constructor_log("ClapTrap default constructor called");
 }
 
 ClapTrap::ClapTrap(string name, bool log) :
 _do_log(log),
+_name(name),
 _energy(CLAPTRAP_DEFAULT_ENERGY),
-_hp(CLAPTRAP_DEFAULT_HP),
 _atk_dmg(CLAPTRAP_DEFAULT_ATK_DMG),
-_name(name)
+_hp(CLAPTRAP_DEFAULT_HP)
 {
 	constructor_log("ClapTrap default constructor called");
 }
@@ -49,10 +49,10 @@ ClapTrap::~ClapTrap()
 
 ClapTrap::ClapTrap(const ClapTrap &ClapTrap) :
 _do_log(ClapTrap._do_log),
+_name(ClapTrap._name),
 _energy(ClapTrap._energy),
-_hp(ClapTrap._hp),
 _atk_dmg(ClapTrap._atk_dmg),
-_name(ClapTrap._name)
+_hp(ClapTrap._hp)
 {
 	constructor_log("ClapTrap copy constructor called");
 }
@@ -107,7 +107,7 @@ void	ClapTrap::takeDamage(u_int amount)
 		{
 			std::cout << "ClapTrap unit " + _name + " has suffer " << damage;
 			std::cout << " points of damage" << std::endl;
-			if (_hp > amount)
+			if ((u_int)_hp > amount)
 				_hp -= amount;
 			else
 				_hp = -1;

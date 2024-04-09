@@ -13,9 +13,9 @@ void	ScavTrap::constructor_log(string s)
 }
 
 ScavTrap::ScavTrap() :
+ClapTrap(SCAVTRAP_DEFAULT_NAME, SCAVTRAP_DEFAULT_DO_LOG),
 _do_log(SCAVTRAP_DEFAULT_DO_LOG),
-_is_gate_keeping(SCAVTRAP_DEFAULT_GATEKEEP),
-ClapTrap(SCAVTRAP_DEFAULT_NAME, SCAVTRAP_DEFAULT_DO_LOG)
+_is_gate_keeping(SCAVTRAP_DEFAULT_GATEKEEP)
 {
 	_hp = SCAVTRAP_DEFAULT_HP;
 	_atk_dmg = SCAVTRAP_DEFAULT_ATK_DMG;
@@ -25,9 +25,9 @@ ClapTrap(SCAVTRAP_DEFAULT_NAME, SCAVTRAP_DEFAULT_DO_LOG)
 }
 
 ScavTrap::ScavTrap(string name) :
+ClapTrap(name, SCAVTRAP_DEFAULT_DO_LOG),
 _do_log(SCAVTRAP_DEFAULT_DO_LOG),
-_is_gate_keeping(SCAVTRAP_DEFAULT_GATEKEEP),
-ClapTrap(name, SCAVTRAP_DEFAULT_DO_LOG)
+_is_gate_keeping(SCAVTRAP_DEFAULT_GATEKEEP)
 {
 	_hp = SCAVTRAP_DEFAULT_HP;
 	_atk_dmg = SCAVTRAP_DEFAULT_ATK_DMG;
@@ -37,9 +37,9 @@ ClapTrap(name, SCAVTRAP_DEFAULT_DO_LOG)
 }
 
 ScavTrap::ScavTrap(string name, bool log) :
-_is_gate_keeping(SCAVTRAP_DEFAULT_GATEKEEP),
+ClapTrap(name, log),
 _do_log(log),
-ClapTrap(name, log)
+_is_gate_keeping(SCAVTRAP_DEFAULT_GATEKEEP)
 {
 	_hp = SCAVTRAP_DEFAULT_HP;
 	_atk_dmg = SCAVTRAP_DEFAULT_ATK_DMG;
