@@ -62,7 +62,7 @@ int	main(void)
 	s[3] = 'l';
 	s[4] = 'o';
 	s[5] = '\0';
-	for (n_int i = 0; i < s.size(); i++)
+	for (u_int i = 0; i < s.size(); i++)
 		cout << s[i];
 	cout << endl;
 	cout << s.size() << endl;
@@ -70,10 +70,10 @@ int	main(void)
 	cout << str.size() << endl;
 	Array<string> s2 = s;
 	s2[4] = '!';
-	for (n_int i = 0; i < s2.size(); i++)
+	for (u_int i = 0; i < s2.size(); i++)
 		cout << s2[i];
 	cout << endl;
-	for (n_int i = 0; i < s.size(); i++)
+	for (u_int i = 0; i < s.size(); i++)
 		cout << s[i];
 	cout << endl;
 }	
