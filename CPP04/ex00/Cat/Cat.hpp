@@ -15,7 +15,7 @@ using std::cerr;
 
 # define CAT_CONSTRUCTOR_LOG_COLOR "\033[1;30m"
 # define CAT_RESET_COLOR "\033[0m"
-# define CAT_DEFAULT_DO_LOG false
+# define CAT_DEFAULT_DO_LOG true
 
 # define u_int	u_int32_t
 # define n_int	int32_t

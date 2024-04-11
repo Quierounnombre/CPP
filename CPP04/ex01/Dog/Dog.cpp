@@ -45,8 +45,8 @@ _do_log(Dog._do_log)
 	if (!this->brain)
 		exit(1);
 	*(this->brain) = *(Dog.brain);
-	constructor_log("Dog copy constructor called");
 	type = Dog.type;
+	constructor_log("Dog copy constructor called");
 }
 
 Dog & Dog::operator= (const Dog &Dog)
@@ -57,9 +57,6 @@ Dog & Dog::operator= (const Dog &Dog)
 	}
 	this->_do_log = Dog._do_log;
 	this->type = Dog.type;
-	this->brain = new (std::nothrow) Brain(_do_log);
-	if (!this->brain)
-		exit(1);
 	*(this->brain) = *(Dog.brain);
 	return (*this);
 }

@@ -14,7 +14,7 @@ using std::cerr;
 
 # define ANIMAL_CONSTRUCTOR_LOG_COLOR "\033[1;30m"
 # define ANIMAL_RESET_COLOR "\033[0m"
-# define ANIMAL_DEFAULT_DO_LOG false
+# define ANIMAL_DEFAULT_DO_LOG true
 
 # define u_int	u_int32_t
 # define n_int	int32_t
@@ -28,7 +28,7 @@ class Animal
 		Animal();
 		Animal(bool log);
 		Animal(const Animal &Animal);
-		~Animal();
+		virtual	~Animal();
 		Animal & operator = (const Animal &Animal);
 
 		//GETTERS

@@ -15,14 +15,13 @@ int		main(void)
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
-	//Cat	*my_cat;
-	//Cat *my_cat_2 = new Cat();
+	Cat	*my_cat = new Cat();
+	Cat *my_cat_2 = new Cat(*my_cat);
 
 	cout << j->getType() << " " << endl;
 	cout << i->getType() << " " << endl;
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
-	//my_cat = my_cat_2;
 	//cout << my_cat_2->brain << endl;;
 	//cout << my_cat->brain << endl;;
 	meta->makeSound();
@@ -43,6 +42,7 @@ int		main(void)
 	delete i;
 	delete j;
 	delete meta;
-	//delete my_cat_2;
+	delete my_cat_2;
+	delete my_cat;
 	return 0;
 }

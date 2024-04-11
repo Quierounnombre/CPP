@@ -57,9 +57,6 @@ Cat & Cat::operator= (const Cat &Cat)
 	}
 	this->_do_log = Cat._do_log;
 	this->type = Cat.type;
-	this->brain = new (std::nothrow) Brain(_do_log);
-	if (!this->brain)
-		exit(1);
 	*(this->brain) = *(Cat.brain);
 	return (*this);
 }

@@ -15,7 +15,7 @@ using std::cerr;
 
 # define DOG_CONSTRUCTOR_LOG_COLOR "\033[1;30m"
 # define DOG_RESET_COLOR "\033[0m"
-# define DOG_DEFAULT_DO_LOG false
+# define DOG_DEFAULT_DO_LOG true
 
 # define u_int	u_int32_t
 # define n_int	int32_t

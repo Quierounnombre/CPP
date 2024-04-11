@@ -6,7 +6,7 @@
 
 void leakss(void)
 {
-	system("leaks -q BRAINY");
+	system("leaks -q ABSTRACT");
 }
 
 int		main(void)
@@ -14,16 +14,11 @@ int		main(void)
 	atexit(leakss);
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
-	//Cat	*my_cat;
-	//Cat *my_cat_2 = new Cat();
 
 	cout << j->getType() << " " << endl;
 	cout << i->getType() << " " << endl;
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
-	//my_cat = my_cat_2;
-	//cout << my_cat_2->brain << endl;;
-	//cout << my_cat->brain << endl;;
 
 	Animal	*zoo[SIZE_ARRAY];
 	for (int k = 0; k < SIZE_ARRAY; k++)
@@ -40,6 +35,5 @@ int		main(void)
 
 	delete i;
 	delete j;
-	//delete my_cat_2;
 	return 0;
 }
