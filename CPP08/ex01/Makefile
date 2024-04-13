@@ -25,7 +25,6 @@ RESET = \033[0m
 
 MAIN = main
 
-
 #-------------------------------------------------------------------SPAN
 
 SPAN_DIR = Span
@@ -51,7 +50,7 @@ $(addprefix $(SPAN_REPRESENT_DIR), $(addsuffix .cpp, $(SPAN_REPRESENT)))
 
 SPAN_STORE_NUMBER = \
 	addNumber \
-
+	add_N_Numbers \
 
 SPAN_STORE_NUMBER_DIR = Storenumbers/
 SPAN_SRCS_STORE_NUMBER = \

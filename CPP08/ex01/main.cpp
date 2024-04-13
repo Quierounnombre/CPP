@@ -64,4 +64,17 @@ int		main(void)
 		std::cout << sp.shortestSpan() << std::endl;
 		cout << endl;
 	}
+	{
+		Span	sp(80000);
+
+		cout << "TEST 3" << endl;
+		cout << "----------------------------" << endl;
+		sp.add_N_Numbers(20000);
+		//cout << sp << endl;
+		cout << "long span = ";
+		std::cout << sp.longestSpan() << std::endl;
+		cout << "short span = ";
+		std::cout << sp.shortestSpan() << std::endl;
+		cout << endl;
+	}
 }
