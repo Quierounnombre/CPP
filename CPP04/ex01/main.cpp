@@ -38,7 +38,23 @@ int		main(void)
 	{
 		delete zoo[k];
 	}
-
+	/*
+	Cat	test_1;
+	Cat	test_2;
+	test_1.brain->ideas[0] = "Potato";
+	test_2 = test_1;
+	for (int il = 0; il < BRAIN_SIZE; il++)
+		cout << test_2.brain->getIdea(il) << endl;
+	cout << "HERE-----------" << endl;
+	for (int il = 0; il < BRAIN_SIZE; il++)
+		cout << test_1.brain->getIdea(il) << endl;
+	cout << &(test_2.brain)->ideas[0] << endl;
+	cout << &(test_1.brain)->ideas[0] << endl;
+	cout << &(test_2.brain) << endl;
+	cout << &(test_1.brain) << endl;
+	cout << &(test_2) << endl;
+	cout << &(test_1) << endl;
+	*/
 	delete i;
 	delete j;
 	delete meta;
