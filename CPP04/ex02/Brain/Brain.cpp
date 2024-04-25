@@ -40,9 +40,24 @@ Brain & Brain::operator= (const Brain &Brain)
 	constructor_log(BRAIN_COPY_ASSIGNMENT_LOG);
 	if (this != & Brain)
 	{
+		this->_do_log = Brain._do_log;
+		for (int i = 0; i < BRAIN_SIZE; i++)
+		{
+			ideas[i] = Brain.getIdea(i);
+		}
 	}
-	this->_do_log = Brain._do_log;
 	return (*this);
+}
+
+#pragma endregion
+
+#pragma region GETTERS
+
+string	Brain::getIdea(int i) const
+{
+	if (i >= 0 && i < BRAIN_SIZE)
+		return (ideas[i]);
+	return (BRAIN_IDEA_NOT_FOUND);
 }
 
 #pragma endregion

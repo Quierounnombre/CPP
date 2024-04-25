@@ -21,6 +21,10 @@ using std::cerr;
 # define BRAIN_COPY_ASSIGNMENT_LOG "Brain copy assignment called"
 # define BRAIN_DESTRUCTOR_LOG "Brain destructor called"
 
+# define BRAIN_IDEA_NOT_FOUND "Can't find the idea"
+
+# define BRAIN_SIZE 100
+
 # define u_int	u_int32_t
 # define n_int	int32_t
 
@@ -36,11 +40,14 @@ class Brain
 		~Brain();
 		Brain & operator = (const Brain &Brain);
 
+		//GETTERS
 		//-------------------------------------------------------
+
+		string	getIdea(int i) const;
 
 	protected:
 		bool	_do_log;
-		string	ideas[100];
+		string	ideas[BRAIN_SIZE];
 
 	private:
 		//LOG
