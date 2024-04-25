@@ -1,4 +1,4 @@
-NAME = EasyFind
+NAME = Abomination
 
 CXX = c++ -std=c++98
 CXXFLAGS = -Wall -Wextra -Werror
@@ -25,9 +25,47 @@ RESET = \033[0m
 
 MAIN = main
 
+#-------------------------------------------------------------------SPAN
+
+SPAN_DIR = Span
+
+SPAN_CLASS = $(SPAN_DIR)
+SPAN_SRCS_CLASS = $(addsuffix .cpp, $(SPAN_CLASS))
+
+SPAN_SEARCH = \
+	longestSpan \
+	shortestSpan \
+	get_number_closest_span \
+
+SPAN_SEARCH_DIR = Search/
+SPAN_SRCS_SEARCH = \
+$(addprefix $(SPAN_SEARCH_DIR), $(addsuffix .cpp, $(SPAN_SEARCH)))
+
+SPAN_REPRESENT = \
+	represent_span \
+
+SPAN_REPRESENT_DIR = Represent/
+SPAN_SRCS_REPRESENT = \
+$(addprefix $(SPAN_REPRESENT_DIR), $(addsuffix .cpp, $(SPAN_REPRESENT)))
+
+SPAN_STORE_NUMBER = \
+	addNumber \
+	add_N_Numbers \
+
+SPAN_STORE_NUMBER_DIR = Storenumbers/
+SPAN_SRCS_STORE_NUMBER = \
+$(addprefix $(SPAN_STORE_NUMBER_DIR), $(addsuffix .cpp, $(SPAN_STORE_NUMBER)))
+
+SPAN_SRCS = \
+	$(SPAN_SRCS_CLASS) \
+	$(SPAN_SRCS_SEARCH) \
+	$(SPAN_SRCS_STORE_NUMBER) \
+	$(SPAN_SRCS_REPRESENT) \
+
 #-------------------------------------------------------------------SRCS
 
 SRCS =	\
+		$(addprefix $(SPAN_DIR)/, $(SPAN_SRCS)) \
 		$(addsuffix .cpp, $(MAIN)) \
 
 #-------------------------------------------------------------------RULES
