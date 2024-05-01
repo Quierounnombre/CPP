@@ -2,7 +2,8 @@
 
 #pragma region CONSTRUCTOR
 
-void	MutantStack::constructor_log(string s)
+template <typename T>
+void	MutantStack<T>::constructor_log(string s)
 {
 	if (_do_log)
 	{
@@ -12,30 +13,35 @@ void	MutantStack::constructor_log(string s)
 	}
 }
 
-MutantStack::MutantStack() :
+template <typename T>
+MutantStack<T>::MutantStack() :
 _do_log(MUTANTSTACK_DEFAULT_DO_LOG)
 {
 	constructor_log(MUTANTSTACK_DEFAULT_CONSTRUCTOR_LOG);
 }
 
-MutantStack::MutantStack(bool log) :
+template <typename T>
+MutantStack<T>::MutantStack(bool log) :
 _do_log(log)
 {
 	constructor_log(MUTANTSTACK_DEFAULT_CONSTRUCTOR_LOG);
 }
 
-MutantStack::~MutantStack()
+template <typename T>
+MutantStack<T>::~MutantStack()
 {
 	constructor_log(MUTANTSTACK_DESTRUCTOR_LOG);
 }
 
-MutantStack::MutantStack(const MutantStack &MutantStack) :
+template <typename T>
+MutantStack<T>::MutantStack(const MutantStack &MutantStack) :
 _do_log(MutantStack._do_log)
 {
 	constructor_log(MUTANTSTACK_COPY_CONSTRUCTOR_LOG);
 }
 
-MutantStack & MutantStack::operator= (const MutantStack &MutantStack)
+template <typename T>
+MutantStack<T> & MutantStack<T>::operator= (const MutantStack &MutantStack)
 {
 	constructor_log(MUTANTSTACK_COPY_ASSIGNMENT_LOG);
 	if (this != & MutantStack)

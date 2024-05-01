@@ -5,6 +5,7 @@
 
 # include <iostream>
 # include <string>
+# include <stack>
 
 using std::cout;
 using std::string;
@@ -24,7 +25,9 @@ using std::cerr;
 # define u_int	u_int32_t
 # define n_int	int32_t
 
-class MutantStack
+
+template <typename T>
+class MutantStack : virtual public std::stack<T>
 {
 	public:
 		//CONSTRUCTORS
@@ -38,6 +41,22 @@ class MutantStack
 
 		//-------------------------------------------------------
 
+		typedef typename std::stack<T>::container_type::iterator iterator;
+		typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
+		typedef typename std::stack<T>::container_type::const_iterator const_iterator;
+		typedef typename std::stack<T>::container_type::const_reverse_iterator const_reverse_iterator;
+
+		using std::stack<T>::c;
+
+		iterator begin(void) { return (c.begin()); }
+		iterator end(void) { return (c.end()); }
+		const_iterator begin(void) const { return (c.begin()); }
+		const_iterator end(void) const { return (c.end()); }
+		reverse_iterator rbegin(void) { return (c.rbegin()); }
+		reverse_iterator rend(void) { return (c.rend()); }
+		const_reverse_iterator rbegin(void) const { return (c.rbegin()); }
+		const_reverse_iterator rend(void) const { return (c.rend()); }
+
 	protected:
 		bool	_do_log;
 
@@ -47,5 +66,7 @@ class MutantStack
 
 		void	constructor_log(string s);
 };
+
+# include "MutantStack.tpp"
 
 #endif
