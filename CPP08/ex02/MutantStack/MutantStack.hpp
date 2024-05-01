@@ -37,7 +37,7 @@ class MutantStack : virtual public std::stack<T>
 		MutantStack(bool log);
 		MutantStack(const MutantStack &MutantStack);
 		~MutantStack();
-		MutantStack & operator = (const MutantStack &MutantStack);
+		MutantStack & operator = (const MutantStack &MT);
 
 		//-------------------------------------------------------
 

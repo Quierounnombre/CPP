@@ -41,13 +41,15 @@ _do_log(MutantStack._do_log)
 }
 
 template <typename T>
-MutantStack<T> & MutantStack<T>::operator= (const MutantStack &MutantStack)
+MutantStack<T> & MutantStack<T>::operator= (const MutantStack &MT)
 {
 	constructor_log(MUTANTSTACK_COPY_ASSIGNMENT_LOG);
-	if (this != & MutantStack)
+	if (this != & MT)
 	{
+		for (MutantStack<T>::iterator it = MT.begin(); it != MT.end(); it++)
+			this->push(*it);
+		this->_do_log = MT._do_log;
 	}
-	this->_do_log = MutantStack._do_log;
 	return (*this);
 }
 
