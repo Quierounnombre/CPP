@@ -27,44 +27,28 @@ MAIN = main
 
 #-------------------------------------------------------------------BITCOIN_EXCHANGE
 
-BITCOIN_EXCHANGE_DIR = BITCOIN_EXCHANGE
+BITCOIN_EXCHANGE_DIR = BitcoinExchange
 
 BITCOIN_EXCHANGE_CLASS = $(BITCOIN_EXCHANGE_DIR)
 BITCOIN_EXCHANGE_SRCS_CLASS = $(addsuffix .cpp, $(BITCOIN_EXCHANGE_CLASS))
 
-BITCOIN_EXCHANGE_SEARCH = \
-	longestBITCOIN_EXCHANGE \
-	shortestBITCOIN_EXCHANGE \
-	get_number_closest_BITCOIN_EXCHANGE \
-
-BITCOIN_EXCHANGE_SEARCH_DIR = Search/
-BITCOIN_EXCHANGE_SRCS_SEARCH = \
-$(addprefix $(BITCOIN_EXCHANGE_SEARCH_DIR), $(addsuffix .cpp, $(BITCOIN_EXCHANGE_SEARCH)))
-
-BITCOIN_EXCHANGE_REPRESENT = \
-	represent_BITCOIN_EXCHANGE \
-
-BITCOIN_EXCHANGE_REPRESENT_DIR = Represent/
-BITCOIN_EXCHANGE_SRCS_REPRESENT = \
-$(addprefix $(BITCOIN_EXCHANGE_REPRESENT_DIR), $(addsuffix .cpp, $(BITCOIN_EXCHANGE_REPRESENT)))
-
-BITCOIN_EXCHANGE_STORE_NUMBER = \
-	addNumber \
-	add_N_Numbers \
-
-BITCOIN_EXCHANGE_STORE_NUMBER_DIR = Storenumbers/
-BITCOIN_EXCHANGE_SRCS_STORE_NUMBER = \
-$(addprefix $(BITCOIN_EXCHANGE_STORE_NUMBER_DIR), $(addsuffix .cpp, $(BITCOIN_EXCHANGE_STORE_NUMBER)))
-
 BITCOIN_EXCHANGE_SRCS = \
 	$(BITCOIN_EXCHANGE_SRCS_CLASS) \
-	$(BITCOIN_EXCHANGE_SRCS_SEARCH) \
-	$(BITCOIN_EXCHANGE_SRCS_STORE_NUMBER) \
-	$(BITCOIN_EXCHANGE_SRCS_REPRESENT) \
+
+#-------------------------------------------------------------------DATE
+
+DATE_DIR = Date
+
+DATE_CLASS = $(DATE_DIR)
+DATE_SRCS_CLASS = $(addsuffix .cpp, $(DATE_CLASS))
+
+DATE_SRCS = \
+	$(DATE_SRCS_CLASS) \
 
 #-------------------------------------------------------------------SRCS
 
 SRCS =	\
+		$(addprefix $(DATE_DIR)/, $(DATE_SRCS)) \
 		$(addprefix $(BITCOIN_EXCHANGE_DIR)/, $(BITCOIN_EXCHANGE_SRCS)) \
 		$(addsuffix .cpp, $(MAIN)) \
 
