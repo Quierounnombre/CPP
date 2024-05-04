@@ -12,15 +12,21 @@ void	Date::constructor_log(string s)
 	}
 }
 
-Date::Date() :
+Date::Date(int day, int month, int year) :
 _do_log(DATE_DEFAULT_DO_LOG)
 {
+	setYear(year);
+	setMonth(month);
+	setDays(day);
 	constructor_log(DATE_DEFAULT_CONSTRUCTOR_LOG);
 }
 
-Date::Date(bool log) :
+Date::Date(int day, int month, int year, bool log) :
 _do_log(log)
 {
+	setYear(year);
+	setMonth(month);
+	setDays(day);
 	constructor_log(DATE_DEFAULT_CONSTRUCTOR_LOG);
 }
 
@@ -30,7 +36,10 @@ Date::~Date()
 }
 
 Date::Date(const Date &Date) :
-_do_log(Date._do_log)
+_do_log(Date._do_log),
+_days(Date.getDays()),
+_month(Date.getMonth()),
+_year(Date.getYear())
 {
 	constructor_log(DATE_COPY_CONSTRUCTOR_LOG);
 }
@@ -40,8 +49,11 @@ Date & Date::operator= (const Date &Date)
 	constructor_log(DATE_COPY_ASSIGNMENT_LOG);
 	if (this != & Date)
 	{
+		this->_do_log = Date._do_log;
+		this->_year = Date.getYear();
+		this->_month = Date.getMonth();
+		this->_days = Date.getDays();
 	}
-	this->_do_log = Date._do_log;
 	return (*this);
 }
 

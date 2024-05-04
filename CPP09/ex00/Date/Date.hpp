@@ -59,8 +59,8 @@ class Date
 		//CONSTRUCTORS
 		//-------------------------------------------------------
 
-		Date();
-		Date(bool log);
+		Date(int day, int month, int year);
+		Date(int day, int month, int year, bool log);
 		Date(const Date &Date);
 		~Date();
 		Date & operator = (const Date &Date);
