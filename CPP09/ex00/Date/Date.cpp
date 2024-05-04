@@ -223,3 +223,24 @@ bool	Date::is_30_month(int month)
 }
 
 #pragma endregion
+
+#pragma region 
+
+std::ostream &operator<<(std::ostream &out, const Date &d)
+{
+	out << d.getDays() << "/";
+	out << d.getMonth() << "/";
+	if (d.getYear() >= 0)
+	{
+		out << d.getYear() << " ";
+		out << "AC";
+	}
+	else
+	{
+		out << -d.getYear() << " ";
+		out << "BC";
+	}
+	return (out);
+}
+
+#pragma endregion

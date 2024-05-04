@@ -101,4 +101,6 @@ class Date
 		void	constructor_log(string s);
 };
 
+std::ostream &operator<<(std::ostream &out, const Date &f);
+
 #endif
