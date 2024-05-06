@@ -116,4 +116,19 @@ static void	date_test(void)
 int		main(void)
 {
 	date_test();
+	cout << endl;
+	cout << "----------------------------------------" << endl;
+	cout << endl;
+	try
+	{
+		BitcoinExchange	btc;
+		Date			d("2002-1-24");
+
+		btc.dicc[d] = 5;
+		cout << btc.dicc[d] << endl;
+	}
+	catch(const std::exception& e)
+	{
+		cerr << e.what() << endl;
+	}
 }

@@ -7,6 +7,7 @@
 # include <map>
 # include <string>
 # include <utility>
+# include "../Date/Date.hpp"
 
 using std::cout;
 using std::string;
@@ -29,6 +30,8 @@ using std::cerr;
 class BitcoinExchange
 {
 	public:
+		std::map<Date, float>	dicc;
+
 		//CONSTRUCTORS
 		//-------------------------------------------------------
 
@@ -44,6 +47,7 @@ class BitcoinExchange
 		bool	_do_log;
 
 	private:
+
 		//LOG
 		//-------------------------------------------------------
 
