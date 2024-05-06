@@ -1,4 +1,5 @@
 # include "Date/Date.hpp"
+# include "BitcoinExchange/BitcoinExchange.hpp"
 
 static void	date_test(void)
 {
@@ -77,6 +78,34 @@ static void	date_test(void)
 		Date	d("-1000-4--15");
 
 		cout << d << endl;
+	}
+	catch(const std::exception& e)
+	{
+		cerr << e.what() << endl;
+	}
+	try
+	{
+		std::map<Date, float>	map;
+		Date	d(10, 4, 7);
+
+		map[d] = 34;
+		cout << map[d] << endl;
+	}
+	catch(const std::exception& e)
+	{
+		cerr << e.what() << endl;
+	}
+	try
+	{
+		std::map<Date, float>	map;
+		Date	d1(10, 4, 7);
+		Date	d2("-1033-4-7");
+
+		map[d1] = 10;
+		map[d2] = 13;
+		std::map<Date, float>::iterator it;
+		for (it = map.begin(); it != map.end(); it++)
+			cout << it->first << ": " << it->second << endl;
 	}
 	catch(const std::exception& e)
 	{

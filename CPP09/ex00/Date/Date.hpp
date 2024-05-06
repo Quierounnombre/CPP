@@ -5,6 +5,7 @@
 
 # include <iostream>
 # include <cstdlib>
+# include <sstream>
 # include <string>
 
 using std::cout;
@@ -82,16 +83,27 @@ class Date
 		//Getters
 		//-------------------------------------------------------
 
-		int			getDays(void) const;
-		int			getMonth(void) const;
-		int			getYear(void) const;
+		int				getDays(void) const;
+		int				getMonth(void) const;
+		int				getYear(void) const;
 		static string	getMonthName(int _month);
+		string			getDateString(void) const;
 
 		//Is funs
 		//-------------------------------------------------------
 
 		static bool	is_31_month(int month);
 		static bool	is_30_month(int month);
+
+		//Overloads
+		//-------------------------------------------------------
+
+		bool	operator<(Date const &dt) const;
+		bool	operator>(Date const &dt) const;
+		bool	operator>=(Date const &dt) const;
+		bool	operator<=(Date const &dt) const;
+		bool	operator==(Date const &dt) const;
+		bool	operator!=(Date const &dt) const;
 
 		//-------------------------------------------------------
 
@@ -109,5 +121,12 @@ class Date
 };
 
 std::ostream &operator<<(std::ostream &out, const Date &f);
+
+template <typename T>
+std::string to_string(const T& value) {
+    std::ostringstream oss;
+    oss << value;
+    return oss.str();
+}
 
 #endif

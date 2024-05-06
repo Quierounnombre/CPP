@@ -280,6 +280,22 @@ int Date::getYear(void) const
 	return (_year);
 }
 
+/*
+@brief Get the date in a string form, formated in 'yyyy-mm-dd', it take into account negative values
+@return return a str with the date
+*/
+string	Date::getDateString(void) const
+{
+	string	str;
+
+	str.append(to_string(_year));
+	str.append(DATE_DELIMITER);
+	str.append(to_string(_month));
+	str.append(DATE_DELIMITER);
+	str.append(to_string(_days));
+	return (str);
+}
+
 #pragma endregion
 
 #pragma region IS_FUNS
@@ -353,6 +369,48 @@ Date & Date::operator= (const Date &Date)
 		this->_days = Date.getDays();
 	}
 	return (*this);
+}
+
+bool	Date::operator!=(Date const &dt) const
+{
+	if (this->getDateString() != dt.getDateString())
+		return (true);
+	return (false);
+}
+
+bool	Date::operator<=(Date const &dt) const
+{
+	if (this->getDateString() <= dt.getDateString())
+		return (true);
+	return (false);
+}
+
+bool	Date::operator>=(Date const &dt) const
+{
+	if (this->getDateString() >= dt.getDateString())
+		return (true);
+	return (false);
+}
+
+bool	Date::operator==(Date const &dt) const
+{
+	if (this->getDateString() == dt.getDateString())
+		return (true);
+	return (false);
+}
+
+bool	Date::operator>(Date const &dt) const
+{
+	if (this->getDateString() > dt.getDateString())
+		return (true);
+	return (false);
+}
+
+bool	Date::operator<(Date const &dt) const
+{
+	if (this->getDateString() < dt.getDateString())
+		return (true);
+	return (false);
 }
 
 #pragma endregion
