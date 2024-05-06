@@ -4,6 +4,7 @@
 # pragma once
 
 # include <iostream>
+# include <cstdlib>
 # include <string>
 
 using std::cout;
@@ -26,6 +27,10 @@ using std::cerr;
 # define DATE_OUT_OF_RANGE_FEB "have 28 days, no more, no less"
 # define DATE_OUT_OF_RANGE_LEAP "have 29 days, no more, no less"
 # define DATE_OUT_OF_RANGE_YEAR	"A gregorian calendar have 12 months, no more, no less"
+# define DATE_BAD_DATE_STR_FORMAT "Date string is in a incorrect format"
+
+# define DATE_DELIMITER "-"
+# define DATE_DELIMITER_MAX 1
 
 //Gregorian calendar defines
 
@@ -59,6 +64,8 @@ class Date
 		//CONSTRUCTORS
 		//-------------------------------------------------------
 
+		Date(string date_str);
+		Date(string date_str, bool log);
 		Date(int day, int month, int year);
 		Date(int day, int month, int year, bool log);
 		Date(const Date &Date);

@@ -2,6 +2,10 @@
 
 #pragma region CONSTRUCTOR
 
+/*
+@param s log of the constructor
+@brief abstraction of constructor log
+*/
 void	Date::constructor_log(string s)
 {
 	if (_do_log)
@@ -12,6 +16,100 @@ void	Date::constructor_log(string s)
 	}
 }
 
+/*
+@param date_str string formated in "yyyy-mm-dd"
+@brief convert a str to a Date class, allows negative years values
+@throw this call setMethods which could throw an exception or if date_str is badly formated
+*/
+Date::Date(string date_str) :
+_do_log(DATE_DEFAULT_DO_LOG)
+{
+	int		tmp;
+
+	constructor_log(DATE_DEFAULT_CONSTRUCTOR_LOG);
+	tmp = date_str.find(DATE_DELIMITER);
+	if (tmp == 0)
+	{
+		tmp = date_str.find_first_not_of(DATE_DELIMITER);
+		if (tmp > DATE_DELIMITER_MAX)
+			throw std::invalid_argument(DATE_BAD_DATE_STR_FORMAT);
+		date_str.erase(0, tmp);
+		tmp = -atoi(date_str.c_str());
+	}
+	else
+		tmp = atoi(date_str.c_str());
+	setYear(tmp);
+
+	tmp = date_str.find(DATE_DELIMITER);
+	date_str.erase(0, tmp);
+	tmp = date_str.find_first_not_of(DATE_DELIMITER);
+	if (tmp > DATE_DELIMITER_MAX)
+		throw std::invalid_argument(DATE_BAD_DATE_STR_FORMAT);
+	date_str.erase(0, tmp);
+	tmp = atoi(date_str.c_str());
+	setMonth(tmp);
+
+	tmp = date_str.find(DATE_DELIMITER);
+	date_str.erase(0, tmp);
+	tmp = date_str.find_first_not_of(DATE_DELIMITER);
+	if (tmp > DATE_DELIMITER_MAX)
+	throw std::invalid_argument(DATE_BAD_DATE_STR_FORMAT);
+	date_str.erase(0, tmp);
+	tmp = atoi(date_str.c_str());
+	setDays(tmp);
+}
+
+/*
+@param date_str string formated in "yyyy-mm-dd"
+@param log overwrite the default log to show/silence constructors/destructors calls
+@brief convert a str to a Date class, allows negative years values
+@throw this call setMethods which could throw an exception or if date_str is badly formated
+*/
+Date::Date(string date_str, bool log) :
+_do_log(log)
+{
+	int		tmp;
+
+	constructor_log(DATE_DEFAULT_CONSTRUCTOR_LOG);
+	tmp = date_str.find(DATE_DELIMITER);
+	if (tmp == 0)
+	{
+		tmp = date_str.find_first_not_of(DATE_DELIMITER);
+		if (tmp > DATE_DELIMITER_MAX)
+			throw std::invalid_argument(DATE_BAD_DATE_STR_FORMAT);
+		date_str.erase(0, tmp);
+		tmp = -atoi(date_str.c_str());
+	}
+	else
+		tmp = atoi(date_str.c_str());
+	setYear(tmp);
+
+	tmp = date_str.find(DATE_DELIMITER);
+	date_str.erase(0, tmp);
+	tmp = date_str.find_first_not_of(DATE_DELIMITER);
+	if (tmp > DATE_DELIMITER_MAX)
+		throw std::invalid_argument(DATE_BAD_DATE_STR_FORMAT);
+	date_str.erase(0, tmp);
+	tmp = atoi(date_str.c_str());
+	setMonth(tmp);
+
+	tmp = date_str.find(DATE_DELIMITER);
+	date_str.erase(0, tmp);
+	tmp = date_str.find_first_not_of(DATE_DELIMITER);
+	if (tmp > DATE_DELIMITER_MAX)
+	throw std::invalid_argument(DATE_BAD_DATE_STR_FORMAT);
+	date_str.erase(0, tmp);
+	tmp = atoi(date_str.c_str());
+	setDays(tmp);
+}
+
+/*
+@param day days of the date
+@param month month of the date
+@param year year of the date
+@brief create a date with this values
+@throw this call setMethods which could throw an exception
+*/
 Date::Date(int day, int month, int year) :
 _do_log(DATE_DEFAULT_DO_LOG)
 {
@@ -21,6 +119,14 @@ _do_log(DATE_DEFAULT_DO_LOG)
 	constructor_log(DATE_DEFAULT_CONSTRUCTOR_LOG);
 }
 
+/*
+@param day days of the date
+@param month month of the date
+@param year year of the date
+@param log overwrite the default log to show/silence constructors/destructors calls
+@brief create a date with this values
+@throw this call setMethods which could throw an exception
+*/
 Date::Date(int day, int month, int year, bool log) :
 _do_log(log)
 {
@@ -30,11 +136,17 @@ _do_log(log)
 	constructor_log(DATE_DEFAULT_CONSTRUCTOR_LOG);
 }
 
+/*
+@brief destructor
+*/
 Date::~Date()
 {
 	constructor_log(DATE_DESTRUCTOR_LOG);
 }
 
+/*
+@brief copy a date value into another
+*/
 Date::Date(const Date &Date) :
 _do_log(Date._do_log),
 _days(Date.getDays()),
@@ -42,19 +154,6 @@ _month(Date.getMonth()),
 _year(Date.getYear())
 {
 	constructor_log(DATE_COPY_CONSTRUCTOR_LOG);
-}
-
-Date & Date::operator= (const Date &Date)
-{
-	constructor_log(DATE_COPY_ASSIGNMENT_LOG);
-	if (this != & Date)
-	{
-		this->_do_log = Date._do_log;
-		this->_year = Date.getYear();
-		this->_month = Date.getMonth();
-		this->_days = Date.getDays();
-	}
-	return (*this);
 }
 
 #pragma endregion
@@ -224,12 +323,12 @@ bool	Date::is_30_month(int month)
 
 #pragma endregion
 
-#pragma region 
+#pragma region OVERLOADS
 
 std::ostream &operator<<(std::ostream &out, const Date &d)
 {
-	out << d.getDays() << "/";
-	out << d.getMonth() << "/";
+	out << d.getDays() << DATE_DELIMITER;
+	out << d.getMonth() << DATE_DELIMITER;
 	if (d.getYear() >= 0)
 	{
 		out << d.getYear() << " ";
@@ -241,6 +340,19 @@ std::ostream &operator<<(std::ostream &out, const Date &d)
 		out << "BC";
 	}
 	return (out);
+}
+
+Date & Date::operator= (const Date &Date)
+{
+	constructor_log(DATE_COPY_ASSIGNMENT_LOG);
+	if (this != & Date)
+	{
+		this->_do_log = Date._do_log;
+		this->_year = Date.getYear();
+		this->_month = Date.getMonth();
+		this->_days = Date.getDays();
+	}
+	return (*this);
 }
 
 #pragma endregion
