@@ -13,13 +13,15 @@ void	BitcoinExchange::constructor_log(string s)
 }
 
 BitcoinExchange::BitcoinExchange() :
-_do_log(BITCOINEXCHANGE_DEFAULT_DO_LOG)
+_do_log(BITCOINEXCHANGE_DEFAULT_DO_LOG),
+_database_dir(BITCOINEXCHANGE_DEFAULT_DATABASE)
 {
 	constructor_log(BITCOINEXCHANGE_DEFAULT_CONSTRUCTOR_LOG);
 }
 
 BitcoinExchange::BitcoinExchange(bool log) :
-_do_log(log)
+_do_log(log),
+_database_dir(BITCOINEXCHANGE_DEFAULT_DATABASE)
 {
 	constructor_log(BITCOINEXCHANGE_DEFAULT_CONSTRUCTOR_LOG);
 }
@@ -30,7 +32,8 @@ BitcoinExchange::~BitcoinExchange()
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &BitcoinExchange) :
-_do_log(BitcoinExchange._do_log)
+_do_log(BitcoinExchange._do_log),
+_database_dir(BitcoinExchange._database_dir)
 {
 	constructor_log(BITCOINEXCHANGE_COPY_CONSTRUCTOR_LOG);
 }
@@ -40,9 +43,28 @@ BitcoinExchange & BitcoinExchange::operator= (const BitcoinExchange &BitcoinExch
 	constructor_log(BITCOINEXCHANGE_COPY_ASSIGNMENT_LOG);
 	if (this != & BitcoinExchange)
 	{
+		this->_do_log = BitcoinExchange._do_log;
+		this->_database_dir = BitcoinExchange._database_dir;
 	}
-	this->_do_log = BitcoinExchange._do_log;
 	return (*this);
+}
+
+#pragma endregion
+
+#pragma region SETTERS
+
+void	BitcoinExchange::SetDatabaseDir(string s)
+{
+	_database_dir = s;
+}
+
+#pragma endregion
+
+#pragma region GETTERS
+
+string	BitcoinExchange::GetDatabaseDir(void) const
+{
+	return (_database_dir);
 }
 
 #pragma endregion

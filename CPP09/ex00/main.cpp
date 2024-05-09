@@ -131,4 +131,19 @@ int		main(void)
 	{
 		cerr << e.what() << endl;
 	}
+	try
+	{
+		BitcoinExchange	btc;
+		Date			d("2009-01-02");
+
+		btc.loaddatabase();
+		cout << btc.dicc[d] << endl;
+		d.setDays(5);
+		cout << btc.dicc[d] << endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
 }

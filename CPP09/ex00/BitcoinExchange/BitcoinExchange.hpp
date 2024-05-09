@@ -7,6 +7,8 @@
 # include <map>
 # include <string>
 # include <utility>
+# include <fstream>
+# include <cstring>
 # include "../Date/Date.hpp"
 
 using std::cout;
@@ -24,8 +26,11 @@ using std::cerr;
 # define BITCOINEXCHANGE_COPY_ASSIGNMENT_LOG "BitcoinExchange copy assignment called"
 # define BITCOINEXCHANGE_DESTRUCTOR_LOG "BitcoinExchange destructor called"
 
-# define u_int	u_int32_t
-# define n_int	int32_t
+# define ERROR_CANT_OPEN_DATABASE "Database can't be opened"
+# define ERROR_BADLY_FORMATED_LINE "Database entry bad format "
+
+# define BITCOIN_DATABASE_TOKEN ","
+# define BITCOINEXCHANGE_DEFAULT_DATABASE "data.csv"
 
 class BitcoinExchange
 {
@@ -41,12 +46,34 @@ class BitcoinExchange
 		~BitcoinExchange();
 		BitcoinExchange & operator = (const BitcoinExchange &BitcoinExchange);
 
+		//DATABASE
+		//-------------------------------------------------------
+
+		void	loaddatabase(void);
+
+		//SETTERS
+		//-------------------------------------------------------
+
+		void	SetDatabaseDir(string s);
+
+		//GETTERS
+		//-------------------------------------------------------
+
+		string	GetDatabaseDir(void) const;
+
 		//-------------------------------------------------------
 
 	protected:
-		bool	_do_log;
+		bool			_do_log;
+		string			_database_dir;
+		std::fstream	_database_file;
 
 	private:
+
+		//DATABASE
+		//-------------------------------------------------------
+
+		void	store_line_in_dicc(string s, int line);
 
 		//LOG
 		//-------------------------------------------------------
