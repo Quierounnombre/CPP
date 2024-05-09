@@ -378,20 +378,6 @@ bool	Date::operator!=(Date const &dt) const
 	return (false);
 }
 
-bool	Date::operator<=(Date const &dt) const
-{
-	if (this->getDateString() <= dt.getDateString())
-		return (true);
-	return (false);
-}
-
-bool	Date::operator>=(Date const &dt) const
-{
-	if (this->getDateString() >= dt.getDateString())
-		return (true);
-	return (false);
-}
-
 bool	Date::operator==(Date const &dt) const
 {
 	if (this->getDateString() == dt.getDateString())
@@ -399,18 +385,64 @@ bool	Date::operator==(Date const &dt) const
 	return (false);
 }
 
+bool	Date::operator<=(Date const &dt) const
+{
+	if (this->getYear() > dt.getYear())
+		return (false);
+	if (this->getYear() == dt.getYear()
+		&& this->getMonth() > dt.getMonth())
+		return (false);
+	if (this->getYear() == dt.getYear()
+		&& this->getMonth() == dt.getMonth()
+		&& this->getDays() > dt.getDays())
+		return (false);
+	return (true);
+}
+
+bool	Date::operator>=(Date const &dt) const
+{
+	if (this->getYear() < dt.getYear())
+		return (false);
+	if (this->getYear() == dt.getYear()
+		&& this->getMonth() < dt.getMonth())
+		return (false);
+	if (this->getYear() == dt.getYear()
+		&& this->getMonth() == dt.getMonth()
+		&& this->getDays() < dt.getDays())
+		return (false);
+	return (true);
+}
+
 bool	Date::operator>(Date const &dt) const
 {
-	if (this->getDateString() > dt.getDateString())
-		return (true);
-	return (false);
+	if (this->getDateString() == dt.getDateString())
+		return (false);
+	if (this->getYear() < dt.getYear())
+		return (false);
+	if (this->getYear() == dt.getYear()
+		&& this->getMonth() < dt.getMonth())
+		return (false);
+	if (this->getYear() == dt.getYear()
+		&& this->getMonth() == dt.getMonth()
+		&& this->getDays() < dt.getDays())
+		return (false);
+	return (true);
 }
 
 bool	Date::operator<(Date const &dt) const
 {
-	if (this->getDateString() < dt.getDateString())
-		return (true);
-	return (false);
+	if (this->getDateString() == dt.getDateString())
+		return (false);
+	if (this->getYear() > dt.getYear())
+		return (false);
+	if (this->getYear() == dt.getYear()
+		&& this->getMonth() > dt.getMonth())
+		return (false);
+	if (this->getYear() == dt.getYear()
+		&& this->getMonth() == dt.getMonth()
+		&& this->getDays() > dt.getDays())
+		return (false);
+	return (true);
 }
 
 #pragma endregion
