@@ -35,7 +35,7 @@ using std::cerr;
 class BitcoinExchange
 {
 	public:
-		std::map<Date, float>	dicc;
+		std::map<Date, double>	dicc;
 
 		//CONSTRUCTORS
 		//-------------------------------------------------------

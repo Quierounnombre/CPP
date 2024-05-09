@@ -1,12 +1,32 @@
 # include "../BitcoinExchange.hpp"
 
+static double float_conversion(char *str, int line)
+{
+	bool	dot_flag;
+	double	r;
+
+	r = atof(str);
+	dot_flag = false;
+	while (*str)
+	{
+		if (!isdigit(*str) && *str != '.')
+			throw std::out_of_range (ERROR_BADLY_FORMATED_LINE + to_string(line));
+		if (*str == '.' && dot_flag)
+			throw std::out_of_range (ERROR_BADLY_FORMATED_LINE + to_string(line));
+		else if (*str == '.')
+			dot_flag = true;
+		str++;
+	}
+	return (r);
+}
+
 void	BitcoinExchange::store_line_in_dicc(string s, int line)
 {
 	char	*str;
 	char	*date_str;
 	char	*value_str;
 	Date	date("10-1-1");
-	float	value;
+	double	value;
 
 	date_str = NULL;
 	value_str = NULL;
@@ -22,6 +42,6 @@ void	BitcoinExchange::store_line_in_dicc(string s, int line)
 		str = strtok(NULL, BITCOIN_DATABASE_TOKEN);
 	}
 	date = Date(date_str);
-	value = atof(value_str);
+	value = float_conversion(value_str, line);
 	this->dicc[date] = value;
 }

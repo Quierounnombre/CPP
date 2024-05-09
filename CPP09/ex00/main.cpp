@@ -137,13 +137,35 @@ int		main(void)
 		Date			d("2009-01-02");
 
 		btc.loaddatabase();
-		cout << btc.dicc[d] << endl;
+		cout << d.getDateString() << "-> " << btc.dicc[d] << endl;
 		d.setDays(5);
-		cout << btc.dicc[d] << endl;
+		cout << btc.dicc.at(d) << endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << e.what() << endl;
+		cout << "HA PETADO" << endl;
+		cout << endl;
+		cout << "----------------------------------------" << endl;
+		cout << endl;
 	}
-	
+	try
+	{
+		BitcoinExchange	btc;
+		Date			d("2009-01-02");
+
+		btc.loaddatabase();
+		cout << d.getDateString() << "-> " << btc.dicc[d] << endl;
+		d.setDays(5);
+		cout << d.getDateString() << "-> " << btc.dicc[d] << endl;
+		d.setDays(17);
+		cout << d.getDateString() << "-> " << btc.dicc[d] << endl;
+		d.setDays(22);
+		d.setMonth(2);
+		cout << d.getDateString() << "-> " << btc.dicc[d] << endl;
+	}
+	catch (const std::exception &e)
+	{
+		cerr << e.what() << endl;
+	}	
 }
