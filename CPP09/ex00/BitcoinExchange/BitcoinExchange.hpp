@@ -27,10 +27,14 @@ using std::cerr;
 # define BITCOINEXCHANGE_DESTRUCTOR_LOG "BitcoinExchange destructor called"
 
 # define ERROR_CANT_OPEN_DATABASE "Database can't be opened"
-# define ERROR_BADLY_FORMATED_LINE "Database entry bad format "
+# define ERROR_BADLY_FORMATED_LINE "Database entry bad format, line: "
+# define ERROR_OUT_OF_RANGE "Database value is out of range, line: "
 
 # define BITCOIN_DATABASE_TOKEN ","
 # define BITCOINEXCHANGE_DEFAULT_DATABASE "data.csv"
+
+# define BITCOIN_DATABASE_MIN_VALUE 0
+# define BITCOIN_DATABASE_MAX_VALUE 1000
 
 class BitcoinExchange
 {

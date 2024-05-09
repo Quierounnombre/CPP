@@ -17,6 +17,8 @@ static double float_conversion(char *str, int line)
 			dot_flag = true;
 		str++;
 	}
+	if (r < BITCOIN_DATABASE_MIN_VALUE || r > BITCOIN_DATABASE_MAX_VALUE)
+		throw std::out_of_range (ERROR_OUT_OF_RANGE + to_string(line));
 	return (r);
 }
 
