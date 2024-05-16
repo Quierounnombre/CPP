@@ -337,6 +337,31 @@ bool	Date::is_30_month(int month)
 	return (false);
 }
 
+/*
+@brief returns the total value of a date in days, remember to store this date in a long format to avoid
+overflows, also remember the closer to 0 days the closer to 0-0-0 (yyyy/mm/dd)
+@return The total number of days remaining/since 0-0-0, depending of AC/BC
+*/
+long	Date::getTotalDays(void) const
+{
+	long	total_date;
+
+	total_date = 0;
+	total_date += this->getYear() * GC_DAYS_PER_YEAR;
+	total_date += this->getYear() / GC_LEAP_YEAR_FRECUENCY;
+	for (int months = this->getMonth(); months; months--)
+	{
+		if (Date::is_30_month(months))
+			total_date += GC_DAYS_PER_30_MONTH;
+		else if (Date::is_31_month(months))
+			total_date += GC_DAYS_PER_31_MONTH;
+		else if (February == months)
+			total_date += GC_FEBRUARY_NORMAL_DAYS;
+	}
+	total_date += this->getDays();
+	return (total_date);
+}
+
 #pragma endregion
 
 #pragma region OVERLOADS

@@ -42,6 +42,9 @@ using std::cerr;
 # define GC_FEBRUARY_LEAP_DAYS 29
 # define GC_MIN_MONTH_PER_YEAR 1
 # define GC_MAX_MONTH_PER_YEAR 12
+# define GC_DAYS_PER_YEAR 365
+# define GC_DAYS_PER_LEAP_YEAR 366
+# define GC_LEAP_YEAR_FRECUENCY 4
 
 typedef enum e_list_of_months
 {
@@ -88,6 +91,7 @@ class Date
 		int				getYear(void) const;
 		static string	getMonthName(int _month);
 		string			getDateString(void) const;
+		long			getTotalDays(void) const;
 
 		//Is funs
 		//-------------------------------------------------------

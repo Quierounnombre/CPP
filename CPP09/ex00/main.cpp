@@ -112,10 +112,8 @@ static void	date_test(void)
 		cerr << e.what() << endl;
 	}
 }
-
-int		main(void)
+static void btc_test_dicc(void)
 {
-	date_test();
 	cout << endl;
 	cout << "----------------------------------------" << endl;
 	cout << endl;
@@ -167,5 +165,40 @@ int		main(void)
 	catch (const std::exception &e)
 	{
 		cerr << e.what() << endl;
-	}	
+	}
+}
+
+int		main(void)
+{
+	date_test();
+	btc_test_dicc();
+
+	cout << endl;
+	cout << "----------------------------------------" << endl;
+	cout << endl;
+	try
+	{
+		BitcoinExchange	btc;
+		Date			d("2009-1-2");
+		double			value;
+
+		btc.loaddatabase();
+		cout << "VALUE LOWER = " << btc.dicc[d] << endl;
+		d.setDays(8);
+		cout << "VALUE HIGGER = " << btc.dicc[d] << endl;
+		d.setDays(4);
+		value = btc.GetValueCloserToDate(d);
+		cout << "CLOSEST(LOW) = " << value << endl;
+		d.setDays(5);
+		value = btc.GetValueCloserToDate(d);
+		cout << "CLOSEST(EQUAL) = " << value << endl;
+		d.setDays(6);
+		value = btc.GetValueCloserToDate(d);
+		cout << "CLOSEST(HIGH) = " << value << endl;
+	}
+	catch(const std::exception& e)
+	{
+		cerr << e.what() << endl;
+	}
+	
 }

@@ -67,4 +67,33 @@ string	BitcoinExchange::GetDatabaseDir(void) const
 	return (_database_dir);
 }
 
+double	BitcoinExchange::GetValueCloserToDate(Date d)
+{
+	std::map<Date, double>::iterator	it;
+	std::map<Date, double>::iterator	low_date;
+	std::map<Date, double>::iterator	high_date;
+	long								distance_d_low;
+	long								distance_d_high;
+
+	low_date = dicc.begin();
+	high_date = dicc.end();
+	high_date--;
+	for (it = dicc.begin() ; it != dicc.end() ; it++)
+	{
+		if (it->first == d)
+			return (it->second);
+		else if (it->first < d
+				&& it->first > low_date->first)
+			low_date = it;
+		else if (it->first > d
+				&& it->first < high_date->first)
+			high_date = it;
+	}
+	distance_d_high = high_date->first.getTotalDays() - d.getTotalDays();
+	distance_d_low = d.getTotalDays() - low_date->first.getTotalDays();
+	if (distance_d_low <= distance_d_high)
+		return(low_date->second);
+	return (high_date->second);
+}
+
 #pragma endregion

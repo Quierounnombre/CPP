@@ -31,4 +31,5 @@ void	BitcoinExchange::loaddatabase(void)
 			cerr << e.what() << endl;
 		}
 	}
+	_database_file.close();
 }

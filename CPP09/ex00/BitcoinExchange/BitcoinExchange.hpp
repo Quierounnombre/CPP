@@ -31,6 +31,7 @@ using std::cerr;
 # define ERROR_OUT_OF_RANGE "Database value is out of range, line: "
 
 # define BITCOIN_DATABASE_TOKEN ","
+# define BITCOIN_INPUT_TOKEN "|"
 # define BITCOINEXCHANGE_DEFAULT_DATABASE "data.csv"
 
 # define BITCOIN_DATABASE_MIN_VALUE 0
@@ -64,6 +65,7 @@ class BitcoinExchange
 		//-------------------------------------------------------
 
 		string	GetDatabaseDir(void) const;
+		double	GetValueCloserToDate(Date d);
 
 		//-------------------------------------------------------
 
