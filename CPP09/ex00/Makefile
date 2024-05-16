@@ -35,6 +35,8 @@ BITCOIN_EXCHANGE_SRCS_CLASS = $(addsuffix .cpp, $(BITCOIN_EXCHANGE_CLASS))
 BITCOIN_EXCHANGE_DATABASE = \
 	loaddatabase \
 	store_line_in_dicc \
+	loadwallet \
+	store_line_in_wallet \
 
 BITCOIN_EXCHANGE_DATABASE_DIR = Database/
 BITCOIN_EXCHANGE_DATABASE_SRCS = \

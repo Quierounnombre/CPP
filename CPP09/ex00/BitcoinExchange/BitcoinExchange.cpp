@@ -14,14 +14,16 @@ void	BitcoinExchange::constructor_log(string s)
 
 BitcoinExchange::BitcoinExchange() :
 _do_log(BITCOINEXCHANGE_DEFAULT_DO_LOG),
-_database_dir(BITCOINEXCHANGE_DEFAULT_DATABASE)
+_database_dir(BITCOINEXCHANGE_DEFAULT_DATABASE),
+_wallet_dir(BITCOINEXCHANGE_DEFAULT_WALLET)
 {
 	constructor_log(BITCOINEXCHANGE_DEFAULT_CONSTRUCTOR_LOG);
 }
 
 BitcoinExchange::BitcoinExchange(bool log) :
 _do_log(log),
-_database_dir(BITCOINEXCHANGE_DEFAULT_DATABASE)
+_database_dir(BITCOINEXCHANGE_DEFAULT_DATABASE),
+_wallet_dir(BITCOINEXCHANGE_DEFAULT_WALLET)
 {
 	constructor_log(BITCOINEXCHANGE_DEFAULT_CONSTRUCTOR_LOG);
 }
@@ -33,7 +35,8 @@ BitcoinExchange::~BitcoinExchange()
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &BitcoinExchange) :
 _do_log(BitcoinExchange._do_log),
-_database_dir(BitcoinExchange._database_dir)
+_database_dir(BitcoinExchange._database_dir),
+_wallet_dir(BitcoinExchange._wallet_dir)
 {
 	constructor_log(BITCOINEXCHANGE_COPY_CONSTRUCTOR_LOG);
 }
@@ -45,6 +48,7 @@ BitcoinExchange & BitcoinExchange::operator= (const BitcoinExchange &BitcoinExch
 	{
 		this->_do_log = BitcoinExchange._do_log;
 		this->_database_dir = BitcoinExchange._database_dir;
+		this->_wallet_dir = BitcoinExchange._wallet_dir;
 	}
 	return (*this);
 }
@@ -58,6 +62,11 @@ void	BitcoinExchange::SetDatabaseDir(string s)
 	_database_dir = s;
 }
 
+void	BitcoinExchange::SetWalletDir(string s)
+{
+	_wallet_dir = s;
+}
+
 #pragma endregion
 
 #pragma region GETTERS
@@ -65,6 +74,11 @@ void	BitcoinExchange::SetDatabaseDir(string s)
 string	BitcoinExchange::GetDatabaseDir(void) const
 {
 	return (_database_dir);
+}
+
+string	BitcoinExchange::GetWalletDir(void) const
+{
+	return (_wallet_dir);
 }
 
 double	BitcoinExchange::GetValueCloserToDate(Date d)

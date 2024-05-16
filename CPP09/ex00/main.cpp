@@ -166,13 +166,6 @@ static void btc_test_dicc(void)
 	{
 		cerr << e.what() << endl;
 	}
-}
-
-int		main(void)
-{
-	date_test();
-	btc_test_dicc();
-
 	cout << endl;
 	cout << "----------------------------------------" << endl;
 	cout << endl;
@@ -186,6 +179,9 @@ int		main(void)
 		cout << "VALUE LOWER = " << btc.dicc[d] << endl;
 		d.setDays(8);
 		cout << "VALUE HIGGER = " << btc.dicc[d] << endl;
+		d.setDays(2);
+		value = btc.GetValueCloserToDate(d);
+		cout << "CLOSEST(EXACT_LOW) = " << value << endl;
 		d.setDays(4);
 		value = btc.GetValueCloserToDate(d);
 		cout << "CLOSEST(LOW) = " << value << endl;
@@ -195,10 +191,43 @@ int		main(void)
 		d.setDays(6);
 		value = btc.GetValueCloserToDate(d);
 		cout << "CLOSEST(HIGH) = " << value << endl;
+		d.setDays(8);
+		value = btc.GetValueCloserToDate(d);
+		cout << "CLOSEST(EXACT_HIGH) = " << value << endl;
 	}
 	catch(const std::exception& e)
 	{
 		cerr << e.what() << endl;
 	}
-	
+}
+
+
+int		main(int argc, char **argv)
+{
+	if (argc > 2)
+	{
+		date_test();
+		btc_test_dicc();
+		cout << endl;
+		cout << "----------------------------------------" << endl;
+		cout << endl;
+	}
+	if (argc > 1)
+	{
+		try
+		{
+			BitcoinExchange						btc;
+
+			btc.SetWalletDir("TEST.txt");
+			btc.loaddatabase();
+			cout << endl;
+			btc.loadwallet();
+			cout << endl;
+		}
+		catch(const std::exception& e)
+		{
+			cerr << e.what() << endl;
+		}
+	}
+	(void)argv;
 }
