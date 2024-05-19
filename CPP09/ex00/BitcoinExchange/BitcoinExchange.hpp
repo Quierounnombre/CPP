@@ -33,11 +33,13 @@ using std::cerr;
 # define ERROR_BADLY_FORMATED_WALLET "Wallet entry bad format, line: "
 # define ERROR_OUT_OF_RANGE "Database value is out of range, line: "
 # define ERROR_OUT_OF_RANGE_WALLET "Wallet value is out of range, line: "
+# define ERROR_DATE_UNDER_MINIMUM "Date is under the bitcoin creation date"
 
 # define BITCOIN_DATABASE_TOKEN ","
 # define BITCOIN_INPUT_TOKEN "|"
 # define BITCOINEXCHANGE_DEFAULT_DATABASE "data.csv"
 # define BITCOINEXCHANGE_DEFAULT_WALLET "NONE"
+# define BITCOIN_DATE_MINIMUN "2009-1-03"
 
 # define BITCOIN_DATABASE_MIN_VALUE 0
 # define BITCOIN_DATABASE_MAX_VALUE 1000

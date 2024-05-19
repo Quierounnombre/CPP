@@ -120,7 +120,7 @@ static void btc_test_dicc(void)
 	try
 	{
 		BitcoinExchange	btc;
-		Date			d("2002-1-24");
+		Date			d("2002-2-24");
 
 		btc.dicc[d] = 5;
 		cout << btc.dicc[d] << endl;
@@ -132,7 +132,7 @@ static void btc_test_dicc(void)
 	try
 	{
 		BitcoinExchange	btc;
-		Date			d("2009-01-02");
+		Date			d("2009-02-02");
 
 		btc.loaddatabase();
 		cout << d.getDateString() << "-> " << btc.dicc[d] << endl;
@@ -150,7 +150,7 @@ static void btc_test_dicc(void)
 	try
 	{
 		BitcoinExchange	btc;
-		Date			d("2009-01-02");
+		Date			d("2009-02-02");
 
 		btc.loaddatabase();
 		cout << d.getDateString() << "-> " << btc.dicc[d] << endl;
@@ -159,7 +159,7 @@ static void btc_test_dicc(void)
 		d.setDays(17);
 		cout << d.getDateString() << "-> " << btc.dicc[d] << endl;
 		d.setDays(22);
-		d.setMonth(2);
+		d.setMonth(3);
 		cout << d.getDateString() << "-> " << btc.dicc[d] << endl;
 	}
 	catch (const std::exception &e)
@@ -172,7 +172,7 @@ static void btc_test_dicc(void)
 	try
 	{
 		BitcoinExchange	btc;
-		Date			d("2009-1-2");
+		Date			d("2009-2-2");
 		double			value;
 
 		btc.loaddatabase();
@@ -218,7 +218,7 @@ int		main(int argc, char **argv)
 		{
 			BitcoinExchange						btc;
 
-			btc.SetWalletDir("TEST.txt");
+			btc.SetWalletDir(argv[1]);
 			btc.loaddatabase();
 			cout << endl;
 			btc.loadwallet();
@@ -229,5 +229,4 @@ int		main(int argc, char **argv)
 			cerr << e.what() << endl;
 		}
 	}
-	(void)argv;
 }

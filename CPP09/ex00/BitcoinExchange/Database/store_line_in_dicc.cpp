@@ -22,6 +22,14 @@ static double float_conversion(char *str, int line)
 	return (r);
 }
 
+static void	is_date_in_limits(Date &date)
+{
+	Date	limit(BITCOIN_DATE_MINIMUN);
+
+	if (limit > date)
+		throw std::out_of_range (ERROR_DATE_UNDER_MINIMUM);
+}
+
 void	BitcoinExchange::store_line_in_dicc(string s, int line)
 {
 	char	*str;
@@ -44,6 +52,7 @@ void	BitcoinExchange::store_line_in_dicc(string s, int line)
 		str = strtok(NULL, BITCOIN_DATABASE_TOKEN);
 	}
 	date = Date(date_str);
+	is_date_in_limits(date);
 	value = float_conversion(value_str, line);
 	this->dicc[date] = value;
 }
