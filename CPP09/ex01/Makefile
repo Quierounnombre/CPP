@@ -29,7 +29,7 @@ MAIN = main
 
 RPN_DIR = RPN_
 
-RPN_CLASS = $(RPN_DIR)
+RPN_CLASS = RPN
 RPN_SRCS_CLASS = $(addsuffix .cpp, $(RPN_CLASS))
 
 RPN_PARSE = \

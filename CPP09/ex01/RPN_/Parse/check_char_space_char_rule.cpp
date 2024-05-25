@@ -1,6 +1,6 @@
-# include "../RPN_.hpp"
+# include "../RPN.hpp"
 
-bool	RPN_::check_char_space_char_rule(string s)
+bool	RPN::check_char_space_char_rule(string s)
 {
 	bool	space_flag;
 	bool	char_flag;

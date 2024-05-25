@@ -1,6 +1,6 @@
-#include "../RPN_.hpp"
+#include "../RPN.hpp"
 
-bool	RPN_::check_allowed_chars(string s)
+bool	RPN::check_allowed_chars(string s)
 {
 	for (string::iterator it = s.begin(); it != s.end(); it++)
 	{

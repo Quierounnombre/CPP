@@ -1,6 +1,6 @@
-# include "../RPN_.hpp"
+# include "../RPN.hpp"
 
-void	RPN_::do_substraction(void)
+void	RPN::do_substraction(void)
 {
 	int	first;
 	int	second;

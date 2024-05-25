@@ -1,6 +1,6 @@
-# include "../RPN_.hpp"
+# include "../RPN.hpp"
 
-void	RPN_::do_division(void)
+void	RPN::do_division(void)
 {
 	int	first;
 	int	second;

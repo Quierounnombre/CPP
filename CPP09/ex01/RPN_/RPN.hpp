@@ -1,5 +1,5 @@
-#ifndef RPN__HPP
-# define RPN__HPP
+#ifndef RPN_HPP
+# define RPN_HPP
 
 # pragma once
 
@@ -39,17 +39,17 @@ using std::cerr;
 # define u_int	u_int32_t
 # define n_int	int32_t
 
-class RPN_
+class RPN
 {
 	public:
 		//CONSTRUCTORS
 		//-------------------------------------------------------
 
-		RPN_();
-		RPN_(bool log);
-		RPN_(const RPN_ &RPN_);
-		~RPN_();
-		RPN_ & operator = (const RPN_ &RPN_);
+		RPN();
+		RPN(bool log);
+		RPN(const RPN &RPN);
+		~RPN();
+		RPN & operator = (const RPN &RPN);
 
 		//PARSE
 		//-------------------------------------------------------

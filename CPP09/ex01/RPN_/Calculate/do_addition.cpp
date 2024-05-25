@@ -1,6 +1,6 @@
-#include "../RPN_.hpp"
+#include "../RPN.hpp"
 
-void	RPN_::do_addition(void)
+void	RPN::do_addition(void)
 {
 	int	first;
 	int	second;

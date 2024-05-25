@@ -1,6 +1,6 @@
-# include "../RPN_.hpp"
+# include "../RPN.hpp"
 
-void	RPN_::select_operation(char c)
+void	RPN::select_operation(char c)
 {
 	if (stack.size() < MIN_FOR_OPERATION)
 		throw std::logic_error(STACK_LACK_OPERANDS);

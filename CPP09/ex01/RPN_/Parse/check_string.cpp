@@ -1,6 +1,6 @@
-# include "../RPN_.hpp"
+# include "../RPN.hpp"
 
-void	RPN_::check_string(string s)
+void	RPN::check_string(string s)
 {
 	if (!check_allowed_chars(s))
 		throw std::logic_error(ERROR_ILEGAL_CHARS);

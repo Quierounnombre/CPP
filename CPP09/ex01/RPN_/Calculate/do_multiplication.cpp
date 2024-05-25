@@ -1,6 +1,6 @@
-# include "../RPN_.hpp"
+# include "../RPN.hpp"
 
-void	RPN_::do_multiplication(void)
+void	RPN::do_multiplication(void)
 {
 	int	first;
 	int	second;

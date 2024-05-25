@@ -1,8 +1,8 @@
-#include "RPN_.hpp"
+#include "RPN.hpp"
 
 #pragma region CONSTRUCTOR
 
-void	RPN_::constructor_log(string s)
+void	RPN::constructor_log(string s)
 {
 	if (_do_log)
 	{
@@ -12,35 +12,35 @@ void	RPN_::constructor_log(string s)
 	}
 }
 
-RPN_::RPN_() :
+RPN::RPN() :
 _do_log(RPN_DEFAULT_DO_LOG)
 {
 	constructor_log(RPN_DEFAULT_CONSTRUCTOR_LOG);
 }
 
-RPN_::RPN_(bool log) :
+RPN::RPN(bool log) :
 _do_log(log)
 {
 	constructor_log(RPN_DEFAULT_CONSTRUCTOR_LOG);
 }
 
-RPN_::~RPN_()
+RPN::~RPN()
 {
 	constructor_log(RPN_DESTRUCTOR_LOG);
 }
 
-RPN_::RPN_(const RPN_ &RPN_) :
-_do_log(RPN_._do_log)
+RPN::RPN(const RPN &RPN) :
+_do_log(RPN._do_log)
 {
 	constructor_log(RPN_COPY_CONSTRUCTOR_LOG);
 }
 
-RPN_ & RPN_::operator= (const RPN_ &RPN_)
+RPN & RPN::operator= (const RPN &RPN)
 {
 	constructor_log(RPN_COPY_ASSIGNMENT_LOG);
-	if (this != & RPN_)
+	if (this != & RPN)
 	{
-		this->_do_log = RPN_._do_log;
+		this->_do_log = RPN._do_log;
 	}
 	return (*this);
 }

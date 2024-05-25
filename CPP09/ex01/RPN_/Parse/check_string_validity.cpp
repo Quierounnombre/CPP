@@ -1,6 +1,6 @@
-#include "../RPN_.hpp"
+#include "../RPN.hpp"
 
-bool	RPN_::check_string_validity(string s)
+bool	RPN::check_string_validity(string s)
 {
 	unsigned int	digit_counter;
 	unsigned int	operators_counter;

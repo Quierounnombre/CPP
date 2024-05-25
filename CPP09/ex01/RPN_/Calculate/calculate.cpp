@@ -1,6 +1,6 @@
-# include "../RPN_.hpp"
+# include "../RPN.hpp"
 
-void	RPN_::calculate(string s)
+void	RPN::calculate(string s)
 {
 	int		result;
 

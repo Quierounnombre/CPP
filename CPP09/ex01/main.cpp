@@ -1,4 +1,4 @@
-# include "RPN_/RPN_.hpp"
+# include "RPN_/RPN.hpp"
 
 # define MIN_ARGS 2
 # define MIN_ARGS_TEST 3
@@ -8,7 +8,7 @@ void	test(void)
 {
 	try
 	{
-		RPN_	rpn;
+		RPN	rpn;
 
 		rpn.check_string("1 1    ");
 	}
@@ -18,7 +18,7 @@ void	test(void)
 	}
 	try
 	{
-		RPN_	rpn;
+		RPN	rpn;
 
 		rpn.check_string("1 1 + +");
 	}
@@ -28,7 +28,7 @@ void	test(void)
 	}
 	try
 	{
-		RPN_	rpn;
+		RPN	rpn;
 
 		rpn.check_string("1 ^ 3");
 	}
@@ -49,7 +49,7 @@ int	main(int argc, char **argv)
 	{
 		try
 		{
-			RPN_	rpn;
+			RPN	rpn;
 
 			rpn.calculate(argv[1]);
 		}
