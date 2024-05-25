@@ -46,12 +46,6 @@ class PmergeMe
 	protected:
 		bool	_do_log;
 
-	private:
-		//LOG
-		//-------------------------------------------------------
-
-		void	constructor_log(string s);
-
 		//MERGE
 		//-------------------------------------------------------
 
@@ -59,6 +53,13 @@ class PmergeMe
 		void						order_lst_pairs(std::list<std::list<int> > &lst);
 
 		//-------------------------------------------------------
+
+	private:
+		//LOG
+		//-------------------------------------------------------
+
+		void	constructor_log(string s);
+
 };
 
 #endif
