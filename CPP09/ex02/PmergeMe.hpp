@@ -51,6 +51,7 @@ class PmergeMe
 
 		std::list<std::list<int> >	split_lst_in_half(std::list<int> &lst);
 		void						order_lst_pairs(std::list<std::list<int> > &lst);
+		std::list<int>				create_bigger_elements_lst(std::list<std::list<int> > &lst);
 
 		//-------------------------------------------------------
 

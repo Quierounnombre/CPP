@@ -35,6 +35,7 @@ PMERGEME_SRCS_CLASS = $(addsuffix .cpp, $(PMERGEME_CLASS))
 PMERGEME_MERGE = \
 split_lst_in_half \
 order_lst_pairs \
+create_bigger_elements_lst \
 
 PMERGEME_MERGE_DIR = Merge/
 PMERGEME_MERGE_SRCS = \

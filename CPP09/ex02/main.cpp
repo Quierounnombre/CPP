@@ -87,6 +87,58 @@ class tester : public PmergeMe
 				cout << RED << TEST_FAILED;
 			cout << RESET << test_number << endl;
 		}
+		void	test_create_big_list(int test_number)
+		{
+			std::list<int>				lst;
+			std::list<std::list<int> >	nested_lst;
+			std::list<int>				big_elements_lst;
+			bool						flag;
+
+			flag = false;
+			lst.push_back(1);
+			lst.push_back(6);
+			lst.push_back(3);
+			lst.push_back(4);
+			lst.push_back(5);
+			lst.push_back(8);
+			lst.push_back(2);
+			lst.push_back(7);
+			nested_lst = split_lst_in_half(lst);
+			order_lst_pairs(nested_lst);
+			big_elements_lst = create_bigger_elements_lst(nested_lst);
+			# define EXPECTED_RESULTS 4
+			if (big_elements_lst.size() != EXPECTED_RESULTS)
+				flag = true;
+			for
+			(
+				std::list<std::list<int> >::iterator nested_it = nested_lst.begin();
+				nested_it != nested_lst.end();
+				nested_it++
+			)
+			{
+				for
+				(
+					std::list<int>::iterator it = big_elements_lst.begin();
+					it != big_elements_lst.end();
+					it++
+				)
+				{
+					if (nested_it->front() != *it)
+						flag = true;
+					else
+					{
+						flag = false;
+						break ;
+					}
+				}
+			}
+			if (!flag)
+				cout << GREEN << TEST_PASSED;
+			else
+				cout << RED << TEST_FAILED;
+			cout << RESET << test_number << endl;
+			# undef EXPECTED_RESULTS
+		}
 };
 
 void	test_colecction(void)
@@ -98,6 +150,7 @@ void	test_colecction(void)
 	tester.test_split_even_lst(++n_test);
 	tester.test_split_odd_lst(++n_test);
 	tester.test_order_splited_lst(++n_test);
+	tester.test_create_big_list(++n_test);
 }
 
 
