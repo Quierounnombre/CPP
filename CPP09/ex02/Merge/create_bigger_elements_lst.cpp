@@ -3,6 +3,7 @@
 std::list<int>	PmergeMe::create_bigger_elements_lst(std::list<std::list<int> >	&lst)
 {
 	std::list<int>	new_lst;
+	std::list<int>	tmp_lst;
 
 	for
 	(
@@ -11,7 +12,9 @@ std::list<int>	PmergeMe::create_bigger_elements_lst(std::list<std::list<int> >	&
 		it++
 	)
 	{
-		new_lst.push_back(it->front());
+		tmp_lst.push_front(it->front());
+		new_lst.merge(tmp_lst);
+		tmp_lst.empty();
 	}
 	return (new_lst);
 }

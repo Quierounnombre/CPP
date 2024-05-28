@@ -41,6 +41,11 @@ class PmergeMe
 		void	MergeLst(std::list<int> &list);
 		void	MergeVector(std::vector<int> &vector);
 
+		//IS_FUNS
+		//-------------------------------------------------------
+
+		static bool	is_lst_sorted(std::list<int> &lst);
+
 		//-------------------------------------------------------
 
 	protected:
@@ -52,6 +57,8 @@ class PmergeMe
 		std::list<std::list<int> >	split_lst_in_half(std::list<int> &lst);
 		void						order_lst_pairs(std::list<std::list<int> > &lst);
 		std::list<int>				create_bigger_elements_lst(std::list<std::list<int> > &lst);
+		void						insert_smallest_lst(std::list<std::list<int> > &lst,
+														std::list<int> &bigger_lst);
 
 		//-------------------------------------------------------
 

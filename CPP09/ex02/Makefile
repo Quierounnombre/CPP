@@ -36,14 +36,22 @@ PMERGEME_MERGE = \
 split_lst_in_half \
 order_lst_pairs \
 create_bigger_elements_lst \
+insert_smallest_lst \
 
 PMERGEME_MERGE_DIR = Merge/
 PMERGEME_MERGE_SRCS = \
 $(addprefix $(PMERGEME_MERGE_DIR), $(addsuffix .cpp, $(PMERGEME_MERGE)))
 
+PMERGEME_IS_FUNS = is_lst_sorted \
+
+PMERGEME_IS_FUNS_DIR = is_funs/
+PMERGEME_IS_FUNS_SRCS = \
+$(addprefix $(PMERGEME_IS_FUNS_DIR), $(addsuffix .cpp, $(PMERGEME_IS_FUNS)))
+
 PMERGEME_SRCS = \
 	$(PMERGEME_SRCS_CLASS) \
-	$(PMERGEME_MERGE_SRCS)
+	$(PMERGEME_MERGE_SRCS) \
+	$(PMERGEME_IS_FUNS_SRCS) \
 
 #-------------------------------------------------------------------SRCS
 
