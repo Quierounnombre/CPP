@@ -37,6 +37,7 @@ split_lst_in_half \
 order_lst_pairs \
 create_bigger_elements_lst \
 insert_smallest_lst \
+insert_next_element_in_lst \
 
 PMERGEME_MERGE_DIR = Merge/
 PMERGEME_MERGE_SRCS = \

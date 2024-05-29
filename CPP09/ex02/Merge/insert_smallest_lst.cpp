@@ -13,6 +13,7 @@ void	PmergeMe::insert_smallest_lst(std::list<std::list<int> > &lst,
 		if (bigger_lst.front() == it->front())
 		{
 			bigger_lst.push_front(it->back());
+			lst.erase(it);
 			break ;
 		}
 	}

@@ -6,7 +6,7 @@
 # define TEST_FAILED "Test Failed "
 # define RESET "\033[0m"
 
-/* static void	put_lst_in_cout(std::list<int> lst)
+ static void	put_lst_in_cout(std::list<int> lst)
 {
 	for
 	(
@@ -18,7 +18,7 @@
 		cout << *it << " ";
 	}
 	cout << endl;
-} */
+} 
 
 class tester : public PmergeMe
 {
@@ -161,6 +161,7 @@ class tester : public PmergeMe
 			std::list<std::list<int> >	nested_lst;
 			std::list<int>				big_elements_lst;
 			bool						flag;
+			# define EXPECTED_RESULT 3
 
 			flag = false;
 			lst.push_back(1);
@@ -171,11 +172,12 @@ class tester : public PmergeMe
 			lst.push_back(8);
 			lst.push_back(2);
 			lst.push_back(7);
+	
 			nested_lst = split_lst_in_half(lst);
 			order_lst_pairs(nested_lst);
 			big_elements_lst = create_bigger_elements_lst(nested_lst);
 			insert_smallest_lst(nested_lst, big_elements_lst);
-			# define EXPECTED_RESULT 3
+
 			if (big_elements_lst.front() != EXPECTED_RESULT)
 				cout << RED << TEST_FAILED;
 			else if (!is_lst_sorted(big_elements_lst))
@@ -185,6 +187,41 @@ class tester : public PmergeMe
 			cout << RESET << test_number << endl;
 			# undef EXPECTED_RESULTS
 		}
+		void	test_insert_next_element(int test_number)
+		{
+			std::list<int>				lst;
+			std::list<std::list<int> >	nested_lst;
+			std::list<int>				big_elements_lst;
+
+			lst.push_back(1);
+			lst.push_back(6);
+			lst.push_back(3);
+			lst.push_back(4);
+			lst.push_back(5);
+			lst.push_back(8);
+			lst.push_back(2);
+			lst.push_back(7);
+
+			put_lst_in_cout(lst);
+	
+			nested_lst = split_lst_in_half(lst);
+			order_lst_pairs(nested_lst);
+			big_elements_lst = create_bigger_elements_lst(nested_lst);
+			insert_smallest_lst(nested_lst, big_elements_lst);
+
+			put_lst_in_cout(big_elements_lst);
+			insert_next_element_in_lst(nested_lst, big_elements_lst);
+			insert_next_element_in_lst(nested_lst, big_elements_lst);
+			insert_next_element_in_lst(nested_lst, big_elements_lst);
+			put_lst_in_cout(big_elements_lst);
+
+			if (!is_lst_sorted(big_elements_lst))
+				cout << RED << TEST_FAILED;
+			else
+				cout << GREEN << TEST_PASSED;
+			cout << RESET << test_number << endl;
+		}
+
 };
 
 void	test_colecction(void)
@@ -198,6 +235,7 @@ void	test_colecction(void)
 	tester.test_order_splited_lst(++n_test);
 	tester.test_create_big_list(++n_test);
 	tester.test_insert_small(++n_test);
+	tester.test_insert_next_element(++n_test);
 }
 
 
@@ -211,5 +249,4 @@ int main(void)
 	{
 		cerr << e.what() << endl;
 	}
-	
 }

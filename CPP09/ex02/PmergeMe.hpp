@@ -59,6 +59,8 @@ class PmergeMe
 		std::list<int>				create_bigger_elements_lst(std::list<std::list<int> > &lst);
 		void						insert_smallest_lst(std::list<std::list<int> > &lst,
 														std::list<int> &bigger_lst);
+		void						insert_next_element_in_lst(std::list<std::list<int> > &splited_lst,
+																std::list<int> &big_lst);
 
 		//-------------------------------------------------------
 
