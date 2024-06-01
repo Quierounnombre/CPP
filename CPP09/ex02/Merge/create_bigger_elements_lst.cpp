@@ -16,5 +16,7 @@ std::list<int>	PmergeMe::create_bigger_elements_lst(std::list<std::list<int> >	&
 		new_lst.merge(tmp_lst);
 		tmp_lst.empty();
 	}
+	if (lst.size() % 2)
+		lst.pop_back();
 	return (new_lst);
 }

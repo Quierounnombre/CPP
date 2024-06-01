@@ -6,7 +6,7 @@
 # define TEST_FAILED "Test Failed "
 # define RESET "\033[0m"
 
- static void	put_lst_in_cout(std::list<int> lst)
+/*  static void	put_lst_in_cout(std::list<int> lst)
 {
 	for
 	(
@@ -19,7 +19,7 @@
 	}
 	cout << endl;
 } 
-
+ */
 class tester : public PmergeMe
 {
 	public:
@@ -201,20 +201,14 @@ class tester : public PmergeMe
 			lst.push_back(8);
 			lst.push_back(2);
 			lst.push_back(7);
-
-			put_lst_in_cout(lst);
-	
+			lst.push_back(10);
 			nested_lst = split_lst_in_half(lst);
 			order_lst_pairs(nested_lst);
 			big_elements_lst = create_bigger_elements_lst(nested_lst);
 			insert_smallest_lst(nested_lst, big_elements_lst);
-
-			put_lst_in_cout(big_elements_lst);
 			insert_next_element_in_lst(nested_lst, big_elements_lst);
 			insert_next_element_in_lst(nested_lst, big_elements_lst);
 			insert_next_element_in_lst(nested_lst, big_elements_lst);
-			put_lst_in_cout(big_elements_lst);
-
 			if (!is_lst_sorted(big_elements_lst))
 				cout << RED << TEST_FAILED;
 			else

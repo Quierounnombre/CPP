@@ -1,22 +1,7 @@
 #include "../PmergeMe.hpp"
 
 # define START_POS 0
-# define MIN_SIZE 1
-
-static void	put_lst_in_cout(std::list<int> lst)
-{
-	for
-	(
-		std::list<int>::iterator it = lst.begin();
-		it != lst.end();
-		it++
-	)
-	{
-		cout << *it << " ";
-	}
-	cout << endl;
-} 
-
+# define MIN_SIZE 2
 
 static std::list<int>	create_sub_lst
 (
@@ -86,6 +71,46 @@ static std::list<int>::iterator	get_middle_pos_value
 	return (it);
 }
 
+static void	insert_element
+(
+	std::list<int>				&bigger_lst,
+	int							element,
+	std::list<int>::iterator	target_it
+)
+{
+	for
+	(
+		std::list<int>::iterator	it = bigger_lst.begin();
+		it != bigger_lst.end();
+		it++
+	)
+	{
+		if (*it == *target_it)
+		{
+			bigger_lst.insert(it, element);
+			break ;
+		}
+	}
+}
+
+static bool	check_pair_condition
+(
+	std::list<int>				&tmp_lst,
+	std::list<int>::iterator	tmp_it,
+	int							target_value
+)
+{
+	if 
+	(
+		tmp_lst.size() == MIN_SIZE
+		&& *tmp_it > target_value
+		&& tmp_lst.front() > target_value
+	)
+		return (true);
+	return (false);
+
+}
+
 void	PmergeMe::insert_next_element_in_lst
 (
 	std::list<std::list<int> >	&splited_lst,
@@ -95,31 +120,36 @@ void	PmergeMe::insert_next_element_in_lst
 	std::list<int>::iterator	tmp_it;
 	std::list<int>				tmp_lst;
 	int							target_value;
+	int							pair_value;
 
-	put_lst_in_cout(tmp_lst);
+	pair_value = splited_lst.front().front();
 	target_value = splited_lst.front().back();
-	tmp_lst = create_sub_lst
-	(
+	tmp_lst = create_sub_lst(
 		START_POS,
-		get_position_in_lst(bigger_lst, target_value),
+		get_position_in_lst(bigger_lst, pair_value),
 		bigger_lst
 	);
 	tmp_it = get_middle_pos_value(tmp_lst);
-	while (tmp_lst.size() != MIN_SIZE)
+	while (tmp_lst.size() > MIN_SIZE)
 	{
 		if (target_value > *tmp_it)
-		{
 			tmp_lst = create_sub_lst
 			(
 				get_position_in_lst(tmp_lst, *tmp_it),
-				get_position_in_lst(tmp_lst, target_value),
+				get_position_in_lst(tmp_lst, pair_value),
 				tmp_lst
 			);
-			put_lst_in_cout(tmp_lst);
-		}
 		else
-			break;
+			tmp_lst = create_sub_lst
+			(
+				START_POS,
+				get_position_in_lst(tmp_lst, *tmp_it),
+				tmp_lst
+			);
+		tmp_it = get_middle_pos_value(tmp_lst);
 	}
-	bigger_lst.insert(tmp_it, target_value);
+	if (check_pair_condition(tmp_lst, tmp_it, target_value))
+		tmp_it--;
+	insert_element(bigger_lst, splited_lst.front().back(), tmp_it);
 	splited_lst.pop_front();
 }
