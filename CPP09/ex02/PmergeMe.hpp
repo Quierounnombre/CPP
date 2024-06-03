@@ -51,7 +51,7 @@ class PmergeMe
 	protected:
 		bool	_do_log;
 
-		//MERGE
+		//MERGE_LST
 		//-------------------------------------------------------
 
 		std::list<std::list<int> >	split_lst_in_half(std::list<int> &lst);
@@ -62,8 +62,12 @@ class PmergeMe
 		void						insert_next_element_in_lst(std::list<std::list<int> > &splited_lst,
 																std::list<int> &big_lst);
 
+		//MERGE_VECTOR
 		//-------------------------------------------------------
 
+		std::vector<std::vector<int> >	split_vector_in_half(std::vector<int> &vector);
+
+		//-------------------------------------------------------
 	private:
 		//LOG
 		//-------------------------------------------------------

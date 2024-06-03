@@ -32,7 +32,7 @@ PMERGEME_DIR = .
 PMERGEME_CLASS = PmergeMe
 PMERGEME_SRCS_CLASS = $(addsuffix .cpp, $(PMERGEME_CLASS))
 
-PMERGEME_MERGE = \
+PMERGEME_MERGE_LST = \
 MergeLst \
 split_lst_in_half \
 order_lst_pairs \
@@ -40,9 +40,16 @@ create_bigger_elements_lst \
 insert_smallest_lst \
 insert_next_element_in_lst \
 
-PMERGEME_MERGE_DIR = Merge_lst/
-PMERGEME_MERGE_SRCS = \
-$(addprefix $(PMERGEME_MERGE_DIR), $(addsuffix .cpp, $(PMERGEME_MERGE)))
+PMERGEME_MERGE_LST_DIR = Merge_lst/
+PMERGEME_MERGE_LST_SRCS = \
+$(addprefix $(PMERGEME_MERGE_LST_DIR), $(addsuffix .cpp, $(PMERGEME_MERGE_LST)))
+
+PMERGEME_MERGE_VECTOR = \
+split_vector_in_half \
+
+PMERGEME_MERGE_VECTOR_DIR = Merge_vector/
+PMERGEME_MERGE_VECTOR_SRCS = \
+$(addprefix $(PMERGEME_MERGE_VECTOR_DIR), $(addsuffix .cpp, $(PMERGEME_MERGE_VECTOR)))
 
 PMERGEME_IS_FUNS = is_lst_sorted \
 
@@ -58,7 +65,8 @@ $(addprefix $(PMERGEME_OUTPUT_DIR), $(addsuffix .cpp, $(PMERGEME_OUTPUT)))
 
 PMERGEME_SRCS = \
 	$(PMERGEME_SRCS_CLASS) \
-	$(PMERGEME_MERGE_SRCS) \
+	$(PMERGEME_MERGE_LST_SRCS) \
+	$(PMERGEME_MERGE_VECTOR_SRCS) \
 	$(PMERGEME_IS_FUNS_SRCS) \
 	$(PMERGEME_OUTPUT_SRCS) \
 

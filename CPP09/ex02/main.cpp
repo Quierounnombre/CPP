@@ -9,6 +9,7 @@
 class tester : public PmergeMe
 {
 	public:
+		//LST
 		void	test_split_even_lst(int test_number)
 		{
 			std::list<int>				lst;
@@ -221,7 +222,29 @@ class tester : public PmergeMe
 				cout << GREEN << TEST_PASSED;
 			cout << RESET << test_number << endl;
 		}
+		//VECTOR
+		void	test_split_even_vector(int test_number)
+		{
+			std::vector<int>				vector;
+			std::vector<std::vector<int> >	nested_vector;
+			int								vector_size;
 
+			vector.push_back(1);
+			vector.push_back(6);
+			vector.push_back(3);
+			vector.push_back(4);
+			vector.push_back(5);
+			vector.push_back(8);
+			vector.push_back(2);
+			vector.push_back(7);
+			vector_size = vector.size();
+			nested_vector = split_vector_in_half(vector);
+			if (vector_size / 2 == (int)nested_vector.size())
+				cout << GREEN << TEST_PASSED;
+			else
+				cout << RED << TEST_FAILED;
+			cout << RESET << test_number << endl;
+		}
 };
 
 void	test_colecction(void)
@@ -230,6 +253,8 @@ void	test_colecction(void)
 	tester	tester;
 
 	n_test = 0;
+	//LST
+	cout << "TEST lST" << endl;
 	tester.test_split_even_lst(++n_test);
 	tester.test_split_odd_lst(++n_test);
 	tester.test_order_splited_lst(++n_test);
@@ -237,6 +262,9 @@ void	test_colecction(void)
 	tester.test_insert_small(++n_test);
 	tester.test_insert_next_element(++n_test);
 	tester.test_order_lst(++n_test);
+	//VECTOR
+	cout << "TEST VECTOR" << endl;
+	tester.test_split_even_vector(++n_test);
 }
 
 
