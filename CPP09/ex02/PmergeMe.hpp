@@ -45,6 +45,13 @@ class PmergeMe
 		//-------------------------------------------------------
 
 		static bool	is_lst_sorted(std::list<int> &lst);
+		static bool	is_vector_sorted(std::vector<int> &vector);
+
+		//OUTPUT
+		//-------------------------------------------------------
+
+		static void	put_lst_in_cout(std::list<int> lst);
+		static void	put_vector_in_cout(std::vector<int> vector);
 
 		//-------------------------------------------------------
 
@@ -67,6 +74,9 @@ class PmergeMe
 
 		std::vector<std::vector<int> >	split_vector_in_half(std::vector<int> &vector);
 		void							order_vector_pairs(std::vector<std::vector<int> > &vector);
+		std::vector<int>				create_bigger_elements_vector(std::vector<std::vector<int> > &vector);
+		void							insert_smallest_vector(std::vector<std::vector<int> > &vector,
+																std::vector<int> &bigger_vector);
 
 		//-------------------------------------------------------
 	private:
@@ -74,7 +84,6 @@ class PmergeMe
 		//-------------------------------------------------------
 
 		void	constructor_log(string s);
-		void	put_lst_in_cout(std::list<int> lst);
 
 };
 

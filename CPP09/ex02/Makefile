@@ -47,18 +47,24 @@ $(addprefix $(PMERGEME_MERGE_LST_DIR), $(addsuffix .cpp, $(PMERGEME_MERGE_LST)))
 PMERGEME_MERGE_VECTOR = \
 split_vector_in_half \
 order_vector_pairs \
+create_bigger_elements_vector \
+insert_smallest_vector \
 
 PMERGEME_MERGE_VECTOR_DIR = Merge_vector/
 PMERGEME_MERGE_VECTOR_SRCS = \
 $(addprefix $(PMERGEME_MERGE_VECTOR_DIR), $(addsuffix .cpp, $(PMERGEME_MERGE_VECTOR)))
 
-PMERGEME_IS_FUNS = is_lst_sorted \
+PMERGEME_IS_FUNS = \
+is_lst_sorted \
+is_vector_sorted \
 
 PMERGEME_IS_FUNS_DIR = Is_funs/
 PMERGEME_IS_FUNS_SRCS = \
 $(addprefix $(PMERGEME_IS_FUNS_DIR), $(addsuffix .cpp, $(PMERGEME_IS_FUNS)))
 
-PMERGEME_OUTPUT = put_lst_in_cout \
+PMERGEME_OUTPUT = \
+put_lst_in_cout \
+put_vector_in_cout \
 
 PMERGEME_OUTPUT_DIR = Output/
 PMERGEME_OUTPUT_SRCS = \
