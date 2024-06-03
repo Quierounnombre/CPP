@@ -1,10 +1,16 @@
 #include "PmergeMe.hpp"
+#include <ctime>
+#include <cstdlib>
 
 # define RED "\033[0;31m"
 # define GREEN "\033[0;32m"
 # define TEST_PASSED "Test Passed "
 # define TEST_FAILED "Test Failed "
 # define RESET "\033[0m"
+
+# define TESTER_ARGC_VAlUE 1
+# define NANOSECOND_CONVERSION 1e9
+# define ERROR "Error"
 
 class tester : public PmergeMe
 {
@@ -462,14 +468,98 @@ void	test_colecction(void)
 }
 
 
-int main(void)
+static void check_dup_number(std::list<int> lst, std::vector<int> vector, int tmp_number)
 {
+	for
+	(
+		std::list<int>::iterator	it = lst.begin();
+		it != lst.end();
+		it++
+	)
+	{
+		if (tmp_number == *it)
+			throw std::logic_error(ERROR);
+	}
+	for
+	(
+		std::vector<int>::iterator	it = vector.begin();
+		it != vector.end();
+		it++
+	)
+	{
+		if (tmp_number == *it)
+			throw std::logic_error(ERROR);
+	}
+}
+
+int main(int argc, char **argv)
+{
+	std::list<int>		lst;
+	std::vector<int>	vector;
+	int					tmp_number;
+
+	if (argc == TESTER_ARGC_VAlUE)
+	{
+		try
+		{
+			test_colecction();
+		}
+		catch(const std::exception& e)
+		{
+			cerr << e.what() << endl;
+		}
+	}
+	else if (argc > TESTER_ARGC_VAlUE)
 	try
 	{
-		test_colecction();
+		while (*argv)
+		{
+			tmp_number = atoi(*argv);	
+			if (tmp_number < 0)
+				throw std::logic_error(ERROR);
+			check_dup_number(lst, vector, tmp_number);
+			vector.push_back(tmp_number);
+			lst.push_back(tmp_number);
+			argv++;
+		}
+		cout << endl;
+		try
+		{
+			struct timespec start, end;
+			cout << GREEN << "LST:" <<  RESET << endl;
+			clock_gettime(CLOCK_MONOTONIC, &start);
+			PmergeMe::MergeLst(lst);
+			clock_gettime(CLOCK_MONOTONIC, &end);
+			PmergeMe::put_lst_in_cout(lst);
+			cout << endl;
+    		double elapsed = (end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec) / NANOSECOND_CONVERSION;
+			cout << RED << "TIME PASSED = " << RESET << elapsed << " seconds" << endl << endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+		try
+		{
+			struct timespec start, end;
+			cout << GREEN << "VECTOR:" << RESET << endl;
+			clock_gettime(CLOCK_MONOTONIC, &start);
+			PmergeMe::MergeVector(vector);
+			clock_gettime(CLOCK_MONOTONIC, &end);
+			PmergeMe::put_vector_in_cout(vector);
+			cout << endl;
+    		double elapsed = (end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec) / NANOSECOND_CONVERSION;
+			cout << RED << "TIME PASSED = " << RESET << elapsed << " seconds" << endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+		
 	}
 	catch(const std::exception& e)
 	{
-		cerr << e.what() << endl;
+		std::cerr << e.what() << '\n';
 	}
+	
 }

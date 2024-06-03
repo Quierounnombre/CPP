@@ -38,8 +38,8 @@ class PmergeMe
 		//MERGE
 		//-------------------------------------------------------
 
-		void	MergeLst(std::list<int> &list);
-		void	MergeVector(std::vector<int> &vector);
+		static void	MergeLst(std::list<int> &list);
+		static void	MergeVector(std::vector<int> &vector);
 
 		//IS_FUNS
 		//-------------------------------------------------------
@@ -61,23 +61,23 @@ class PmergeMe
 		//MERGE_LST
 		//-------------------------------------------------------
 
-		std::list<std::list<int> >	split_lst_in_half(std::list<int> &lst);
-		void						order_lst_pairs(std::list<std::list<int> > &lst);
-		std::list<int>				create_bigger_elements_lst(std::list<std::list<int> > &lst);
-		void						insert_smallest_lst(std::list<std::list<int> > &lst,
+		static std::list<std::list<int> >	split_lst_in_half(std::list<int> &lst);
+		static void						order_lst_pairs(std::list<std::list<int> > &lst);
+		static std::list<int>				create_bigger_elements_lst(std::list<std::list<int> > &lst);
+		static void						insert_smallest_lst(std::list<std::list<int> > &lst,
 														std::list<int> &bigger_lst);
-		void						insert_next_element_in_lst(std::list<std::list<int> > &splited_lst,
+		static void						insert_next_element_in_lst(std::list<std::list<int> > &splited_lst,
 																std::list<int> &big_lst);
 
 		//MERGE_VECTOR
 		//-------------------------------------------------------
 
-		std::vector<std::vector<int> >	split_vector_in_half(std::vector<int> &vector);
-		void							order_vector_pairs(std::vector<std::vector<int> > &vector);
-		std::vector<int>				create_bigger_elements_vector(std::vector<std::vector<int> > &vector);
-		void							insert_smallest_vector(std::vector<std::vector<int> > &vector,
+		static std::vector<std::vector<int> >	split_vector_in_half(std::vector<int> &vector);
+		static void							order_vector_pairs(std::vector<std::vector<int> > &vector);
+		static std::vector<int>				create_bigger_elements_vector(std::vector<std::vector<int> > &vector);
+		static void							insert_smallest_vector(std::vector<std::vector<int> > &vector,
 																std::vector<int> &bigger_vector);
-		void							insert_next_element_in_vector (std::vector<std::vector<int> > &splited_vector,
+		static void							insert_next_element_in_vector (std::vector<std::vector<int> > &splited_vector,
 																		std::vector<int> &bigger_vector);
 
 		//-------------------------------------------------------
