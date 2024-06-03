@@ -66,6 +66,7 @@ class PmergeMe
 		//-------------------------------------------------------
 
 		std::vector<std::vector<int> >	split_vector_in_half(std::vector<int> &vector);
+		void							order_vector_pairs(std::vector<std::vector<int> > &vector);
 
 		//-------------------------------------------------------
 	private:

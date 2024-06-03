@@ -245,6 +245,62 @@ class tester : public PmergeMe
 				cout << RED << TEST_FAILED;
 			cout << RESET << test_number << endl;
 		}
+		void	test_split_odd_vector(int test_number)
+		{
+			std::vector<int>				vector;
+			std::vector<std::vector<int> >	nested_vector;
+			int								vector_size;
+
+			vector.push_back(1);
+			vector.push_back(6);
+			vector.push_back(3);
+			vector.push_back(4);
+			vector.push_back(5);
+			vector.push_back(8);
+			vector.push_back(2);
+			vector.push_back(7);
+			vector.push_back(0);
+			vector_size = vector.size();
+			nested_vector = split_vector_in_half(vector);
+			if ((vector_size / 2) + 1 == (int)nested_vector.size())
+				cout << GREEN << TEST_PASSED;
+			else
+				cout << RED << TEST_FAILED;
+			cout << RESET << test_number << endl;
+		}
+		void	test_order_splited_vector(int test_number)
+		{
+			std::vector<int>				vector;
+			std::vector<std::vector<int> >	nested_vector;
+			bool							flag;
+
+			flag = false;
+			vector.push_back(1);
+			vector.push_back(6);
+			vector.push_back(3);
+			vector.push_back(4);
+			vector.push_back(5);
+			vector.push_back(8);
+			vector.push_back(2);
+			vector.push_back(7);
+			nested_vector = split_vector_in_half(vector);
+			order_vector_pairs(nested_vector);
+			for
+			(
+				std::vector<std::vector<int> >::iterator it = nested_vector.begin();
+				it != nested_vector.end();
+				it++
+			)
+			{
+				if (it->front() < it->back())
+					flag = true;
+			}
+			if (!flag)
+				cout << GREEN << TEST_PASSED;
+			else
+				cout << RED << TEST_FAILED;
+			cout << RESET << test_number << endl;
+		}
 };
 
 void	test_colecction(void)
@@ -265,6 +321,8 @@ void	test_colecction(void)
 	//VECTOR
 	cout << "TEST VECTOR" << endl;
 	tester.test_split_even_vector(++n_test);
+	tester.test_split_odd_vector(++n_test);
+	tester.test_order_splited_lst(++n_test);
 }
 
 

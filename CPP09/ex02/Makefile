@@ -46,6 +46,7 @@ $(addprefix $(PMERGEME_MERGE_LST_DIR), $(addsuffix .cpp, $(PMERGEME_MERGE_LST)))
 
 PMERGEME_MERGE_VECTOR = \
 split_vector_in_half \
+order_vector_pairs \
 
 PMERGEME_MERGE_VECTOR_DIR = Merge_vector/
 PMERGEME_MERGE_VECTOR_SRCS = \
