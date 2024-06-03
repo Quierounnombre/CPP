@@ -45,6 +45,7 @@ PMERGEME_MERGE_LST_SRCS = \
 $(addprefix $(PMERGEME_MERGE_LST_DIR), $(addsuffix .cpp, $(PMERGEME_MERGE_LST)))
 
 PMERGEME_MERGE_VECTOR = \
+MergeVector \
 split_vector_in_half \
 order_vector_pairs \
 create_bigger_elements_vector \

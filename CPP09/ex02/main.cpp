@@ -413,6 +413,26 @@ class tester : public PmergeMe
 				cout << GREEN << TEST_PASSED;
 			cout << RESET << test_number << endl;
 		}
+		void	test_order_vector(int test_number)
+		{
+			std::vector<int>				vector;
+
+			vector.push_back(1);
+			vector.push_back(6);
+			vector.push_back(3);
+			vector.push_back(4);
+			vector.push_back(5);
+			vector.push_back(8);
+			vector.push_back(2);
+			vector.push_back(7);
+			vector.push_back(10);
+			MergeVector(vector);
+			if (!is_vector_sorted(vector))
+				cout << RED << TEST_FAILED;
+			else
+				cout << GREEN << TEST_PASSED;
+			cout << RESET << test_number << endl;
+		}
 };
 
 void	test_colecction(void)
@@ -438,6 +458,7 @@ void	test_colecction(void)
 	tester.test_create_big_vector(++n_test);
 	tester.test_insert_small_vector(++n_test);
 	tester.test_insert_next_element_vector(++n_test);
+	tester.test_order_vector(++n_test);
 }
 
 
