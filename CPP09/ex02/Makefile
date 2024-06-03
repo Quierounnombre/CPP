@@ -49,6 +49,7 @@ split_vector_in_half \
 order_vector_pairs \
 create_bigger_elements_vector \
 insert_smallest_vector \
+insert_next_element_in_vector \
 
 PMERGEME_MERGE_VECTOR_DIR = Merge_vector/
 PMERGEME_MERGE_VECTOR_SRCS = \

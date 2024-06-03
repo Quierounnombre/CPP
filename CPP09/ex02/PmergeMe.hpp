@@ -77,6 +77,8 @@ class PmergeMe
 		std::vector<int>				create_bigger_elements_vector(std::vector<std::vector<int> > &vector);
 		void							insert_smallest_vector(std::vector<std::vector<int> > &vector,
 																std::vector<int> &bigger_vector);
+		void							insert_next_element_in_vector (std::vector<std::vector<int> > &splited_vector,
+																		std::vector<int> &bigger_vector);
 
 		//-------------------------------------------------------
 	private:

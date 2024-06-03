@@ -174,7 +174,7 @@ class tester : public PmergeMe
 			cout << RESET << test_number << endl;
 			# undef EXPECTED_RESULTS
 		}
-		void	test_insert_next_element(int test_number)
+		void	test_insert_next_element_lst(int test_number)
 		{
 			std::list<int>				lst;
 			std::list<std::list<int> >	nested_lst;
@@ -385,6 +385,34 @@ class tester : public PmergeMe
 			cout << RESET << test_number << endl;
 			# undef EXPECTED_RESULTS
 		}
+		void	test_insert_next_element_vector(int test_number)
+		{
+			std::vector<int>				vector;
+			std::vector<std::vector<int> >	nested_vector;
+			std::vector<int>				big_elements_vector;
+
+			vector.push_back(1);
+			vector.push_back(6);
+			vector.push_back(3);
+			vector.push_back(4);
+			vector.push_back(5);
+			vector.push_back(8);
+			vector.push_back(2);
+			vector.push_back(7);
+			vector.push_back(10);
+			nested_vector = split_vector_in_half(vector);
+			order_vector_pairs(nested_vector);
+			big_elements_vector = create_bigger_elements_vector(nested_vector);
+			insert_smallest_vector(nested_vector, big_elements_vector);
+			insert_next_element_in_vector(nested_vector, big_elements_vector);
+			insert_next_element_in_vector(nested_vector, big_elements_vector);
+			insert_next_element_in_vector(nested_vector, big_elements_vector);
+			if (!is_vector_sorted(big_elements_vector))
+				cout << RED << TEST_FAILED;
+			else
+				cout << GREEN << TEST_PASSED;
+			cout << RESET << test_number << endl;
+		}
 };
 
 void	test_colecction(void)
@@ -400,7 +428,7 @@ void	test_colecction(void)
 	tester.test_order_splited_lst(++n_test);
 	tester.test_create_big_list(++n_test);
 	tester.test_insert_small_lst(++n_test);
-	tester.test_insert_next_element(++n_test);
+	tester.test_insert_next_element_lst(++n_test);
 	tester.test_order_lst(++n_test);
 	//VECTOR
 	cout << "TEST VECTOR" << endl;
@@ -409,6 +437,7 @@ void	test_colecction(void)
 	tester.test_order_splited_lst(++n_test);
 	tester.test_create_big_vector(++n_test);
 	tester.test_insert_small_vector(++n_test);
+	tester.test_insert_next_element_vector(++n_test);
 }
 
 
