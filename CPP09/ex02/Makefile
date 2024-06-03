@@ -40,20 +40,27 @@ create_bigger_elements_lst \
 insert_smallest_lst \
 insert_next_element_in_lst \
 
-PMERGEME_MERGE_DIR = Merge/
+PMERGEME_MERGE_DIR = Merge_lst/
 PMERGEME_MERGE_SRCS = \
 $(addprefix $(PMERGEME_MERGE_DIR), $(addsuffix .cpp, $(PMERGEME_MERGE)))
 
 PMERGEME_IS_FUNS = is_lst_sorted \
 
-PMERGEME_IS_FUNS_DIR = is_funs/
+PMERGEME_IS_FUNS_DIR = Is_funs/
 PMERGEME_IS_FUNS_SRCS = \
 $(addprefix $(PMERGEME_IS_FUNS_DIR), $(addsuffix .cpp, $(PMERGEME_IS_FUNS)))
+
+PMERGEME_OUTPUT = put_lst_in_cout \
+
+PMERGEME_OUTPUT_DIR = Output/
+PMERGEME_OUTPUT_SRCS = \
+$(addprefix $(PMERGEME_OUTPUT_DIR), $(addsuffix .cpp, $(PMERGEME_OUTPUT)))
 
 PMERGEME_SRCS = \
 	$(PMERGEME_SRCS_CLASS) \
 	$(PMERGEME_MERGE_SRCS) \
 	$(PMERGEME_IS_FUNS_SRCS) \
+	$(PMERGEME_OUTPUT_SRCS) \
 
 #-------------------------------------------------------------------SRCS
 

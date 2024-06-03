@@ -69,6 +69,7 @@ class PmergeMe
 		//-------------------------------------------------------
 
 		void	constructor_log(string s);
+		void	put_lst_in_cout(std::list<int> lst);
 
 };
 
