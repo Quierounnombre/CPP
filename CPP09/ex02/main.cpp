@@ -215,6 +215,26 @@ class tester : public PmergeMe
 				cout << GREEN << TEST_PASSED;
 			cout << RESET << test_number << endl;
 		}
+		void	test_order_lst(int test_number)
+		{
+			std::list<int>				lst;
+
+			lst.push_back(1);
+			lst.push_back(6);
+			lst.push_back(3);
+			lst.push_back(4);
+			lst.push_back(5);
+			lst.push_back(8);
+			lst.push_back(2);
+			lst.push_back(7);
+			lst.push_back(10);
+			MergeLst(lst);
+			if (!is_lst_sorted(lst))
+				cout << RED << TEST_FAILED;
+			else
+				cout << GREEN << TEST_PASSED;
+			cout << RESET << test_number << endl;
+		}
 
 };
 
@@ -230,6 +250,7 @@ void	test_colecction(void)
 	tester.test_create_big_list(++n_test);
 	tester.test_insert_small(++n_test);
 	tester.test_insert_next_element(++n_test);
+	tester.test_order_lst(++n_test);
 }
 
 

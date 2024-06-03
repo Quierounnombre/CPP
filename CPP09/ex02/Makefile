@@ -33,6 +33,7 @@ PMERGEME_CLASS = PmergeMe
 PMERGEME_SRCS_CLASS = $(addsuffix .cpp, $(PMERGEME_CLASS))
 
 PMERGEME_MERGE = \
+MergeLst \
 split_lst_in_half \
 order_lst_pairs \
 create_bigger_elements_lst \
