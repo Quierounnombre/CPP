@@ -2,7 +2,7 @@
 
 void	ScalarConverter::convert_int(string s)
 {
-	u_int	i;
+	int		i;
 	char	c;
 	float	f;
 	double	d;

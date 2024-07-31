@@ -2,11 +2,19 @@
 
 bool	ScalarConverter::check_overflow(string s)
 {
-	u_int64_t	bigger;
-	u_int		smaller;
+	unsigned long	u_big;
+	unsigned int	u_small;
+	long			bigger;
+	int				smaller;
 
-	bigger = atol(s.c_str());
-	smaller = atol(s.c_str());
+	bigger = atoi(s.c_str());
+	smaller = atoi(s.c_str());
+	if (smaller != bigger)
+		return (true);
+	u_small = atol(s.c_str());
+	u_big = atol(s.c_str());
+	bigger = u_big;
+	smaller = u_small;
 	if (smaller != bigger)
 		return (true);
 	return (false);

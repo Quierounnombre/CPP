@@ -16,12 +16,8 @@ void	ScalarConverter::convert_float(string s)
 	i = (int)f;
 	cout << SC_INT << i << endl;
 	cout << SC_FLOAT << f;
-	if (i < LIMIT_TO_ADD_END)
-		cout << SC_FLOAT_END;
 	cout << endl;
 	d = (double)f;
 	cout << SC_DOUBLE << d;
-	if (i < LIMIT_TO_ADD_END)
-		cout << SC_DOUBLE_END;
 	cout << endl;
 }

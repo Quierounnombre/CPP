@@ -5,6 +5,8 @@
 
 # include <iostream>
 # include <string>
+# include <stdlib.h>
+# include <errno.h>
 
 using std::cout;
 using std::string;
@@ -23,8 +25,8 @@ using std::cerr;
 # define SC_PLUS_INFF "+inff"
 # define SC_PLUS_INF "+inf"
 
-# define n_int	int32_t
-# define u_int	u_int32_t
+typedef int n_int;
+typedef unsigned int u_int;
 
 static const char dupped_chars_lst[] =
 {

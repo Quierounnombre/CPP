@@ -17,11 +17,7 @@ void	ScalarConverter::convert_double(string s)
 	cout << SC_INT << i << endl;
 	f = (float)d;
 	cout << SC_FLOAT << f;
-	if (i < LIMIT_TO_ADD_END)
-		cout << SC_FLOAT_END;
 	cout << endl;
 	cout << SC_DOUBLE << d;
-	if (i < LIMIT_TO_ADD_END)
-		cout << SC_DOUBLE_END;
 	cout << endl;
 }

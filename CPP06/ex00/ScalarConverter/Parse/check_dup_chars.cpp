@@ -1,11 +1,24 @@
 #include "../ScalarConverter.hpp"
 
+static int get_list_size(const char *lst)
+{
+	int	size;
+
+	size = 0;
+	while (*lst)
+	{
+		lst++;
+		size++;
+	}
+	return (size);
+}
+
 bool	ScalarConverter::check_dup_chars(string s)
 {
-	bool	is_a_char_dupped;
+	bool		is_a_char_dupped;
 	n_int		lst_size;
-
-	lst_size = std::end(dupped_chars_lst) - std::begin(dupped_chars_lst);
+	
+	lst_size = get_list_size(dupped_chars_lst);	
 	for (n_int i = 0; i < lst_size; i++)
 	{
 		is_a_char_dupped = false;
