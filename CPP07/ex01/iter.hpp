@@ -4,12 +4,11 @@
 #include <iostream>
 #include <string>
 
-# define u_int	u_int32_t
 
 template <typename T>
-void	iter(T *arr, u_int len, void(*f)(T &pos))
+void	iter(T *arr, unsigned int len, void(*f)(T &pos))
 {
-	u_int	i;
+	unsigned int	i;
 
 	i = 0;
 	while (i < len)

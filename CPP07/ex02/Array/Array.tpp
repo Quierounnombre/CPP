@@ -52,11 +52,9 @@ _do_log(Array._do_log)
 template <typename T>
 Array<T> & Array<T>::operator= (const Array &Array)
 {
-	cout << "here!" << endl;
 	constructor_log(ARRAY_COPY_ASSIGNMENT_LOG);
 	if (this != &Array)
 	{
-		cout << "here!" << endl;
 		if (_arr != NULL)
 			delete[] _arr;
 		_size = Array._size;
@@ -75,7 +73,7 @@ Array<T> & Array<T>::operator= (const Array &Array)
 template <typename T>
 T &Array<T>::operator[](unsigned i)
 {
-	if (i >= 0 && i <= _size)
+	if (i >= 0 && i < _size)
 		return _arr[i];
 	throw std::out_of_range("OUT OF RANGE");
 }

@@ -21,8 +21,8 @@ using std::cerr;
 # define ARRAY_COPY_ASSIGNMENT_LOG "Array copy assignment called"
 # define ARRAY_DESTRUCTOR_LOG "Array destructor called"
 
-# define u_int	u_int32_t
-# define n_int	int32_t
+typedef unsigned int	u_int;
+typedef int				n_int;
 
 template <typename T>
 class Array
