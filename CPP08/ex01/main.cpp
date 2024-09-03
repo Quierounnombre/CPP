@@ -2,13 +2,14 @@
 
 int		main(void)
 {
+	std::srand(std::time(NULL));
 	{
 		Span	sp(8);
 
 		cout << "TEST 1" << endl;
 		cout << "----------------------------" << endl;
 		sp.addNumber(15);
-		sp.addNumber(1);
+		sp.addNumber(2);
 		sp.addNumber(185);
 		sp.addNumber(144);
 		sp.addNumber(9);
@@ -64,17 +65,27 @@ int		main(void)
 		std::cout << sp.shortestSpan() << std::endl;
 		cout << endl;
 	}
+	try
 	{
 		Span	sp(80000);
+		std::vector<int>	random_nums;
 
+		for (int i = 0; i < 20000; i++)
+		{
+			random_nums.push_back(std::rand());
+		}
 		cout << "TEST 3" << endl;
 		cout << "----------------------------" << endl;
-		sp.add_N_Numbers(20000);
+		sp.add_N_Numbers(random_nums.begin(), random_nums.end());
 		//cout << sp << endl;
 		cout << "long span = ";
 		std::cout << sp.longestSpan() << std::endl;
 		cout << "short span = ";
 		std::cout << sp.shortestSpan() << std::endl;
 		cout << endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
 	}
 }

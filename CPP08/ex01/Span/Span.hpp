@@ -7,6 +7,8 @@
 # include <vector>
 # include <string>
 # include <algorithm>
+# include <limits>
+# include <ctime>
 
 using std::cout;
 using std::string;
@@ -47,7 +49,7 @@ class Span
 		//-------------------------------------------------------
 
 		void	addNumber(n_int n);
-		void	add_N_Numbers(u_int n);
+		void	add_N_Numbers(t_vec_it start, t_vec_it end);
 
 		//Search
 		//-------------------------------------------------------
